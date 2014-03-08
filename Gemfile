@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 1.2'
 
 group :production do
 	gem 'pg', '0.17.1'
+end
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
