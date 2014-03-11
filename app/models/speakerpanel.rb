@@ -1,0 +1,2 @@
+class SpeakerPanel < Event
+end

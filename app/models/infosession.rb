@@ -1,0 +1,2 @@
+class Infosession < Event
+end
