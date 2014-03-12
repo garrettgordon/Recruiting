@@ -34,10 +34,14 @@ ActiveRecord::Schema.define(version: 20140312012957) do
     t.integer "organization_id"
   end
 
+  add_index "events_organizations", ["event_id", "organization_id"], name: "by_event_and_organization", unique: true
+
   create_table "events_users", id: false, force: true do |t|
     t.integer "event_id"
     t.integer "user_id"
   end
+
+  add_index "events_users", ["event_id", "user_id"], name: "by_event_and_user", unique: true
 
   create_table "organizations", force: true do |t|
     t.string   "name"
