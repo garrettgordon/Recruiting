@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140311090350) do
+ActiveRecord::Schema.define(version: 20140312012957) do
 
   create_table "events", force: true do |t|
     t.string   "name"
     t.string   "location"
     t.datetime "date"
-    t.string   "descriptiond"
+    t.string   "description"
     t.string   "link"
     t.string   "type"
     t.datetime "created_at"
@@ -29,9 +29,21 @@ ActiveRecord::Schema.define(version: 20140311090350) do
     t.string   "resumeCollection"
   end
 
+  create_table "events_organizations", id: false, force: true do |t|
+    t.integer "event_id"
+    t.integer "organization_id"
+  end
+
   create_table "events_users", id: false, force: true do |t|
     t.integer "event_id"
     t.integer "user_id"
+  end
+
+  create_table "organizations", force: true do |t|
+    t.string   "name"
+    t.string   "link"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
