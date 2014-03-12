@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140312012957) do
+ActiveRecord::Schema.define(version: 20140312205606) do
 
   create_table "events", force: true do |t|
     t.string   "name"
@@ -51,6 +51,11 @@ ActiveRecord::Schema.define(version: 20140312012957) do
   end
 
   create_table "users", force: true do |t|
+    t.string   "username"
+    t.string   "email"
+    t.string   "crypted_password"
+    t.string   "password_salt"
+    t.string   "persistence_token"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
