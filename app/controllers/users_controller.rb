@@ -31,7 +31,7 @@ class UsersController < ApplicationController
       flash[:notice] = "SUCCESS!"
       # format.html { redirect_to @user, notice: 'User was successfully created.' }
       # format.json { render action: 'show', status: :created, location: @user }
-      redirect_to root_url
+      redirect_to '/home'
     else
       # format.html { render action: 'new' }
       # format.json { render json: @user.errors, status: :unprocessable_entity }

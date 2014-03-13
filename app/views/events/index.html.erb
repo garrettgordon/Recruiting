@@ -1,0 +1,39 @@
+<% if current_user %>
+  <h1>Listing events</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Location</th>
+        <th>Eventdate</th>
+        <th>Description</th>
+        <th>Link</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+    
+      <% @events.each do |event| %>
+        <tr>
+          <td><%= event.name %></td>
+          <td><%= event.location %></td>
+          <td><%= event.date %></td>
+          <td><%= event.link %></td>
+          <td><%= link_to 'Show', event %></td>
+        </tr>
+      <% end %>
+    
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Event', new_event_path %>
+<% else %>
+  <p>You must be signed into the website to view this page</p>
+  <a href='/'/a>Sign in or Register</a>
+<% end %>

@@ -1,4 +1,6 @@
 Recruiting::Application.routes.draw do
+  resources :events
+
   resources :users
   resources :user_sessions
 
@@ -9,6 +11,7 @@ Recruiting::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
+  get "/home", :controller => 'events', :action => 'index'
   root 'users#index'
 
   # Example of regular route:
