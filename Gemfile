@@ -27,6 +27,7 @@ gem 'jquery-rails'
 
 # Use authLogic for user authentication
 gem 'authlogic'
+gem 'scrypt'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
