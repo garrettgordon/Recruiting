@@ -28,25 +28,29 @@
       </div>
     </div>
   </div>
-  <div class="section hero">
+  <div class="section hero" >
     <div class="w-container">
       <div class="w-row">
-        <div class="w-col w-col-6 center">
+        <div class="w-col w-col-6">
           <div width="auto" height="auto">
-                  </div>
+          </div>
         </div>
         <div class="w-col w-col-6 hero-column">
+          
           <h2><%= @user.username %></h2>
-          <%= @user.gpa %>
-          <%= @user.username %>
-          <p><%= @user.major %>
-            <br><%= @user.email %>
-            <br>Back</p><%= link_to 'Edit', edit_user_path, class:"button action" %></a>
+          Name: <%= @user.name %><br>
+          GPA: <%= @user.gpa %><br>
+          Username:<%= @user.username %><br>
+          Website:<%= @user.website %><br>
+          Graduating year:<%= @user.graduating_year %><br>
+          <p>Major: <%= @user.major %>
+            <br>Email: <%= @user.email %>
+              <br>Minor: <%= @user.minor %>
+            </p><%= link_to 'Edit', edit_user_path, class:"button action" %></a>
         </div>
       </div>
     </div>
   </div>
-  <hr>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script type="text/javascript" src="js/webflow_events.js"></script>
 </body>
