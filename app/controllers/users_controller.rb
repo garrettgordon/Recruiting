@@ -42,11 +42,12 @@ class UsersController < ApplicationController
       else
         # format.html { render action: 'new' }
         # format.json { render json: @user.errors, status: :unprocessable_entity }
-        render :action => "index"
+        flash[:notice] = "All fields other than email must be at least 4 characters and contain valid characters." 
+        redirect_to "/"
       end
     else
-      flash[:notice] = "must log in with Berkeley email"
-      render :action => "new"
+      flash[:notice] = "Must log in with Berkeley email address"
+      redirect_to "/"
     end
   end
 

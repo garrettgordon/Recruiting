@@ -11,6 +11,11 @@
     </div>
   <% end %>
 
+<% if !flash.empty? ! (flash.empty? == "SUCCESS!")%>
+  <%= flash[:notice] %>
+<% end %>
+
+
 
 
     <%= f.text_field :username, :placeholder => "Username", class: "w-input" %><br>
