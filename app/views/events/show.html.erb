@@ -28,10 +28,11 @@
 
 <form id='adduser' method='post' action='/adduser'>
 	<input id="event" type="text" name="event"><br>
+	<input type="submit" value="Join This Event">
 </form>
 <script>
 $(document).ready(function(){
-  $('#addUser').hide();
+  $('#event').hide();
   $('#event').val(<%= @event%>);
 });
 
