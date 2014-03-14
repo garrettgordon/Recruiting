@@ -26,15 +26,25 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-    if @user.save
-      UserMailer.registration_confirmation(@user).deliver
-      flash[:notice] = "SUCCESS!"
-      # format.html { redirect_to @user, notice: 'User was successfully created.' }
-      # format.json { render action: 'show', status: :created, location: @user }
-      redirect_to '/home'
+    
+    # Extract last 13 characters to check if "@berkeley.edu"
+    email = @user.email[@user.email.length-13, @user.email.length]
+    regexMatch = /@berkeley.edu$/
+    matchesFound = regexMatch.match(email)
+    if matchesFound
+      if @user.save
+        UserMailer.registration_confirmation(@user).deliver
+        flash[:notice] = "SUCCESS!"
+        # format.html { redirect_to @user, notice: 'User was successfully created.' }
+        # format.json { render action: 'show', status: :created, location: @user }
+        redirect_to '/home'
+      else
+        # format.html { render action: 'new' }
+        # format.json { render json: @user.errors, status: :unprocessable_entity }
+        render :action => "new"
+      end
     else
-      # format.html { render action: 'new' }
-      # format.json { render json: @user.errors, status: :unprocessable_entity }
+      flash[:notice] = "must log in with Berkeley email"
       render :action => "new"
     end
   end
