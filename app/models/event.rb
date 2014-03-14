@@ -3,6 +3,16 @@ class Event < ActiveRecord::Base
 	has_and_belongs_to_many :users
 	has_and_belongs_to_many :organizations
 
+	MAX_NAME_LENGTH = 128
+	MAX_LOCATION_LENGTH = 128
+	MAX_DESCRIPTION_LENGTH = 512
+
+
+	validates :name, :presence => true, :length => {maximum: MAX_NAME_LENGTH}
+	validates :location, :presence => true, :length => {maximum: MAX_LOCATION_LENGTH}
+	validates :description, :length => {maximum: MAX_DESCRIPTION_LENGTH}
+	validates :date, :presence => true
+
 	# deletes event with :id, returns 1 if successful delete otherwsie -1
 	# Event.DeleteEvent(id)
 	def self.DeleteEvent(id)
