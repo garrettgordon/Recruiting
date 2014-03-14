@@ -27,8 +27,8 @@ class Event < ActiveRecord::Base
 
 
 	# addes event with given input
-	def self.AddEvent(dict)
-	end
+	#def self.AddEvent(dict)
+	#end
 
 
 	# creates and relationship between a user and event (self)
@@ -96,9 +96,6 @@ class Event < ActiveRecord::Base
 			return -1
 		end
 	end
-
-
-
 
 
 end
