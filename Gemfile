@@ -15,6 +15,7 @@ group :test do
 	gem 'faker'
 	gem 'guard-rspec'
 	gem 'launchy'
+	gem 'database_cleaner'
 end
 
 # Use SCSS for stylesheets
