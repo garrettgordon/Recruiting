@@ -6,6 +6,9 @@ class UsersController < ApplicationController
   def index
     @user = User.new
     @user_session = UserSession.new
+    if current_user
+      redirect_to '/home'
+    end
   end
 
   # GET /users/1
