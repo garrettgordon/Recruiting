@@ -7,6 +7,7 @@
   <title>Recruit</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <%= stylesheet_link_tag "webflow.css.scss" %>
   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
   <script>
     WebFont.load({
@@ -43,7 +44,7 @@
       <div class="w-row">
         <div class="w-col w-col-4 services">
           <div class="icon">
-          <%= asset_path "photoicon.png", width:"32" %>
+          <%= image_tag "photoicon.png", width:"32" %>
           </div>
 
           <h3>EVENTS</h3>
@@ -51,7 +52,7 @@
         </div>
         <div class="w-col w-col-4 services">
                     <div class="icon">
-          <%= asset_path "cloudicon.png", width:"32" %>
+          <%= image_tag "cloudicon.png", width:"32" %>
           </div>
 
           <h3>JOBS</h3>
@@ -59,7 +60,7 @@
         </div>
         <div class="w-col w-col-4 services">
                       <div class="icon">
-          <%= asset_path "lookicon.png", width:"32" %>
+          <%= image_tag "lookicon.png", width:"32" %>
           </div>
 
           <h3>APPLY</h3>
@@ -102,24 +103,24 @@
     <div class="w-container">
       <div class="social-wrapper">
         <a class="w-inline-block social-link" href="http://#" target="_blank">
-          <%= asset_path "gfacebook.png", width:"32" %>
+          <%= image_tag "gfacebook.png", width:"32" %>
         </a>
         <a class="w-inline-block social-link" href="http://#" target="_blank">
-          <%= asset_path "ggoogle_plus.png", width:"32" %>
+          <%= image_tag "ggoogle_plus.png", width:"32" %>
         </a>
         <a class="w-inline-block social-link" href="http://#" target="_blank">
-          <%= asset_path "glinkedin.png", width:"32" %>
+          <%= image_tag "glinkedin.png", width:"32" %>
         </a>
         <a class="w-inline-block social-link" href="http://www.twitter.com" target="_blank">
-          <%= asset_path "gtwitter.png", width:"32" %>
+          <%= image_tag "gtwitter.png", width:"32" %>
         </a>
         <a class="w-inline-block social-link" href="http://www.dribbble.com" target="_blank">
-          <%= asset_path "gdribbble.png", width:"32" %>
+          <%= image_tag "gdribbble.png", width:"32" %>
         </a>
       </div>
     </div>
   </footer>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  <%= asset_path "webflow.js" %>
+  <%= javascript_include_tag "webflow.js" %>
 </body>
 </html>
