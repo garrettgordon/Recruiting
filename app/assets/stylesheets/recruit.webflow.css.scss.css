@@ -110,7 +110,7 @@ p {
 .section.header {
   padding-top: 0px;
   padding-bottom: 218px;
-  background-image: url('UC_Berkeley-64-af1f850c21fb4e106eadd87f03092de0.jpg'), url('UC_Berkeley_2-4076e89494bdabeddd3dbbd1db38edfc.png');
+  background-image: url('UC_Berkeley-64.jpg'), url('UC_Berkeley_2.png');
   background-position: 0% 0%, 50% 50%;
   background-size: cover, auto;
   background-attachment: scroll, fixed;
@@ -133,7 +133,7 @@ p {
 .section.bg-image {
   padding-top: 75px;
   padding-bottom: 225px;
-  background-image: url('/assets/UC_Berkeley_2-4076e89494bdabeddd3dbbd1db38edfc.png'), url('/assets/wall-d84f7d7fa3ed347a17f3ce2e61c848d0.jpg');
+  background-image: url('UC_Berkeley_2.png'), url('wall.jpg');
   background-size: cover, cover;
   background-attachment: scroll, fixed;
 }
