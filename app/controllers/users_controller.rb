@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    @user = User.new
   end
 
   # GET /users/1
@@ -41,7 +42,7 @@ class UsersController < ApplicationController
       else
         # format.html { render action: 'new' }
         # format.json { render json: @user.errors, status: :unprocessable_entity }
-        render :action => "new"
+        render :action => "index"
       end
     else
       flash[:notice] = "must log in with Berkeley email"

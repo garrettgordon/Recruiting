@@ -24,7 +24,7 @@
   <link rel="apple-touch-icon" href="https://y7v4p6k4.ssl.hwcdn.net/520c5ab1eb5a9c3a0d0001f6/520fbaddba989d90390000cb_favivon-mobile.png">
 </head>
 <body>
-  
+
   <div class="section header" id="page-nav-top">
 
     <div class="w-row header">
@@ -92,19 +92,7 @@
         <div class="w-col w-col-8">
           <h1 class="h1-dark">SIGN&nbsp;UP</h1>
           <div class="w-form">
-            <form class="contact-form" name="email-form" data-name="Email Form">
-              <input class="w-input field" type="text" placeholder="Your name" name="name" data-name="name" required="required"></input>
-              <input class="w-input field" type="text" placeholder="Email address" name="email" data-name="email" required="required"></input>
-              <input class="w-input field" type="text" placeholder="Password" name="Password" data-name="password" required="required"></input>
-              <input class="w-input field" type="text" placeholder="Password Confirm" name="password_confirmation" required="required"></input>
-              <input class="w-button button" type="submit" value="Sign up" data-wait="Please wait..."></input>
-            </form>
-            <div class="w-form-done">
-              <p>Thank you! Your submission has been received!</p>
-            </div>
-            <div class="w-form-fail">
-              <p>Oops! Something went wrong while submitting the form :(</p>
-            </div>
+            <%= render 'form' %>
           </div>
         </div>
       </div>

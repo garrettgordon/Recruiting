@@ -11,7 +11,7 @@ class Event < ActiveRecord::Base
 	validates :name, :presence => true, :length => {maximum: MAX_NAME_LENGTH}
 	validates :location, :presence => true, :length => {maximum: MAX_LOCATION_LENGTH}
 	validates :description, :length => {maximum: MAX_DESCRIPTION_LENGTH}
-	validates :date, :presence => true
+	validates :date, :presence => true 
 
 	# deletes event with :id, returns 1 if successful delete otherwsie -1
 	# Event.DeleteEvent(id)

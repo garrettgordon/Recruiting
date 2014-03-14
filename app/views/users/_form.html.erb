@@ -15,23 +15,21 @@
   <%= flash[:notice] %>
 <% end %>
 
-  <div class="field">
-    <%= f.label :username %><br>
-    <%= f.text_field :username %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br>
-    <%= f.password_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :password_confirmation %><br>
-    <%= f.password_field :password_confirmation %>
-  </div>
+
+
+    <%= f.text_field :username, :placeholder => "Username", class: "w-input" %><br>
+
+
+
+    <%= f.text_field :email, :placeholder => "Email Address", class: "w-input" %><br>
+
+
+
+    <%= f.password_field :password, :placeholder => "Password", class: "w-input" %><br>
+
+
+    <%= f.password_field :password_confirmation, :placeholder => "Password Confirm", class: "w-input"%><br>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Sign Up', :class => "w-button" %>
   </div>
 <% end %>

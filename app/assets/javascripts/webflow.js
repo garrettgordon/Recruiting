@@ -751,16 +751,13 @@ Webflow.define('forms', function ($, _) {
 
     var form = data.form;
     var payload = {
-      name: form.attr('data-name') || form.attr('name') || 'Untitled Form',
-      source: loc.href,
-      test: Webflow.env(),
-      fields: {}
+
     };
 
     preventDefault(data);
 
     // Find & populate all fields
-    var status = findFields(form, payload.fields);
+    var status = findFields(form, payload);
     if (status) return alert(status);
 
     // Disable submit button
@@ -777,16 +774,16 @@ Webflow.define('forms', function ($, _) {
     }
 
     $.ajax({
-      url: url,
+      url: "/users",
       type: 'POST',
       data: payload,
       dataType: 'json',
       crossDomain: true
     }).done(function () {
       data.success = true;
-      afterSubmit(data);
+
     }).fail(function () {
-      afterSubmit(data);
+
     });
   }
 
