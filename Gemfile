@@ -29,6 +29,9 @@ gem 'jquery-rails'
 gem 'authlogic'
 gem 'scrypt'
 
+# Sass bootstrap
+gem 'bootstrap-sass', '~> 3.1.1'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
