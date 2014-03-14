@@ -36,7 +36,9 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
-
+    dateTimeObj = DateTime.new(params[:date][:year].to_i,params[:date][:month].to_i,params[:date][:day].to_i)
+    @event[:date] = dateTimeObj
+    logger.debug @event.inspect
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }

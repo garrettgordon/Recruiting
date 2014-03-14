@@ -28,26 +28,23 @@
       </div>
     </div>
   </div>
-  <% @events.each do |event| %>
   <div class="section hero">
     <div class="w-container">
       <div class="w-row">
         <div class="w-col w-col-6 center">
           <div width="auto" height="auto">
-                    <%= image_tag event.link %>
                   </div>
         </div>
         <div class="w-col w-col-6 hero-column">
-          <h2><%= event.name %></h2>
+          <h2><%= @event.name %></h2>
           <p>March 28th: 12pm – 5pm
-            <br><%= event.location %>
-            <br>Bring your resumes</p><%= link_to 'Follow event', event, class:"button action" %></a>
+            <br><%= @event.location %>
+            <br>Back</p><%= link_to 'Back', events_path, class:"button action" %></a>
         </div>
       </div>
     </div>
   </div>
   <hr>
-  <% end %>
   <div class="section">
     <div class="w-container">
       <div class="w-row">
