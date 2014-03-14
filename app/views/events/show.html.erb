@@ -39,8 +39,12 @@
         <div class="w-col w-col-6 hero-column">
           <h2><%= @event.name %></h2>
           <p>March 28th: 12pm – 5pm
-            <br><%= @event.location %>
-            <br>Back</p><%= link_to 'Back', events_path, class:"button action" %></a>
+            <br><%= @event.location %><br>
+            <p>Food Present: <%= @event.foodPresent %><br>
+            <p>Accepting Resumes: <%= @event.acceptinResumes %><br>
+            <p>Number of Organizers: <%= @event.numberOfOrganizers %><br>
+            <p>Description: <%= @event.description %><br>
+        <%= link_to 'Back', events_path, class:"button action" %></a>
         </div>
       </div>
     </div>
