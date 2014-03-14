@@ -1,2 +1,0 @@
-class Infosession < Event
-end
