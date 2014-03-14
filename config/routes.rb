@@ -1,7 +1,9 @@
 Recruiting::Application.routes.draw do
   resources :events
-
-  resources :users
+  resources :infosessions, :controller => "event", :type => "Infosession"
+  resources :speakerpanels, :controller => "event", :type => "SpeakerPanel"
+  resources :careerfairs, :controller => "event", :type => "CareerFair"
+  resources :users, :type => "User"
   resources :user_sessions
 
   get "login", :controller => 'user_sessions', :action => 'new'

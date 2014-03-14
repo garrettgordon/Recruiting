@@ -14,11 +14,16 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
-    @event = Event.new
+    @event = Event.new()
+    @event.type = params[:type]
   end
 
   # GET /events/1/edit
   def edit
+  end
+
+  # POST /events/1/addUser
+  def addUser
   end
 
   # POST /events
