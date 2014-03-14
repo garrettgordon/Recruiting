@@ -6,9 +6,8 @@
   <meta charset="utf-8">
   <title>Recruit</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="css/normalize.css.scss">
-  <link rel="stylesheet" type="text/css" href="css/webflow.css.scss">
-  <link rel="stylesheet" type="text/css" href="css/recruit.webflow.css.scss">
+  <%= stylesheet_link_tag "normalize.css.scss" %>
+  <%= stylesheet_link_tag "webflow.css.scss" %>
   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
   <script>
     WebFont.load({
@@ -31,7 +30,7 @@
     <div class="w-row header">
       <div class="w-col w-col-3 logo-bar"></div>
       <div class="w-col w-col-9 nav-bar">
-        <div class="w-nav" data-collapse="medium" data-animation="default" data-duration="400" data-contain="1"></div><a class="nav-links" href="#page-nav-services" target="_self">JOBS</a><a class="nav-links" href="#page-nav-portfolio" target="_self">Events</a><a class="nav-links" href="#page-nav-about" target="_self">Sign in</a>
+        <div class="w-nav" data-collapse="medium" data-animation="default" data-duration="400" data-contain="1"></div><a class="nav-links" href="#page-nav-services" target="_self">JOBS</a><a class="nav-links" href="#page-nav-portfolio" target="_self">Events</a><a class="nav-links" href="/users/new" target="_self">Sign in</a>
       </div>
     </div>
     <div class="w-container hero-text">
@@ -94,9 +93,10 @@
           <h1 class="h1-dark">SIGN&nbsp;UP</h1>
           <div class="w-form">
             <form class="contact-form" name="email-form" data-name="Email Form">
-              <input class="w-input field" type="text" placeholder="Your name" name="name" data-name="Name" required="required"></input>
-              <input class="w-input field" type="text" placeholder="Email address" name="email" data-name="Email" required="required"></input>
-              <input class="w-input field" type="text" placeholder="Password" name="email" data-name="Email" required="required"></input>
+              <input class="w-input field" type="text" placeholder="Your name" name="name" data-name="name" required="required"></input>
+              <input class="w-input field" type="text" placeholder="Email address" name="email" data-name="email" required="required"></input>
+              <input class="w-input field" type="text" placeholder="Password" name="Password" data-name="password" required="required"></input>
+              <input class="w-input field" type="text" placeholder="Password Confirm" name="password_confirmation" required="required"></input>
               <input class="w-button button" type="submit" value="Sign up" data-wait="Please wait..."></input>
             </form>
             <div class="w-form-done">
@@ -132,6 +132,6 @@
     </div>
   </footer>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  <script type="text/javascript" src="js/webflow.js"></script>
+  <%= javascript_include_tag "webflow.js" %>
 </body>
 </html>
