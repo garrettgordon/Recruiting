@@ -1,17 +1,13 @@
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-      <ul>
       <% @user.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
-      </ul>
-    </div>
+
   <% end %>
 
-<% if !flash.empty? and !(flash.empty? == "SUCCESS!")%>
+<% if !flash.empty? and !(flash.empty? == "SUCCESS LOGIN!")%>
   <%= flash[:notice] %>
 <% end %>
 
@@ -30,7 +26,24 @@
 
 
     <%= f.password_field :password_confirmation, :placeholder => "Password Confirm", class: "w-input"%><br>
+
+
+    <%= f.text_field :gpa, :placeholder => "GPA", class: "w-input" %><br>
+
+    <%= f.text_field :major, :placeholder => "Major", class: "w-input" %><br>
+
+    <%= f.text_field :minor, :placeholder => "Minor", class: "w-input" %><br>
+
+    <%= f.text_field :name, :placeholder => "Name", class: "w-input" %><br>
+
+    <%= f.text_field :website, :placeholder => "Website", class: "w-input" %><br>
+
+    <%= f.text_field :graduating_year, :placeholder => "Graduating Year", class: "w-input" %><br>
+
+
+
+
   <div class="actions">
-    <%= f.submit 'Sign Up', :class => "w-button" %>
+    <%= f.submit 'Update', :class => "w-button" %>
   </div>
 <% end %>

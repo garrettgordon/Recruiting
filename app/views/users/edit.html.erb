@@ -36,12 +36,7 @@
                   </div>
         </div>
         <div class="w-col w-col-6 hero-column">
-          <h2>  <%= render 'form' %></h2>
-          <%= @user.gpa %>
-          <%= @user.username %>
-          <p><%= @user.major %>
-            <br><%= @user.email %>
-            <br>Back</p><%= link_to 'Edit', edit_user_path, class:"button action" %></a>
+          <h2>  <%= render :template => 'users/editTemplate' %></h2>
         </div>
       </div>
     </div>
@@ -53,6 +48,3 @@
 </html>
 
 
-
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
