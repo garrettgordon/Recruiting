@@ -1,85 +1,117 @@
-<p id="notice"><%= notice %></p>
+<!DOCTYPE html>
+<html lang="en"><head>
+  <title>Recruiting</title>
+  <link data-turbolinks-track="true" href="/assets/application.css?body=1" media="all" rel="stylesheet">
+<link data-turbolinks-track="true" href="/assets/bootflat-extensions.css?body=1" media="all" rel="stylesheet">
+<link data-turbolinks-track="true" href="/assets/bootflat-square.css?body=1" media="all" rel="stylesheet">
+<link data-turbolinks-track="true" href="/assets/bootflat.css?body=1" media="all" rel="stylesheet">
+<link data-turbolinks-track="true" href="/assets/bootstrap.css?body=1" media="all" rel="stylesheet">
+<link data-turbolinks-track="true" href="/assets/bootstrap.min.css?body=1" media="all" rel="stylesheet">
+<link data-turbolinks-track="true" href="/assets/events.css?body=1" media="all" rel="stylesheet">
+<link data-turbolinks-track="true" href="/assets/font-awesome.css?body=1" media="all" rel="stylesheet">
+<link data-turbolinks-track="true" href="/assets/font-awesome.min.css?body=1" media="all" rel="stylesheet">
+<link data-turbolinks-track="true" href="/assets/normalize.css.css?body=1" media="all" rel="stylesheet">
+<link data-turbolinks-track="true" href="/assets/recruit.webflow.css.css?body=1" media="all" rel="stylesheet">
+<link data-turbolinks-track="true" href="/assets/scaffolds.css?body=1" media="all" rel="stylesheet">
+<link data-turbolinks-track="true" href="/assets/users.css?body=1" media="all" rel="stylesheet">
+<link data-turbolinks-track="true" href="/assets/webflow.css.css?body=1" media="all" rel="stylesheet">
+  <script src="https://apis.google.com/_/scs/apps-static/_/js/k=oz.gapi.en.Wc9U2FlUSgI.O/m=plusone/rt=j/sv=1/d=1/ed=1/am=AQ/rs=AItRSTP7-0qtzphhQmRsQgfLMSc6ha2e9A/cb=gapi.loaded_0" async=""></script><script data-turbolinks-track="true" src="/assets/jquery.js?body=1"></script><style type="text/css"></style>
+<script data-turbolinks-track="true" src="/assets/jquery_ujs.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/turbolinks.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/bootstrap.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/bootstrap.min.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/events.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/users.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/webflow.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/application.js?body=1"></script>
+  <meta content="authenticity_token" name="csrf-param">
+<meta content="Mz4L/1kMuShCueiMqjTSK3v8PBRyRhvnXJzlAljyHRI=" name="csrf-token">
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js" gapi_processed="true"></script></head>
+<body>
 
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
 
-<p>
-  <strong>Password:</strong>
-  <%= @user.password %>
-</p>
 
-<p>
-  <strong>Major:</strong>
-  <%= @user.major %>
-</p>
 
-<p>
-  <strong>Minor:</strong>
-  <%= @user.minor %>
-</p>
+    <meta charset="utf-8">
+    <title>List group-Bootflat</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta name="keywords" content="bootflat, ui kit, UI, flat ui, flat design, flat, metro">
+    <meta name="description" content="List groups are a flexible and powerful component for displaying not only simple lists of elements, but complex ones with custom content.">
+    <meta name="alexaVerifyID" content="0Fb3rYxXdIxXHkEoU9d9aLtwn_s">
+    <link rel="shortcut icon" href="favicon_16.ico">
+    <link rel="bookmark" href="favicon_16.ico">
+    <!-- Loading Bootstrap -->
+    <link href="../bootflat/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../bootflat/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/frame-templete.css" rel="stylesheet" type="text/css">
+    <link href="../bootflat/css/bootflat.css" rel="stylesheet" type="text/css">
+    <link href="../bootflat/css/bootflat-square.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,800,700,400italic,600italic,700italic,800italic,300italic" rel="stylesheet" type="text/css">
 
-<p>
-  <strong>GPA:</strong>
-  <%= @user.gpa %>
-</p>
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+      <script src="../bootflat/js/html5shiv.js"></script>
+      <script src="../bootflat/js/respond.min.js"></script>
+    <![endif]-->
 
-<p>
-  <strong>Graduating Year:</strong>
-  <%= @user.graduating_year %>
-</p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
-
-<p>
-  <strong>Website:</strong>
-  <%= @user.website %>
-</p>
-
-<p>
-  <strong>Position:</strong>
-  <%= @user.position %>
-</p>
-
-<%= @events=@user.events %>
-<table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Location</th>
-        <th>Eventdate</th>
-        <th>Description</th>
-        <th>Link</th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
-
-    <tbody>
+    <a class="sr-only" href="#content">
+        Skip navigation
+    </a>
     
-      <% @events.each do |event| %>
-        <tr>
-          <td><%= event.name %></td>
-          <td><%= event.location %></td>
-          <td><%= event.date %></td>
-          <td><%= event.link %></td>
-          <td><%= link_to 'Show', event %></td>
-        </tr>
-      <% end %>
     
-  </tbody>
-</table>
+  
+  
+  <div class="container bf-docs-container">
+    <div class="row">
+
+<div class="bf-example">
+              <table class="table table-striped">
+                  <thead>
+                      <tr>
+                          <th><%= @user.name %></th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td>Email</td>
+                          <td><%= @user.email %></td>
+                      </tr>
+                      <tr>
+                          <td>Password</td>
+                          <td><%= @user.password %></td>
+                      </tr>
+                      <tr>
+                          <td>Major</td>
+                          <td><%= @user.major %></td>
+                      </tr>
+                      <tr>
+                          <td>Minor</td>
+                          <td><%= @user.minor %></td>
+
+                      </tr>
+                      <tr>
+                          <td>3</td>
+                          <td><%= @user.minor %></td>
+
+                      </tr>
+                      <tr>
+                          <td>GPA</td>
+                          <td><%= @user.gpa %></td>
+
+                      </tr>
+                  </tbody>
+              </table>
+          </div>        
+        
+      </div>
 
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<a href="/users/1/edit">Edit</a><a href="/users">Back</a>
+
+
+
+
+</div></div></body></html>
