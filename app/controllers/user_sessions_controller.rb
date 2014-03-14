@@ -16,7 +16,8 @@ class UserSessionsController < ApplicationController
       flash[:notice] = "SUCCESS LOGIN!"
       redirect_to '/home'
     else
-      render :action => "new"
+      flash[:login_notice] = "Invalid Login!"
+      redirect_to "/"
     end
   end
 
