@@ -238,7 +238,7 @@ p {
   padding-top: 120px;
 }
 .h1-dark {
-  padding-bottom: 0px;
+  padding-bottom: 60px;
   color: #222;
   text-align: left;
 }
@@ -482,7 +482,7 @@ p {
     padding-top: 0px;
   }
   .h1-dark {
-    padding-bottom: 31px;
+    padding-bottom: 60px;
     text-align: center;
   }
   .contact-form {
