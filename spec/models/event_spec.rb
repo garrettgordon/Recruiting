@@ -48,5 +48,40 @@ describe Event do
   	expect(resp).to eq(1) 
   end
 
+  it "returns -1 if event doesnt exist" do
+  	resp = Event.DeleteEvent(2)
+  	expect(resp).to eq(-1)
+  end
+
+  it "adds users correctly" do 
+   
+    @event1 = FactoryGirl.create(:event)
+
+    stuff = {username: "eric", email: "eoneill@berkeley.edu", password: "pass", password_confirmation: "pass"}
+    @user1 = User.new(stuff)
+    @user1.save
+
+    resp = @event1.AddUser(@user1)
+    @event1.users.first.should == @user1
+    resp.should == 1
+  end
+
+  it "deletes users correctly" do
+    @event1 = FactoryGirl.create(:event)
+
+    stuff = {username: "eric", email: "eoneill@berkeley.edu", password: "pass", password_confirmation: "pass"}
+    @user1 = User.new(stuff)
+    @user1.save
+
+    resp = @event1.AddUser(@user1)
+    resp.should ==1
+
+    del_resp = @event1.DeleteUser(@user1)
+    @event1.users.first.should == nil
+    del_resp.should == 1
+  end
+
+
+
 
 end

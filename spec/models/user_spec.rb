@@ -27,7 +27,11 @@ describe User do
   	@user1 = User.new(stuff)
   	@user1.save
 
-  	
+  	@event1.AddUser(@user1)
+  	@event2.AddUser(@user1)
+
+  	@user1.events.first.should == @event1
+  	@user1.events.last.should == @event2
   end
 
 
