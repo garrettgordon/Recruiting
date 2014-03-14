@@ -11,9 +11,10 @@
     </div>
   <% end %>
 
-<% if !flash.empty? %>
+<% if !flash.empty? and !(flash.empty? == "SUCCESS!")%>
   <%= flash[:notice] %>
 <% end %>
+
 
 
 
