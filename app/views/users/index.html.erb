@@ -30,7 +30,8 @@
     <div class="w-row header">
       <div class="w-col w-col-3 logo-bar"></div>
       <div class="w-col w-col-9 nav-bar">
-        <div class="w-nav" data-collapse="medium" data-animation="default" data-duration="400" data-contain="1"></div><a class="nav-links" href="#page-nav-services" target="_self">JOBS</a><a class="nav-links" href="#page-nav-portfolio" target="_self">Events</a><a class="nav-links" href="/users/new" target="_self">Sign in</a>
+        <div class="w-nav" data-collapse="medium" data-animation="default" data-duration="400" data-contain="1"></div>
+        <%= render "user_sessions/form" %>
       </div>
     </div>
     <div class="w-container hero-text">
@@ -92,7 +93,7 @@
         <div class="w-col w-col-8">
           <h1 class="h1-dark">SIGN&nbsp;UP</h1>
           <div class="w-form">
-            <%= render 'form' %>
+            <%= render "users/form" %>
           </div>
         </div>
       </div>
