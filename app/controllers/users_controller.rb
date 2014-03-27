@@ -27,6 +27,34 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
+  def newRecruiter
+    @user = User.new 
+  end
+
+  def finishRecruiter
+    @user=User.new(user_params)
+    data=request.POST
+    choice=data[:org_choice]
+    org=data[:organization]
+    @organ=Organization.new()
+    @user.recruiter=true
+    if @user.save
+      if choice == "join"
+        @organ=Organization.find_by name: org
+        if not @organ.nil?
+          @user.organizations << @organ
+          redirect_to '/home'
+        else
+          redirect_to '/createRecruiter'
+        end
+      end
+      if choice == "create"
+        redirect_to '/'
+      end
+    else
+      redirect_to '/createRecruiter'
+    end
+  end
   # POST /users
   # POST /users.json
   def create

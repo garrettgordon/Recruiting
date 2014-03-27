@@ -9,6 +9,8 @@ Recruiting::Application.routes.draw do
   get "login", :controller => 'user_sessions', :action => 'new'
   get "logout", :controller => 'user_sessions', :action => 'destroy'
 
+  get "/createRecruiter", :controller => 'users', :action => 'newRecruiter'
+  post "/finishRecruiter", :controller => 'users', :action => 'finishRecruiter'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
