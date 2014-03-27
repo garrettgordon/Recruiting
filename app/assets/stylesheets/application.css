@@ -11,4 +11,6 @@
  *= require_self
  *= require_tree .
  */
-
+//= depend_on_asset "UC_Berkeley-64.jpg"
+//= depend_on_asset "UC_Berkeley_2.png"
+//= depend_on_asset "wall.jpg"
