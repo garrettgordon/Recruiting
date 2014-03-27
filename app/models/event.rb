@@ -32,9 +32,10 @@ class Event < ActiveRecord::Base
 
 
 	# creates and relationship between a user and event (self)
-	# Event.AddUserAttending(user_id)
-	def AddUser(user)
-		if user.kind_of?(User)
+	# Event.AddUserAttending(user)
+	def AddUser(user_id)
+		user = User.find_by_id(user_id)
+		if user.kind_of?(User) and not user.nil?
 			begin
 				self.users << user
 				return 1
@@ -47,7 +48,7 @@ class Event < ActiveRecord::Base
 	end
 
 	# removes a relationship between a user and event
-	# Event.DeleteUserAttending(user_id,event_id)
+	# Event.DeleteUserAttending(user)
 	def DeleteUser(user)
 		if user.kind_of?(User)
 			begin

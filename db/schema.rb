@@ -51,9 +51,11 @@ ActiveRecord::Schema.define(version: 20140326233313) do
   end
 
   create_table "organizations_users", id: false, force: true do |t|
-    t.integer "user_id",         null: false
-    t.integer "organization_id", null: false
+    t.integer "organization_id"
+    t.integer "user_id"
   end
+
+  add_index "organizations_users", ["organization_id", "user_id"], name: "by_organization_and_user", unique: true
 
   create_table "user_sessions", force: true do |t|
     t.datetime "created_at"

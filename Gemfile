@@ -11,6 +11,8 @@ group :development, :test do
 	gem 'factory_girl_rails'
 end
 
+gem 'quiet_assets', :group => :development
+
 group :test do
 	gem 'faker'
 	gem 'guard-rspec'

@@ -1,14 +1,19 @@
 Recruiting::Application.routes.draw do
-  resources :events
-  resources :infosessions, :controller => "event", :type => "Infosession"
-  resources :speakerpanels, :controller => "event", :type => "SpeakerPanel"
-  resources :careerfairs, :controller => "event", :type => "CareerFair"
+  resources :events do
+    member do
+      post :addUser
+      post :removeUser
+    end
+  end
+  #resources :infosessions, :controller => "events", :type => "Infosession"
+  #resources :speakerpanels, :controller => "events", :type => "SpeakerPanel"
+  #resources :careerfairs, :controller => "events", :type => "CareerFair"
   resources :users, :type => "User"
   resources :user_sessions
 
   get "login", :controller => 'user_sessions', :action => 'new'
   get "logout", :controller => 'user_sessions', :action => 'destroy'
-
+  #post "/events/:id/addUser", :controller => 'events', :action => 'addUser'
   get "/createRecruiter", :controller => 'users', :action => 'newRecruiter'
   post "/finishRecruiter", :controller => 'users', :action => 'finishRecruiter'
   # The priority is based upon order of creation: first created -> highest priority.
@@ -19,7 +24,7 @@ Recruiting::Application.routes.draw do
   root 'users#index'
 
   # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+  #   get 'products/:id' => 'catalog#view'  
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

@@ -1,6 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :addUser, :removeUser]
   # GET /events
   # GET /events.json
   def index
@@ -10,14 +9,27 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    @user = current_user
   end
 
   def addUser
-     rdata=request.POST
-     eve=rdata[:event]
-     eve.AddUser(current_user)
-     redirect_to '/home'
+    begin
+      @event.users << current_user
+      redirect_to @event
+    rescue
+      redirect_to "/"
+    end
   end
+
+  def removeUser
+    begin
+      @event.users.delete(current_user)
+      redirect_to @event
+    rescue
+      redirect_to "/"
+    end
+  end
+
   # GET /events/new
   def new
     @event = Event.new()
@@ -26,10 +38,6 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
-  end
-
-  # POST /events/1/addUser
-  def addUser
   end
 
   # POST /events
@@ -79,6 +87,7 @@ class EventsController < ApplicationController
     def set_event
       @event = Event.find(params[:id])
     end
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params

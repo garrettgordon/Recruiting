@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_filter :disable_nav, only: [:index]
+  before_filter :disable_nav, only: [:index, :newRecruiter]
   # GET /users
   # GET /users.json
   def index
