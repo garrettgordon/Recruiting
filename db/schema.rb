@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20140326233313) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "foodPresent"
-    t.boolean  "acceptinResumes"
+    t.boolean  "acceptingResumes"
     t.integer  "numberOfSpeakers"
     t.integer  "numberOfOrganizers"
     t.string   "resumeCollection"

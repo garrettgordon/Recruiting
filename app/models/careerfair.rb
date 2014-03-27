@@ -1,2 +1,0 @@
-class CareerFair < Event
-end

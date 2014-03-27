@@ -13,7 +13,7 @@ class CreateEvents < ActiveRecord::Migration
 
       # infosession specific
       t.boolean :foodPresent
-      t.boolean :acceptinResumes
+      t.boolean :acceptingResumes
 
       # speaker panel specific
       t.integer :numberOfSpeakers
