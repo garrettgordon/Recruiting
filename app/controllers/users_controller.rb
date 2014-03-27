@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-
+  before_filter :disable_nav, only: [:index]
   # GET /users
   # GET /users.json
   def index
@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     if current_user
       redirect_to '/home'
     end
+
   end
 
   # GET /users/1
