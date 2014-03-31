@@ -31,6 +31,16 @@
     <%= f.label :link %><br>
     <%= f.text_field :link %>
   </div>
+
+  <!-- Add fields to deal with speaker panels -->
+  <%= label_tag("Speaker Panel? (Check to add speakers)") %>
+  <%= check_box_tag(:hidden_speaker_panel) %>
+
+  <div class="field" id="speakers_field" hidden="true">
+    <%= f.label :Speakers %><br>
+    <%= f.text_field :speakers %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
