@@ -13,7 +13,7 @@ class UserSessionsController < ApplicationController
     @user_session = UserSession.new(params[:user_session])
 
     if @user_session.save
-      flash[:notice] = "SUCCESS LOGIN!"
+      #flash[:notice] = "SUCCESS LOGIN!"
       redirect_to '/home'
     else
       flash[:login_notice] = "Invalid Login!"
@@ -27,7 +27,7 @@ class UserSessionsController < ApplicationController
     logger.debug "IN DESTROY"
     @user_session = UserSession.find
     @user_session.destroy
-    flash[:notice] = "SUCCESS LOGOUT!"
+    #flash[:notice] = "SUCCESS LOGOUT!"
     redirect_to root_url
   end
 

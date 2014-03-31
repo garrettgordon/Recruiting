@@ -5,12 +5,14 @@ Recruiting::Application.routes.draw do
       post :removeUser
     end
   end
+
+  resources :user_verifications
   #resources :infosessions, :controller => "events", :type => "Infosession"
   #resources :speakerpanels, :controller => "events", :type => "SpeakerPanel"
   #resources :careerfairs, :controller => "events", :type => "CareerFair"
   resources :users, :type => "User"
   resources :user_sessions
-
+  get "verify", :controller => 'users', :action => 'verify'
   get "login", :controller => 'user_sessions', :action => 'new'
   get "logout", :controller => 'user_sessions', :action => 'destroy'
   #post "/events/:id/addUser", :controller => 'events', :action => 'addUser'

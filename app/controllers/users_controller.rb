@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_filter :disable_nav, only: [:index, :newRecruiter]
+  before_action :set_user, only: [:show, :edit, :update, :destro]
+  before_filter :disable_nav, only: [:index, :newRecruiter, :verify]
+
   # GET /users
   # GET /users.json
   def index
@@ -9,7 +10,9 @@ class UsersController < ApplicationController
     if current_user
       redirect_to '/home'
     end
+  end
 
+  def verify
   end
 
   # GET /users/1
@@ -67,11 +70,12 @@ class UsersController < ApplicationController
     matchesFound = regexMatch.match(email)
     if matchesFound
       if @user.save
-        UserMailer.registration_confirmation(@user).deliver
-        flash[:notice] = "SUCCESS!"
+        #UserMailer.registration_confirmation(@user).deliver
+        #flash[:notice] = "SUCCESS!"
+        @user.deliver_verification_instructions!
         # format.html { redirect_to @user, notice: 'User was successfully created.' }
         # format.json { render action: 'show', status: :created, location: @user }
-        redirect_to '/home'
+        redirect_to "/verify"
       else
         # format.html { render action: 'new' }
         # format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -89,7 +93,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to @user }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
