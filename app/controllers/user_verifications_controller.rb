@@ -1,8 +1,9 @@
 class UserVerificationsController < ApplicationController
 	before_filter :load_user_using_perishable_token
+	skip_before_filter :require_login
 
 	# /user_verification/{token}
-	
+
 	def show
 		if @user
 			@user.verify!

@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destro]
   before_filter :disable_nav, only: [:index, :newRecruiter, :verify]
-
+  skip_before_filter :require_login, only: [:verify, :create]
   # GET /users
   # GET /users.json
   def index
