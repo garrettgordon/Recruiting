@@ -1,0 +1,4 @@
+<% @organizations.each do |organization| %>
+	<h2><%= organization.name %></h2>
+	<%= link_to 'Details', organization, class:"button action" %></a>
+<% end %>

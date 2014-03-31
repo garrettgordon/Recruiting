@@ -1,0 +1,13 @@
+
+<p><%= @organization.name %></p>
+<% if @organization == @user_org[0] %>
+	<%= link_to 'Edit', edit_organization_path, class:"button action" %></a>
+	<%= link_to 'Add Event', new_event_path, class:"button action" %></a>
+<% end %>
+
+<% @events.each do |event| %>
+	<br/>
+	<%= link_to event.name, event %>
+<% end %>
+
+
