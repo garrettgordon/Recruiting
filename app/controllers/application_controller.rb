@@ -22,8 +22,13 @@ class ApplicationController < ActionController::Base
   def require_login
     targetController = params[:controller]
     targetAction = params[:action]
-    if (targetController == "users" and targetAction != "index")
-      unless current_user  
+    
+    if current_user
+      # DO NOTHING
+    else
+      if (targetController == "users" and targetAction == "index")
+        # DO NOTHING
+      else
         redirect_to "/"
       end
     end

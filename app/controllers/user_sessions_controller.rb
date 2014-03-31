@@ -1,6 +1,7 @@
 class UserSessionsController < ApplicationController
   # before_action :set_user_session, only: [:show, :edit, :update, :destroy]
-
+  skip_before_filter :require_login
+  
   # GET /user_sessions/new
   def new
     @user_session = UserSession.new
