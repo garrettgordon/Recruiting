@@ -33,7 +33,7 @@
             <p>Accepting Resumes: <%= @event.acceptingResumes %><br>
             <p>Number of Organizers: <%= @event.numberOfOrganizers %><br>
             <p>Description: <%= @event.description %><br>
-            <% if (@event.speakers != "" and @event.speakers != nil) %>
+            <% if (@event.event_type == "speaker_panel") %>
               <p>Speakers: <%= @event.speakers %><br>
             <% end %>
               <p> Users attending: <%= @event.users.size %><br>
