@@ -47,7 +47,7 @@ class EventsController < ApplicationController
     dateTimeObj = DateTime.new(params[:date][:year].to_i,params[:date][:month].to_i,params[:date][:day].to_i,params[:date][:hour].to_i,params[:date][:minute].to_i)
     @event[:date] = dateTimeObj
     if (params[:speakers] != "")
-      @event[:event_type] = SpeakerPanel
+      @event[:event_type] = "speaker_panel"
     end
     logger.debug @event.inspect
     respond_to do |format|
