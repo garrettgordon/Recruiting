@@ -38,11 +38,12 @@
             <% end %>
               <p> Users attending: <%= @event.users.size %><br>
                 <% if @user.events.exists?(@event) %>
-                <%= link_to 'Unfollow', removeUser_event_path, method: "post", class:"button action" %>
+                  <%= link_to 'Unfollow', removeUser_event_path, method: "post", class:"button action" %>
                 <% else %>
-                <%= link_to 'Follow', addUser_event_path, method: "post", class:"button action" %>
+                  <%= link_to 'Follow', addUser_event_path, method: "post", class:"button action" %>
                 <% end %>
         <%= link_to 'Back', events_path, class:"button action" %>
+        <%= link_to 'Delete', event_path(@event), method: "delete", class:"button action" %>
         </div>
       </div>
     </div>
