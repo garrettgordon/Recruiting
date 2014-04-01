@@ -66,7 +66,8 @@ class UsersController < ApplicationController
     
     # Extract last 13 characters to check if "@berkeley.edu"
     email = @user.email[@user.email.length-13, @user.email.length]
-    regexMatch = /@berkeley.edu$/
+    # regexMatch = /@.*.berkeley.edu$/
+    regexMatch = /(@*\.berkeley.edu|@berkeley.edu)$/
     matchesFound = regexMatch.match(email)
     if matchesFound
       if @user.save
