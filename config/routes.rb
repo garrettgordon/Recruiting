@@ -7,6 +7,7 @@ Recruiting::Application.routes.draw do
   end
 
   resources :user_verifications
+  resources :organizations
   #resources :infosessions, :controller => "events", :type => "Infosession"
   #resources :speakerpanels, :controller => "events", :type => "SpeakerPanel"
   #resources :careerfairs, :controller => "events", :type => "CareerFair"

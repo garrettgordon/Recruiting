@@ -13,20 +13,28 @@ class EventsController < ApplicationController
   end
 
   def addUser
-    begin
-      @event.users << current_user
-      redirect_to @event
-    rescue
-      redirect_to "/"
+    if current_user.kind_of?(User) and not current_user.nil?
+      begin
+        @event.users << current_user
+        redirect_to @event
+      rescue
+        redirect_to "/"
+      end
+    else
+      redirect_to '/'
     end
   end
 
   def removeUser
-    begin
-      @event.users.delete(current_user)
-      redirect_to @event
-    rescue
-      redirect_to "/"
+    if current_user.kind_of?(User) and not current_user.nil?
+      begin
+        @event.users.delete(current_user)
+        redirect_to @event
+      rescue
+        redirect_to "/"
+      end
+    else
+      redirect_to '/'
     end
   end
 

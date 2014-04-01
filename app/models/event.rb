@@ -33,70 +33,70 @@ class Event < ActiveRecord::Base
 
 	# creates and relationship between a user and event (self)
 	# Event.AddUserAttending(user)
-	def AddUser(user_id)
-		user = User.find_by_id(user_id)
-		if user.kind_of?(User) and not user.nil?
-			begin
-				self.users << user
-				return 1
-			rescue
-				return -1
-			end
-		else
-			return -1
-		end
-	end
+	# def AddUser(user_id)
+	# 	user = User.find_by_id(user_id)
+	# 	if user.kind_of?(User) and not user.nil?
+	# 		begin
+	# 			self.users << user
+	# 			return 1
+	# 		rescue
+	# 			return -1
+	# 		end
+	# 	else
+	# 		return -1
+	# 	end
+	# end
 
 	# removes a relationship between a user and event
 	# Event.DeleteUserAttending(user)
-	def DeleteUser(user)
-		if user.kind_of?(User)
-			begin
-				self.users.delete(user)
-				return 1
-			rescue
-				return -1
-			end
-		else
-			return -1
-		end
-	end
+	# def DeleteUser(user)
+	# 	if user.kind_of?(User)
+	# 		begin
+	# 			self.users.delete(user)
+	# 			return 1
+	# 		rescue
+	# 			return -1
+	# 		end
+	# 	else
+	# 		return -1
+	# 	end
+	# end
 
 	# creates a relationship between an event and recruiter
-	def AddRecruiter(user_id)
-	end
+	# def AddRecruiter(user_id)
+	# end
 
 	# removes relationship between event and recruiter
-	def DeleteRecruiter(user_id)
-	end
+	# def DeleteRecruiter(user_id)
+	# end
 
 	# creates a relationship between an event and an organization
-	def AddOrganization(organization)
-		if organization.kind_of?(Organization)
-			begin
-				self.organizations << organization
-				return 1
-			rescue
-				return -1
-			end
-		else
-			return -1
-		end
-	end
+	# def AddOrganization(organization)
+	# 	if organization.kind_of?(Organization)
+	# 		begin
+	# 			self.organizations << organization
+	# 			return 1
+	# 		rescue
+	# 			return -1
+	# 		end
+	# 	else
+	# 		return -1
+	# 	end
+	# end
 
 	# removes organization relationship with event
-	def DeleteOrganization(organization)
-		if organization.kind_of?(Organization)
-			begin
-				self.organizations.delete(organization)
-				return 1
-			rescue
-				return -1
-			end
-		else
-			return -1
-		end
-	end
+	# def DeleteOrganization(organization)
+	# 	if organization.kind_of?(Organization)
+	# 		begin
+	# 			self.organizations.delete(organization)
+	# 			return 1
+	# 		rescue
+	# 			return -1
+	# 		end
+	# 	else
+	# 		return -1
+	# 	end
+	# end
 
 
 end

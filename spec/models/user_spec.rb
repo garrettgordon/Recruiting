@@ -4,10 +4,10 @@ require 'factory_girl_rails'
 describe User do
   #pending "add some examples to (or delete) #{__FILE__}"
   it "can be created" do
-  		stuff = {username: "eric", email: "eoneill@berkeley.edu", password: "pass", password_confirmation: "pass"}
+		stuff = {username: "eric", email: "eoneill@berkeley.edu", password: "pass", password_confirmation: "pass"}
 
-  		@user1 = User.new(stuff)
-  		@user1.save.should == true
+		@user1 = User.new(stuff)
+		@user1.save.should == true
   end
 
   it "can be retrieved" do
@@ -27,12 +27,27 @@ describe User do
   	@user1 = User.new(stuff)
   	@user1.save
 
-  	@event1.AddUser(@user1)
-  	@event2.AddUser(@user1)
+    @event1.users << @user1
+    @event2.users << @user1
 
   	@user1.events.first.should == @event1
   	@user1.events.last.should == @event2
   end
 
+  it "has a perishable token" do
+    stuff = {username: "eric", email: "eoneill@berkeley.edu", password: "pass", password_confirmation: "pass"}
+    @user = User.new(stuff)
+    @user.save
+    @user.perishable_token.should_not be_empty
+  end
+
+  it "should default verified to false then true when verify! is called" do
+    stuff = {username: "eric", email: "eoneill@berkeley.edu", password: "pass", password_confirmation: "pass"}
+    @user = User.new(stuff)
+    @user.save
+    @user.verified.should == false
+    @user.verify!
+    @user.verified.should == true
+  end
 
 end

@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destro]
   before_filter :disable_nav, only: [:index, :newRecruiter, :verify]
-  skip_before_filter :require_login, only: [:verify, :create]
+  skip_before_filter :require_login, only: [:verify, :create, :newRecruiter, :finishRecruiter]
   # GET /users
   # GET /users.json
   def index
@@ -53,12 +53,25 @@ class UsersController < ApplicationController
         end
       end
       if choice == "create"
-        redirect_to '/'
+        @organ=Organization.find_by name: org
+        if not @organ.nil?
+          redirect_to '/createRecruiter'
+        else
+          @organ=Organization.new()
+          @organ.name=org
+          if @organ.save
+            @user.organizations << @organ  
+            redirect_to '/home'
+          else
+            redirect_to '/createRecruiter'
+          end
+        end
       end
     else
       redirect_to '/createRecruiter'
     end
   end
+  
   # POST /users
   # POST /users.json
   def create
