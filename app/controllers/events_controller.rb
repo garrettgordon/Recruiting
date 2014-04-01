@@ -41,7 +41,7 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new()
-    @event.type = params[:type]
+    # @event.type = params[:event_type]
   end
 
   # GET /events/1/edit
@@ -54,6 +54,9 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     dateTimeObj = DateTime.new(params[:date][:year].to_i,params[:date][:month].to_i,params[:date][:day].to_i,params[:date][:hour].to_i,params[:date][:minute].to_i)
     @event[:date] = dateTimeObj
+    if (params[:speakers] != "")
+      @event[:event_type] = "speaker_panel"
+    end
     logger.debug @event.inspect
     respond_to do |format|
       if @event.save
@@ -99,6 +102,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:name, :location, :eventdate, :description, :link)
+      params.require(:event).permit(:name, :location, :eventdate, :description, :link, :speakers)
     end
 end

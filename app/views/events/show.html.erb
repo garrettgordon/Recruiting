@@ -33,6 +33,9 @@
             <p>Accepting Resumes: <%= @event.acceptingResumes %><br>
             <p>Number of Organizers: <%= @event.numberOfOrganizers %><br>
             <p>Description: <%= @event.description %><br>
+            <% if (@event.event_type == "speaker_panel") %>
+              <p>Speakers: <%= @event.speakers %><br>
+            <% end %>
               <p> Users attending: <%= @event.users.size %><br>
                 <% if @user.events.exists?(@event) %>
                 <%= link_to 'Unfollow', removeUser_event_path, method: "post", class:"button action" %>

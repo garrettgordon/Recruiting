@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20140401032225) do
     t.datetime "date"
     t.string   "description"
     t.string   "link"
-    t.string   "type"
+    t.string   "event_type"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "foodPresent"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20140401032225) do
     t.integer  "numberOfSpeakers"
     t.integer  "numberOfOrganizers"
     t.string   "resumeCollection"
+    t.string   "speakers"
   end
 
   create_table "events_organizations", id: false, force: true do |t|
