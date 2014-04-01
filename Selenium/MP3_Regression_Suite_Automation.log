@@ -1,0 +1,31 @@
+****To check - Short URL to MP3 Store Homepage
+Test Areas - Element Inspection
+		Test Passed
+
+======================================
+otc_02
+======================================
+****To check - Entry Points into MP3 Retail Store
+Test Areas - Element Inspection
+		Test Passed
+Homepage String found!
+
+======================================
+otc_1
+======================================
+****To check - Contents on Homepage
+Test Areas - Element Inspection
+ Homepage "Browse MP3s" string NOT present.
+		Test Passed
+
+======================================
+otc_3
+======================================
+
+======================================
+testconfiguration
+======================================
+
+======================================
+testconfiguration
+======================================
