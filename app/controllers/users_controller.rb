@@ -42,12 +42,14 @@ class UsersController < ApplicationController
     org=data[:organization]
     @organ=Organization.new()
     @user.recruiter=true
-    if @user.save
+    if @user.valid?
       if choice == "join"
         @organ=Organization.find_by name: org
         if not @organ.nil?
+          @user.save
           @user.organizations << @organ
-          redirect_to '/home'
+          @user.deliver_verification_instructions!
+          redirect_to '/verify'
         else
           redirect_to '/createRecruiter'
         end
@@ -60,8 +62,10 @@ class UsersController < ApplicationController
           @organ=Organization.new()
           @organ.name=org
           if @organ.save
-            @user.organizations << @organ  
-            redirect_to '/home'
+            @user.save
+            @user.organizations << @organ
+            @user.deliver_verification_instructions!  
+            redirect_to '/verify'
           else
             redirect_to '/createRecruiter'
           end
