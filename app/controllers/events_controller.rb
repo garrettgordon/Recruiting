@@ -33,7 +33,7 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new()
-    @event.type = params[:event_type]
+    # @event.type = params[:event_type]
   end
 
   # GET /events/1/edit
