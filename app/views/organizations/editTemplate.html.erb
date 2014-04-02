@@ -1,0 +1,32 @@
+<%= form_for(@organization) do |f| %>
+  <% if @organization.errors.any? %>
+
+      <% @organization.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+
+  <% end %>
+
+
+
+
+
+    Name: <%= f.text_field :name, :placeholder => "Name", class: "w-input" %>
+    Location: <%= f.text_field :location, :placeholder => "Location", class: "w-input" %>
+    Description :<%= f.text_field :description, :placeholder => "Description", class: "w-input" %>
+    Company Link: <%= f.text_field :link, :placeholder => "Link", class: "w-input" %>
+
+
+
+    
+
+
+    
+
+
+
+
+  <div class="actions">
+    <%= f.submit 'Update', :class => "w-button" %>
+  </div>
+<% end %>
