@@ -3,7 +3,9 @@ require 'factory_girl_rails'
 
 
 describe "Users" do
-  
+  before(:each) do
+    DatabaseCleaner.clean_with(:truncation)
+  end
   describe "logon" do
   	it "logs in with succesful login" do
   		@user1 = FactoryGirl.create(:user)
@@ -59,8 +61,18 @@ describe "Users" do
 
   end
 
-	
+  describe "recruiter logon" do
+  	it "logs in with succesful login" do
+  		@user1 = FactoryGirl.build(:user)
+  		@user1.recruiter = true
+  		@org1 = Organization.new(name:"s")
+  		@user1.organizations << @org1
+  		@user1.save!
 
+  		sign_in()
+  		current_path.should == "/users/1"
+  	end
+  end
 
   def sign_in()	
   	visit "/"
