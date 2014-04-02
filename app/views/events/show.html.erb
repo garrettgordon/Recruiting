@@ -37,13 +37,20 @@
               <p>Speakers: <%= @event.speakers %><br>
             <% end %>
               <p> Users attending: <%= @event.users.size %><br>
-                <% if @user.events.exists?(@event) %>
+              <% if not @user.recruiter %>
+                <% if @user.events.exists?(@event)%>
                   <%= link_to 'Unfollow', removeUser_event_path, method: "post", class:"button action" %>
                 <% else %>
                   <%= link_to 'Follow', addUser_event_path, method: "post", class:"button action" %>
                 <% end %>
+                <% end %>
+                <% if not @user.recruiter %>
         <%= link_to 'Back', events_path, class:"button action" %>
+        <% end %>
+        <% if @user.recruiter and @user.organizations[0].events.exists?(@event)%>
+        <%= link_to 'Edit', edit_event_path, class:"button action" %>
         <%= link_to 'Delete', event_path(@event), method: "delete", class:"button action" %>
+        <% end %>
         </div>
         
 

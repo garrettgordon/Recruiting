@@ -90,9 +90,10 @@ class EventsController < ApplicationController
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
+    org = @event.organizations.first
     @event.destroy
     respond_to do |format|
-      format.html { redirect_to events_url }
+      format.html { redirect_to  org }
       format.json { head :no_content }
     end
   end

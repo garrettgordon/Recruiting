@@ -22,8 +22,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @user = current_user
-    @events= current_user.events
+    @events= @user.events
   end
 
   # GET /users/new
@@ -33,7 +32,6 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @user = current_user
   end
 
   def newRecruiter
@@ -45,6 +43,9 @@ class UsersController < ApplicationController
     data=request.POST
     choice=data[:org_choice]
     org=data[:organization]
+    if org.nil?
+      redirect_to '/'
+    end
     @organ=Organization.new()
     @user.recruiter=true
     if @user.valid?
@@ -55,14 +56,12 @@ class UsersController < ApplicationController
           @user.organizations << @organ
           @user.deliver_verification_instructions!
           redirect_to '/verify'
-        else
-          redirect_to '/createRecruiter'
         end
       end
       if choice == "create"
         @organ=Organization.find_by name: org
         if not @organ.nil?
-          redirect_to '/createRecruiter'
+          redirect_to '/'
         else
           @organ=Organization.new()
           @organ.name=org
@@ -71,13 +70,11 @@ class UsersController < ApplicationController
             @user.organizations << @organ
             @user.deliver_verification_instructions!  
             redirect_to '/verify'
-          else
-            redirect_to '/createRecruiter'
           end
         end
       end
     else
-      redirect_to '/createRecruiter'
+      redirect_to '/'
     end
   end
   

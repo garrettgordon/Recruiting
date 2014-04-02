@@ -35,7 +35,9 @@
           <p>Major: <%= @user.major %>
             <br>Email: <%= @user.email %>
               <br>Minor: <%= @user.minor %>
+              <% if @user == current_user %>
             </p><%= link_to 'Edit', edit_user_path, class:"button action" %></a>
+            <% end %>
         </div>
 
 
