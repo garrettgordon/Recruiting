@@ -36,7 +36,7 @@
             <% if (@event.event_type == "speaker_panel") %>
               <p>Speakers: <%= @event.speakers %><br>
             <% end %>
-              <p> Users attending: <%= @event.users.size %><br>
+              <p> Users attending: <%= @event.users.size %>
               <% if not @user.recruiter %>
                 <% if @user.events.exists?(@event)%>
                   <%= link_to 'Unfollow', removeUser_event_path, method: "post", class:"button action" %>
@@ -55,21 +55,21 @@
         
 
         
-        <h3>Attending:</h3>
+        <h4>Attending:</h4>
         <div id="" style="overflow-y: hidden; height:400px;">
         <% if (@user.recruiter) %>
           <% (@event.users).each do |user| %>
           <% if not user.recruiter %>
             </br>
-            <a href="/users/2">
-            <%= link_to user.name, user %></a>
+            
+            <%= link_to user.username, user %>
           <% end %>
           <% end %>
         <% else %>
           <% (@event.users).each do |user| %>
           <% if user.recruiter %>
             </br>
-            <%= link_to user.name, user %><a/>
+            <%= link_to user.username, user %><a/>
           <% end %>
           <% end %>
         <% end %>
@@ -78,11 +78,32 @@
 
 
       </div>
+
     </div>
+
     
   </div>
 
   <hr>
+
+
+    <div class="section">
+    <div class="w-container">
+
+
+
+      
+      <div class="w-row special-row">
+        <div class="w-col w-col-8 special-column">
+          <h3>Contact the organisers</h3>
+          <p>This is a feature description.&nbsp;Donec ullamcorper nulla non metus auctor fringilla. Sed posuere consectetur est at lobortis.&nbsp;This is a feature description.&nbsp;Donec ullamcorper nulla non metus auctor fringilla. Sed posuere consectetur
+            est at lobortis.</p>
+        </div>
+        <div class="w-col w-col-4 email-column"><a class="button action" href="">Email</a>
+        </div>
+      </div>
+    </div>
+  </div>
   
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script type="text/javascript" src="js/webflow_events.js"></script>
