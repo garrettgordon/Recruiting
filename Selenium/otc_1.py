@@ -14,7 +14,6 @@ class otc_1(unittest.TestCase):
     
     def setUp(self):
         initiate_setup(self)
-        self.resultFile.write('****To check - Entry Points into MP3 Retail Store\n')
         self.resultFile.write("Test Areas - Element Inspection\n")
 
     def test_entry_via_drop_down(self):

@@ -14,7 +14,6 @@ from lib import *
 class otc_02(unittest.TestCase):
     def setUp(self):
         initiate_setup(self)
-        self.resultFile.write('****To check - Short URL to MP3 Store Homepage\n')
         self.resultFile.write("Test Areas - Element Inspection\n")
 
 

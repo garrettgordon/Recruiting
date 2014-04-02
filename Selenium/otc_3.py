@@ -15,7 +15,6 @@ class otc_3(unittest.TestCase):
     
     def setUp(self):
         initiate_setup(self)
-        self.resultFile.write('****To check - Contents on Homepage\n')
         self.resultFile.write("Test Areas - Element Inspection\n")
 
     def test_entry_via_drop_down(self):
