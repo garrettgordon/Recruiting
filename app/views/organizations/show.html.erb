@@ -26,9 +26,8 @@
         </div>
         <div class="w-col w-col-6 hero-column">
           <h2><%= @organization.name %></h2>
-          <p>March 28th: 12pm – 5pm
-            <br>Wozniak Lounge, Soda Hall
-            <br>Bring your resumes</p>
+          <%= @organization.location %><br>
+          <%= @organization.description %>
             <% if @organization == @user_org[0] %>
 	<%= link_to 'Edit', edit_organization_path, class:"button action" %></a>
 	<%= link_to 'Add Event', new_event_path, class:"button action" %></a>
@@ -47,9 +46,9 @@
         <% end %>
 
         <div class="w-col w-col-3 w-col-small-6">
-          <img src="images/Apple_logo_mask__1440x1440_by_shrakner.png" width="142" height="142" alt="5307e6e2663cb6142a0002f9_Apple_logo_mask__1440x1440_by_shrakner.png">
+          
           <h3><%= link_to event.name, event %></h3>
-          <p><%= event.description %></p><a class="button" href="#">Drop Resume</a>
+          <p><%= event.description %></p>
         </div>
 
         <% if k%4==3 %>
@@ -64,16 +63,7 @@
 
 
       
-      <div class="w-row special-row">
-        <div class="w-col w-col-8 special-column">
-          <h3>Contact the organisers</h3>
-          <p>This is a feature description.&nbsp;Donec ullamcorper nulla non metus auctor fringilla. Sed posuere consectetur est at lobortis.&nbsp;This is a feature description.&nbsp;Donec ullamcorper nulla non metus auctor fringilla. Sed posuere consectetur
-            est at lobortis.</p>
-        </div>
-        <div class="w-col w-col-4 email-column"><a class="button action" href="#">Email</a>
-        </div>
-      </div>
-    </div>
+      
   </div>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script type="text/javascript" src="js/webflow_events.js"></script>
