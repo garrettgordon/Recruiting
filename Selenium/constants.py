@@ -1,4 +1,3 @@
-# a2zconf  20110824  Daniel Mizyrycki 
 """Configuration
 
 Common constants for Recruiting@Berkeley test cases"""

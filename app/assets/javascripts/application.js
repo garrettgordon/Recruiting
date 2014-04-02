@@ -16,5 +16,3 @@
 //= require_tree .
 
 // in your javascript...
-
-
