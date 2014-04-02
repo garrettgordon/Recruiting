@@ -37,6 +37,19 @@
               <br>Minor: <%= @user.minor %>
             </p><%= link_to 'Edit', edit_user_path, class:"button action" %></a>
         </div>
+
+
+        
+        <div>
+          <h3>My Events:</h3>
+            <% @events.each do |event| %>
+              </br>
+              <h5><%= link_to event.name, event %></h5>
+            <% end %>
+        </div>
+
+
+
       </div>
     </div>
   </div>

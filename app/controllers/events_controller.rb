@@ -60,6 +60,10 @@ class EventsController < ApplicationController
     logger.debug @event.inspect
     respond_to do |format|
       if @event.save
+        if current_user.recruiter
+          @event.users << current_user
+          @event.organizations << (current_user.organizations[0])
+        end
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
         format.json { render action: 'show', status: :created, location: @event }
       else
