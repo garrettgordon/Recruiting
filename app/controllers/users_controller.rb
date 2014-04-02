@@ -35,7 +35,7 @@ class UsersController < ApplicationController
   end
 
   def newRecruiter
-    @user = User.new 
+    @user = User.new
   end
 
   def finishRecruiter
@@ -43,7 +43,7 @@ class UsersController < ApplicationController
     data=request.POST
     choice=data[:org_choice]
     org=data[:organization]
-    if org.nil?
+    if org.nil? or org == ""
       redirect_to '/'
       return
     end
