@@ -51,17 +51,17 @@
         <h3>Attending:</h3>
         <div id="" style="overflow-y: hidden; height:400px;">
         <% if (@user.recruiter) %>
-          <%= (@event.users).each do |user| %>
+          <% (@event.users).each do |user| %>
           <% if not user.recruiter %>
             </br>
-            <%= link_to user.name, user %>
+            <%= link_to user.name, user %></a>
           <% end %>
           <% end %>
         <% else %>
-          <%= (@event.users).each do |user| %>
+          <% (@event.users).each do |user| %>
           <% if user.recruiter %>
             </br>
-            <%= link_to user.name, user %>
+            <%= link_to user.name, user %><a/>
           <% end %>
           <% end %>
         <% end %>

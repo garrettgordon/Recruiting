@@ -85,7 +85,7 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-    
+    @user.recruiter= false
     # Extract last 13 characters to check if "@berkeley.edu"
     email = @user.email[@user.email.length-13, @user.email.length]
     # regexMatch = /@.*.berkeley.edu$/
