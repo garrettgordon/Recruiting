@@ -21,7 +21,7 @@ describe User do
 
   it "has many events" do
   	@event1 = FactoryGirl.create(:event)
-  	@event2 = FactoryGirl.create(:event)
+  	@event2 = FactoryGirl.create(:event, :id=>2)
 
   	stuff = {username: "eric", email: "eoneill@berkeley.edu", password: "pass", password_confirmation: "pass"}
   	@user1 = User.new(stuff)
