@@ -53,3 +53,21 @@ Test Areas - Element Inspection
 Test Areas - Element Inspection
 		Test Passed
  LOGIN SUCCESSFUL
+****To check - Entry Points into MP3 Retail Store
+Test Areas - Login
+				Test Failed 
+				Failed to input username
+				Test Failed 
+				Failed to input password
+				Test Failed 
+				Login Button click failed
+				Test Failed 
+				LOGIN UNSUCCESSFUL 
+****To check - Entry Points into MP3 Retail Store
+Test Areas - Login
+				Test Failed 
+				LOGIN UNSUCCESSFUL 
+****To check - Entry Points into MP3 Retail Store
+Test Areas - Login
+				Test Failed 
+				LOGIN UNSUCCESSFUL 
