@@ -3,14 +3,7 @@ require 'factory_girl_rails'
 
 
 describe "Users" do
-  describe "GET /users" do
-    it "works! (now write some real specs)" do
-      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-      get users_path
-      response.status.should be(200)
-    end
-  end
-
+  
   describe "logon" do
   	it "logs in with succesful login" do
   		@user1 = FactoryGirl.create(:user)
@@ -53,7 +46,21 @@ describe "Users" do
 
   	end
 
+  	it "follows event" do
+  		@user1 = FactoryGirl.create(:user)
+  		@event1 = FactoryGirl.create(:event)
+  		sign_in()
+  		click_link("Details")
+  		click_link("Follow")
+  		current_path.should == '/events/1'
+  		@user1.events.first.should == @event1
+
+  	end
+
   end
+
+	
+
 
   def sign_in()	
   	visit "/"
