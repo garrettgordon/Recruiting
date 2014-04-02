@@ -157,12 +157,165 @@ describe UsersController do
   #   end
   # end
 
+  before(:each) do
+    DatabaseCleaner.clean_with(:truncation)
+  end
 
   ######## ORGANIZATION TESTS #########
   describe "create organization" do
     it "creates a valid organization" do
-      # user = User.create! valid_attributes
-      post :finishRecruiter, {:user => valid_attributes, :org_choice => "create"}
+      post :finishRecruiter, {:user => valid_attributes, :org_choice => "create", "organization" => "MyOrg"}
+      org = Organization.where(:name => "MyOrg").first
+      org.should_not be_nil
+      org.name.should eq("MyOrg")
     end
   end
+
+
+  describe "create bad organization" do
+    it "attempts to creates an organization with bad recruiter input" do
+      valid_attributes["username"] = "3"
+      post :finishRecruiter, {:user => valid_attributes, :org_choice => "create", "organization" => "MyOrg2"}
+      org = Organization.where(:name => "MyOrg2").first
+      org.should be_nil
+    end
+  end
+
+  describe "create no name organization" do
+    it "attempts to creates an organization with no name" do
+      post :finishRecruiter, {:user => valid_attributes, :org_choice => "create", "organization" => ""}
+      org = Organization.where(:name => "").first
+      org.should be_nil
+    end
+
+    it "attempts to creates an organization with bad name" do
+      post :finishRecruiter, {:user => valid_attributes, :org_choice => "create", "organization" => nil}
+      org = Organization.where(:name => "").first
+      org.should be_nil
+    end
+  end
+
+  describe "create bad organization" do
+    it "attempts to creates an organization with bad recruiter input 2" do
+      valid_attributes["username"] = "3"
+      post :finishRecruiter, {:user => valid_attributes, :org_choice => "create", "organization" => "MyOrg2"}
+      org = Organization.where(:name => "MyOrg2").first
+      org.should be_nil
+    end
+  end
+
+
+  describe "create valid org and check redirect" do
+    it "attempts to creates an organization and check redirect" do
+      post :finishRecruiter, {:user => valid_attributes, :org_choice => "create", "organization" => "MyOrg2"}
+      org = Organization.where(:name => "MyOrg2").first
+      org.should_not be_nil
+      response.should redirect_to "/verify"
+      user = User.where(:username => "MyString").first
+      user.recruiter.should eq(true)
+    end
+  end
+   
+  describe "create valid org and check redirect error" do
+    it "attempts to creates an organization and check redirect" do
+      post :finishRecruiter, {:user => valid_attributes, :org_choice => "create", "organization" => ""}
+      org = Organization.where(:name => "MyOrg2").first
+      org.should be_nil
+      response.should redirect_to "/"
+    end
+  end
+
+
+  describe "create valid org and check redirect error" do
+    it "attempts to creates an organization and check error redirect with bad password" do
+      valid_attributes["password"] = 4
+      post :finishRecruiter, {:user => valid_attributes, :org_choice => "create", "organization" => ""}
+      org = Organization.where(:name => "MyOrg2").first
+      org.should be_nil
+      response.should redirect_to "/"
+    end
+  end
+  ######## END ORGANIZATION TESTS #########
+
+
+  ######## CREATE STUDENT TESTS #########  
+
+  describe "create valid student" do
+    it "attempts to creates a valid student" do
+      post :create,  {:user => valid_attributes}
+      user = User.find(1)
+      user.should_not be_nil
+      response.should redirect_to "/verify"
+    end
+  end
+
+  describe "create valid student" do
+    it "attempts to creates a valid student" do
+      post :create,  {:user => valid_attributes}
+      user = User.find(1)
+      user.should_not be_nil
+      user.username.should eq("MyString")
+      response.should redirect_to "/verify"
+    end
+  end
+
+  describe "create invalid student" do
+    it "attempts to creates a invalid student bad username" do
+      valid_attributes["username"] = nil
+      post :create,  {:user => valid_attributes}
+      user = User.where(:username => nil).first
+      user.should be_nil
+      response.should redirect_to "/"
+    end
+
+    it "attempts to creates a invalid student bad password" do
+      valid_attributes["password"] = "foo"
+      post :create,  {:user => valid_attributes}
+      user = User.where(:username => nil).first
+      user.should be_nil
+      response.should redirect_to "/"
+    end
+  end
+
+  describe "create duplicate student" do
+    it "attempts to creates a 2 users w/ same info" do
+      post :create,  {:user => valid_attributes}
+      user = User.where(:username => "MyString").first
+      user.should_not be_nil
+      response.should redirect_to "/verify"
+
+      post :create,  {:user => valid_attributes}
+      response.should redirect_to "/"
+    end
+  end
+
+  describe "create invalid student" do
+    it "attempts to creates a student w/ non berkeley email address" do
+      valid_attributes["email"] = "foo@gmail.com"
+      post :create,  {:user => valid_attributes}
+      user = User.where(:username => "MyString").first
+      user.should be_nil
+      response.should redirect_to "/"
+    end
+
+    it "attempts to creates a student w/ non berkeley email address" do
+      valid_attributes["email"] = "foo@blahberkeley.com"
+      post :create,  {:user => valid_attributes}
+      user = User.where(:username => "MyString").first
+      user.should be_nil
+      response.should redirect_to "/"
+    end
+  end
+
+  describe "create valid mba student" do
+    it "attempts to creates a mba.berkeley.edu student" do
+      valid_attributes["email"] = "foo@mba.berkeley.edu"
+      post :create,  {:user => valid_attributes}
+      user = User.where(:username => "MyString").first
+      user.should_not be_nil
+      response.should redirect_to "/verify"
+    end
+  end
+
+  ######## END CREATE STUDENT TESTS #########  
 end
