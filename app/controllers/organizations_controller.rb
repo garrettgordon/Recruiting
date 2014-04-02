@@ -31,6 +31,6 @@ private
   end
 
   def organization_params
-      params.require(:organization).permit(:name, :location, :description, :link, )
+      params.require(:organization).permit(:name, :location, :description, :link )
   end
 end
