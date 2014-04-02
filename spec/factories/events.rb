@@ -7,6 +7,7 @@ FactoryGirl.define do
 		f.location { Faker::Address.street_address }
 		f.description { Faker::Lorem.sentence }
 		f.date  {Date.new}
+		f.id { 1 }
 	end
 end
 

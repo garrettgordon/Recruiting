@@ -21,6 +21,7 @@ Recruiting::Application.routes.draw do
   post "/finishRecruiter", :controller => 'users', :action => 'finishRecruiter'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
+  post "user" => "users#create"
 
   # You can have the root of your site routed with "root"
   get "/home", :controller => 'events', :action => 'index'
