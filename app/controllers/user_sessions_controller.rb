@@ -14,8 +14,12 @@ class UserSessionsController < ApplicationController
     @user_session = UserSession.new(params[:user_session])
 
     if @user_session.save
+      if current_user.recruiter
+        redirect_to current_user
+      else
       #flash[:notice] = "SUCCESS LOGIN!"
-      redirect_to '/home'
+        redirect_to '/home'
+      end
     else
       flash[:login_notice] = "Invalid Login!"
       redirect_to "/"
