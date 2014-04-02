@@ -25,7 +25,7 @@
           </div>
         </div>
         <div class="w-col w-col-6 hero-column">
-          
+          <% if not @user.recruiter %>
           <h2><%= @user.username %></h2>
           Name: <%= @user.name %><br>
           GPA: <%= @user.gpa %><br>
@@ -35,6 +35,13 @@
           <p>Major: <%= @user.major %>
             <br>Email: <%= @user.email %>
               <br>Minor: <%= @user.minor %>
+              <% end %>
+         <% if @user.recruiter %>
+         <h2><%= @user.username %></h2>
+          Name: <%= @user.name %><br>
+          Username:<%= @user.username %><br>
+            <br>Email: <%= @user.email %>
+         <% end %>
               <% if @user == current_user %>
             </p><%= link_to 'Edit', edit_user_path, class:"button action" %></a>
             <% end %>
