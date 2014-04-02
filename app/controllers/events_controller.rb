@@ -51,6 +51,7 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
+    logger.debug(params.inspect)
     @event = Event.new(event_params)
     dateTimeObj = DateTime.new(params[:date][:year].to_i,params[:date][:month].to_i,params[:date][:day].to_i,params[:date][:hour].to_i,params[:date][:minute].to_i)
     @event[:date] = dateTimeObj
@@ -62,7 +63,7 @@ class EventsController < ApplicationController
       if @event.save
         if current_user.recruiter
           @event.users << current_user
-          @event.organizations << (current_user.organizations[0])
+          @event.organizations << (current_user.organizations.first)
         end
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
         format.json { render action: 'show', status: :created, location: @event }

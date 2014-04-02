@@ -26,6 +26,7 @@ describe EventsController do
     activate_authlogic
     @usr1 = FactoryGirl.create(:user)
     @user_session1 = UserSession.create(@usr1)
+    @event = FactoryGirl.create(:event)
   end
 
   describe "Get index" do
@@ -34,6 +35,68 @@ describe EventsController do
       get :index
       #expect(response).to be_success
       expect(response.status).to eq(200)
+      expect(response).to render_template(:index)
+    end
+
+    it "@events returns list of events" do
+      get :index
+      expect(assigns(:events)).to eq(Event.all)
+    end
+  end
+
+  describe "get show" do
+    it "successfully renders the show event template" do
+      get :show, :id => @event.id
+      expect(response.status).to eq(200)
+      expect(response).to render_template(:show)
+    end
+
+    it "assigns @user to current_user" do
+      get :show, :id => @event.id
+      expect(assigns(:user)).to eq(@usr1)
+    end
+
+    it "assigns @event to event with id=1" do
+      get :show, :id => @event.id
+      expect(assigns(:event)).to eq(Event.find_by_id(1))
+    end
+  end
+
+  describe "post addUser" do
+    it "redirects to :show on success" do
+      post :addUser, :id => @event.id
+      expect(response).to redirect_to :action => :show, :id => @event.id
+    end
+
+    it "adds current_user to event.users" do
+      post :addUser, :id => @event.id
+      expect(@event.users.first).to eq(@usr1)
+    end
+  end
+
+  describe "post removeUser" do
+    it "redirects to :show on success" do
+      post :addUser, :id => @event.id
+      post :removeUser, :id => @event.id
+      expect(response).to redirect_to :action => :show, :id => @event.id
+    end
+
+    it "removes current user from event.users" do
+      post :addUser, :id => @event.id
+      post :removeUser, :id => @event.id
+      expect(@event.users).to eq([])
+    end
+  end
+
+  describe "post create" do
+    it "redirects to newly created event if success" do
+      post :create, {"event"=>{"name"=>"blah", "location"=>"balh", "description"=>"blah", "link"=>"", "speakers"=>""}, "date"=>{"year"=>"2014", "month"=>"4", "day"=>"2", "hour"=>"00", "minute"=>"00"}}#{:event => {:name => 'yelp info', :location => 'woz', :date => DateTime.now, :description => 'blah' }, :date=> {"year" => '2014', "month" => 'July', "day" => "Monday", "hour"=>'10',"minute"=>'30'}}
+      expect(response).to redirect_to :action => :show, :id => 2
+    end
+
+    it "should show two events now" do
+      post :create, {"event"=>{"name"=>"blah", "location"=>"balh", "description"=>"blah", "link"=>"", "speakers"=>""}, "date"=>{"year"=>"2014", "month"=>"4", "day"=>"2", "hour"=>"00", "minute"=>"00"}}#{:event => {:name => 'yelp info', :location => 'woz', :date => DateTime.now, :description => 'blah' }, :date=> {"year" => '2014', "month" => 'July', "day" => "Monday", "hour"=>'10',"minute"=>'30'}}
+      expect(Event.all.size).to eq(2)
     end
   end
 end
