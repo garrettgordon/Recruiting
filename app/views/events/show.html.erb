@@ -47,6 +47,7 @@
                 <% if not @user.recruiter %>
         <%= link_to 'Back', events_path, class:"button action" %>
         <% end %>
+        <br>
         <% if @user.recruiter and @user.organizations.first.events.exists?(@event)%>
         <%= link_to 'Edit', edit_event_path, class:"button action" %>
         <%= link_to 'Delete', event_path(@event), method: "delete", class:"button action" %>
