@@ -45,6 +45,7 @@ class UsersController < ApplicationController
     org=data[:organization]
     if org.nil?
       redirect_to '/'
+      return
     end
     @organ=Organization.new()
     @user.recruiter=true
@@ -56,12 +57,14 @@ class UsersController < ApplicationController
           @user.organizations << @organ
           @user.deliver_verification_instructions!
           redirect_to '/verify'
+          return
         end
       end
       if choice == "create"
         @organ=Organization.find_by name: org
         if not @organ.nil?
           redirect_to '/'
+          return
         else
           @organ=Organization.new()
           @organ.name=org
@@ -70,11 +73,13 @@ class UsersController < ApplicationController
             @user.organizations << @organ
             @user.deliver_verification_instructions!  
             redirect_to '/verify'
+            return
           end
         end
       end
     else
       redirect_to '/'
+      return
     end
   end
   
