@@ -54,6 +54,7 @@
           <% (@event.users).each do |user| %>
           <% if not user.recruiter %>
             </br>
+            <a href="/users/2">
             <%= link_to user.name, user %></a>
           <% end %>
           <% end %>
