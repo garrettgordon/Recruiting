@@ -22,6 +22,7 @@ describe "Users" do
   	@user1 = FactoryGirl.create(:user)
   	visit "/"
   	fill_in "user_session_username", with: "john"
+    
   	fill_in "user_session_password", with: "pass"
   	click_button "Login"
   end
