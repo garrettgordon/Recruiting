@@ -6,6 +6,6 @@ FactoryGirl.define do
 		f.email { 'andrewmori@berkeley.edu' }
 		f.password { 'pass' }
 		f.password_confirmation { 'pass' }
-		#f.verified { 'true' }
+		f.verified { 'true' }
 	end
 end
