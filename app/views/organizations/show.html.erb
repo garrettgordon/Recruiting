@@ -27,7 +27,7 @@
         <div class="w-col w-col-6 hero-column">
           <h2><%= @organization.name %></h2>
           <%= @organization.location %><br>
-          <%= @organization.description %>
+          <%= @organization.description %><br>
             <% if @organization == @user_org[0] %>
 	<%= link_to 'Edit', edit_organization_path, class:"button action" %></a>
 	<%= link_to 'Add Event', new_event_path, class:"button action" %></a>

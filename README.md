@@ -23,13 +23,13 @@ Profile
 Iteration 2:
 
 Student:
--Can follow/unfollow an event from the event detail page
+-	Can follow/unfollow an event from the event detail page
 
 Recruiter:
--Can signup and either create a new organization or find an existing organization
--can create events for their organization
--can edit their organization and personal profile page
--can delete events from their organization
+-	Can signup and either create a new organization or find an existing organization
+-	can create events for their organization
+-	can edit their organization and personal profile page
+-	can delete events from their organization
 
 User Verification Email
--email sent to user, confirmation by clicking url in email
+-	email sent to user, confirmation by clicking url in email
