@@ -161,8 +161,30 @@ describe UsersController do
   ######## ORGANIZATION TESTS #########
   describe "create organization" do
     it "creates a valid organization" do
-      # user = User.create! valid_attributes
-      post :finishRecruiter, {:user => valid_attributes, :org_choice => "create"}
+      post :finishRecruiter, {:user => valid_attributes, :org_choice => "create", "organization" => "MyOrg"}
+      org = Organization.where(:name => "MyOrg").first
+      org.should_not be_nil
+      org.name.should eq("MyOrg")
     end
   end
+
+  describe "create organization" do
+    it "attempts to creates an organization with bad recruiter input" do
+      valid_attributes["username"] = "3"
+      post :finishRecruiter, {:user => valid_attributes, :org_choice => "create", "organization" => "MyOrg2"}
+      org = Organization.where(:name => "MyOrg2").first
+      org.should be_nil
+    end
+  end
+
+  describe "create organization" do
+    it "attempts to creates an organization with no name" do
+      valid_attributes["username"] = "3"
+      post :finishRecruiter, {:user => valid_attributes, :org_choice => "create", "organization" => ""}
+      org = Organization.where(:name => "").first
+      org.should be_nil
+    end
+  end
+
+
 end
