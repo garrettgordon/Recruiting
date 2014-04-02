@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140402032008) do
+ActiveRecord::Schema.define(version: 20140401032225) do
 
   create_table "events", force: true do |t|
     t.string   "name"
@@ -84,7 +84,6 @@ ActiveRecord::Schema.define(version: 20140402032008) do
     t.string   "position"
     t.boolean  "recruiter"
     t.boolean  "verified",          default: false
-    t.string   "resume"
   end
 
 end

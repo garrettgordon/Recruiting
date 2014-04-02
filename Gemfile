@@ -14,6 +14,7 @@ end
 gem 'quiet_assets', :group => :development
 
 group :test do
+	gem 'simplecov'
 	gem 'faker'
 	gem 'guard-rspec'
 	gem 'launchy'

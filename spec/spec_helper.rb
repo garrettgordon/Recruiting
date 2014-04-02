@@ -7,6 +7,10 @@ require 'capybara/rails'
 require 'database_cleaner'
 require 'capybara/rspec'
 require 'authlogic/test_case'
+require 'simplecov'
+
+SimpleCov.start do
+end
 
 include Authlogic::TestCase
 # Requires supporting ruby files with custom matchers and macros, etc,
