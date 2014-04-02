@@ -50,4 +50,8 @@ describe User do
     @user.verified.should == true
   end
 
+  it "should be valid" do
+    FactoryGirl.build(:user).should be_valid
+  end
+
 end
