@@ -5,7 +5,7 @@ gem 'rails', '4.0.2'
 
 # Use sqlite3 as the database for Active Record
 group :development, :test do
-	gem 'sqlite3', '1.3.9'
+	gem 'pg', '0.17.1'
 	gem 'rspec-rails', '2.13.1'
 	gem 'capybara', '2.1.0'
 	gem 'factory_girl_rails'
@@ -39,6 +39,10 @@ gem 'jquery-rails'
 # Use authLogic for user authentication
 gem 'authlogic'
 gem 'scrypt'
+gem 'bcrypt-ruby'
+
+gem 'acts_as_taggable_on'
+gem 'pg_search'
 
 group :assets do
 # Sass bootstrap
