@@ -1,5 +1,5 @@
 require 'spec_helper'
-
+require 'o'
 describe OrganizationsController do
   include Authlogic::TestCase
 
