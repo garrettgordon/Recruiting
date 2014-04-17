@@ -31,10 +31,12 @@
     <% end %>
 
 
+    <%= render "users/upload_form", :f => f %>
+    
+
 
   <div class="actions">
     <%= f.submit 'Update', :class => "w-button" %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")), users_path, :class => 'btn' %> 
   </div>
 <% end %>
-
-<%= render "users/upload_form" %>
