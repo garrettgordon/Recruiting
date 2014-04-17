@@ -11,7 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140416054511) do
+
+ActiveRecord::Schema.define(version: 20140417172713) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,6 +82,14 @@ ActiveRecord::Schema.define(version: 20140416054511) do
 
   add_index "organizations_users", ["organization_id", "user_id"], name: "by_organization_and_user", unique: true, using: :btree
 
+  create_table "pg_search_documents", force: true do |t|
+    t.text     "content"
+    t.integer  "searchable_id"
+    t.string   "searchable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"
     t.integer  "taggable_id"
@@ -121,7 +131,18 @@ ActiveRecord::Schema.define(version: 20140416054511) do
     t.string   "website"
     t.string   "position"
     t.boolean  "recruiter"
-    t.boolean  "verified",          default: false
+    t.boolean  "verified",             default: false
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
+<<<<<<< HEAD
+=======
+    t.string   "resume_file_name"
+    t.string   "resume_content_type"
+    t.integer  "resume_file_size"
+    t.datetime "resume_updated_at"
+>>>>>>> 5f8785e91bab0a7c7ded25706e97b811fc5a87f2
   end
 
 end

@@ -5,11 +5,7 @@ Recruiting::Application.routes.draw do
       post :removeUser
     end
   end
-
-  resources :jobs do
-    member do
-    end
-  end
+  resources :jobs
   resources :user_verifications
   resources :organizations
   #resources :infosessions, :controller => "events", :type => "Infosession"
@@ -30,6 +26,7 @@ Recruiting::Application.routes.draw do
   # You can have the root of your site routed with "root"
   get "/home", :controller => 'events', :action => 'index'
   root 'users#index'
+  post "/remove_attachment" => 'users#remove_attachment'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'  

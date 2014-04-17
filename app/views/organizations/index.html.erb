@@ -1,4 +1,13 @@
+
 <% @organizations.each do |organization| %>
 	<h2><%= organization.name %></h2>
 	<%= link_to 'Details', organization, class:"button action" %></a>
+<% end %>
+
+
+<%=form_tag organizations_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
 <% end %>

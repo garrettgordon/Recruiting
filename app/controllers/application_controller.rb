@@ -11,6 +11,9 @@ class ApplicationController < ActionController::Base
     @disable_nav = true
   end
 
+  def disable_organization_search
+    @disable_organization_search
+  end
 
   private
   
