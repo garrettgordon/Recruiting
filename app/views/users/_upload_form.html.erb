@@ -1,34 +1,36 @@
-<%= form_for @user, :html => { 
-:class => 'form-horizontal' } do |f| %>
 <%#= display_base_errors @user %>  
-  <div class="control-group">   
-  <%= f.label :picture, :class => 'control-label' %>   
-  <div class="controls">     
-  <div class="fileupload fileupload-new" data-provides="fileupload"> 
-    <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;">
-        </div> 
-        <div> 
-          <img src=<%= @user.picture.url(:download => false) %> />
-      <span class="btn btn-file">
+<div class="control-group">
+   <%#= f.label :picture, :class => 'control-label' %>   
+   <div class="controls">
+      <h4> Profile Picture upload </h4>
+      <div class="fileupload fileupload-new" data-provides="fileupload">
+         <!-- <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;"> -->
+         <!-- </div>  -->
+         <div>
+            <% if @user.picture.exists? %>
+              <img src=<%= @user.picture.url(:download => false) %> />
+            <% end %>
+            <span class="btn btn-file">
             <span class="fileupload-new">Select image</span>     
-        <span class="fileupload-exists">Change</span>        
-                  <%= f.file_field :picture, :class => 'file_field' %>       </span>  
-  <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
-    </div> 
+            <span class="fileupload-exists">Change</span>        
+            <%= f.file_field :picture, :class => 'file_field' %>       </span>  
+            <%= link_to "Label", {:controller => "users", :action => "remove_attachment", :user => @user.id, :attachment_type => "picture"}, :method => "post" %>
+         </div>
       </div>
-    </div>
-  </div>  
-<div class="control-group">    
-<%= f.label :verified, :class => 'control-label' %>     
-<div class="controls">    
-   <%= f.check_box :verified, :class => 'check_box' %>     
-</div> 
-  </div>  
-<div class="control-group">     
-<%= f.label :category, :class => 'control-label' %>   
+   </div>
+</div>
 
-  </div> 
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %> 
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),                 users_path, :class => 'btn' %>   </div>
-<% end %>
+<h4> Resume upload </h4>
+<div class="fileupload fileupload-new" data-provides="fileupload">
+   <div>
+      <span class="btn btn-file">
+      <span class="fileupload-new">Select image</span>
+      <span class="fileupload-exists">Change</span> 
+      <%= f.file_field :resume, :class => 'file_field' %>       </span>  
+      <% if @user.resume.exists? %> 
+        <%= @user.resume_file_name %>
+        <a href=<%= @user.resume.url(:download => true) %> class="btn fileupload-exists">Download</a>
+      <% end %>
+      <%= link_to "Label", {:controller => "users", :action => "remove_attachment", :user => @user.id, :attachment_type => "resume"}, :method => "post" %>
+   </div>
+</div>

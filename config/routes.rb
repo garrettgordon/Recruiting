@@ -26,6 +26,7 @@ Recruiting::Application.routes.draw do
   # You can have the root of your site routed with "root"
   get "/home", :controller => 'events', :action => 'index'
   root 'users#index'
+  post "/remove_attachment" => 'users#remove_attachment'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'  

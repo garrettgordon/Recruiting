@@ -6,9 +6,18 @@ class User < ActiveRecord::Base
 	:dropbox_options => {       
 		:path => proc { |style| "#{style}/#{id}_#{picture.original_filename}"},
 		:unique_filename => true
-	  }
+	 }
+
+	 has_attached_file :resume,
+	 :storage => :dropbox,
+	:dropbox_credentials => "#{Rails.root}/config/dropbox_config.yml",
+	:dropbox_options => {
+		:path => proc { |style| "#{style}/#{id}_#{resume.original_filename}"},       
+		:unique_filename => true
+	 }
 
 	validates_attachment_content_type :picture, :content_type => ["image/jpg", "image/jpeg", "image/png", "application/pdf"]
+	validates_attachment_content_type :resume, :content_type => ["application/pdf"]
 
 	has_and_belongs_to_many :events
 	has_and_belongs_to_many :organizations
