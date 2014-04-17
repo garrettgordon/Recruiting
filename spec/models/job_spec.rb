@@ -76,13 +76,15 @@ describe Job do
   	l2.include?("awesomeness102").should==true
   end
 
-  it "can remove tags" do")
+  it  "can remove tags" do
 
-  	@job1.addSkillTag("talented  	@job1.addSkillTag("really talented")
+  	@job1.addSkillTag("talented")
+    @job1.addSkillTag("really talented")
   	@job1.addCourseTag("awesomeness101")
   	@job1.addCourseTag("awesomeness102")
   	@job1.removeSkillTag("talented")
-  	@job1.removeCourseTag("awesomeness102  	l1=@job1.skill_list")
+  	@job1.removeCourseTag("awesomeness102")
+    l1=@job1.skill_list
 
   	l1.include?("talented").should==false
   	l1.include?("awesomeness101").should==false
@@ -91,6 +93,17 @@ describe Job do
   end
 
   it "can change application status" do
+    @usr2 = FactoryGirl.create(:user, :username => "fred", :email => "blah@berkeley.edu", :id => 2)
+    @user_session2 = UserSession.create(@usr2)
+    @usr2.jobs << @job1
+    (@usr2.jobs.include?(@job1)).should==true
+    ja=Jobapp.find_by_user_id_and_job_id(@usr2[:id], @job1[:id])
+    ja.nil?.should==false
+    jas=Jobapp.where(:user_id => @usr2[:id])
+    jas.nil?.should==false
+    jas.length.should==1
+    x=@job1.changeAppStatus(@usr2[:id], 1)
+    x.should==1
   end
 
 end

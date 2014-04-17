@@ -63,11 +63,6 @@ ActiveRecord::Schema.define(version: 20140416054511) do
     t.integer  "organization_id"
   end
 
-  create_table "jobs_organizations", id: false, force: true do |t|
-    t.integer "job_id",          null: false
-    t.integer "organization_id", null: false
-  end
-
   create_table "organizations", force: true do |t|
     t.string   "name"
     t.string   "link"

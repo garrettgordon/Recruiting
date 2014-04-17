@@ -6,6 +6,10 @@ Recruiting::Application.routes.draw do
     end
   end
 
+  resources :jobs do
+    member do
+    end
+  end
   resources :user_verifications
   resources :organizations
   #resources :infosessions, :controller => "events", :type => "Infosession"

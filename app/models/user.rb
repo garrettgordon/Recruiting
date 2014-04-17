@@ -16,4 +16,22 @@ class User < ActiveRecord::Base
 		self.verified = true
 		self.save
 	end
+
+	def applyToJob(jid)
+		jb=Job.find(jid)
+		if jb.nil?
+			return false
+		elsif self.jobs.include?(jb)
+			return false
+		end
+		self.jobs << jb
+		ja=Jobapp.find_by_user_id_and_job_id(self[:id], jb[:id])
+		if ja.nil?
+			return false
+		end
+		ja.status=0
+		return self.jobs.include?(jb)
+	end
+
+	
 end
