@@ -1,7 +1,7 @@
 class JobsController < ApplicationController
 	before_action :set_job, only: [:show, :update, :delete]
 	def index
-		@jobs = Job.all
+		@jobs = Job.tag_search(params[:search])
 	end
 
 	def new

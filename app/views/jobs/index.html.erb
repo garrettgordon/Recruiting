@@ -3,3 +3,10 @@
 	<h2><%= job.title %></h2>
 	<%= link_to 'Details', job, class:"button action" %></a>
 <% end %>
+
+<%=form_tag jobs_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
