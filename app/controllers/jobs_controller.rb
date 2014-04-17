@@ -1,7 +1,7 @@
 class JobsController < ApplicationController
 	before_action :set_job, only: [:show, :update, :delete]
 	def index
-		@jobs = Job.all
+		@jobs = Job.tag_search(params[:search])
 	end
 
 	def new
@@ -14,7 +14,7 @@ class JobsController < ApplicationController
 
 	def create
 		@job = Job.new(job_params)
-		
+		@job.skill_list = job_params[:skill_list]
 		respond_to do |format|
 			if @job.save
 				current_user.organizations.first.jobs << @job
@@ -39,7 +39,7 @@ class JobsController < ApplicationController
 		end
 
 		def job_params
-			params.require(:job).permit(:title, :description)
+			params.require(:job).permit(:title, :description, :skill_list)
 		end
 
 end

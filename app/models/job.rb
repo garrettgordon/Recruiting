@@ -5,6 +5,24 @@ class Job < ActiveRecord::Base
 	acts_as_taggable_on :skills, :courses
 	MAX_NAME_LENGTH = 128
 	validates :title, :presence => true, :length => {maximum: MAX_NAME_LENGTH}
+
+	include PgSearch
+	pg_search_scope :search, 
+									:associated_against => {
+										:skills => [:name]
+									},
+									:using => {
+										:tsearch => { prefix: true, dictionary: 'english'}
+									}
+
+	def self.tag_search(query)
+		if query.present?
+			search(query)
+		else
+			scoped
+		end
+	end
+
 	def addUser(id)
 		u=User.find(id)
 		if u.nil?
