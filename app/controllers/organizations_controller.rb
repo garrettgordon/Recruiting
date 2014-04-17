@@ -1,7 +1,7 @@
 class OrganizationsController < ApplicationController
   before_action :set_organization, only: [:show, :edit, :update]
   def index
-  	@organizations=Organization.all
+  	@organizations=Organization.text_search(params[:search])
   end
 
   def show
