@@ -6,8 +6,16 @@ class Organization < ActiveRecord::Base
 	validates :name, :presence => true, :length => {maximum: MAX_NAME_LENGTH}
 
 	include PgSearch
-	multisearchable :against => [:name],
+	pg_search_scope :search, :against => [:name],
 					:using => {
-                    	:tsearch => {:prefix => true}
+                    	:tsearch => {prefix: true, dictionary: "english"}
                   	}
+
+    def self.text_search(query)
+    	if query.present?
+    		search(query)
+    	else
+    		scoped
+    	end
+    end
 end
