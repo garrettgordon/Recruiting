@@ -138,6 +138,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def remove_attachment
+    @user = User.find(params[:user])
+    attachment_type = params[:attachment_type]
+    if (attachment_type == "picture")
+      @user.picture.destroy
+    elsif (attachment_type == "resume")
+      @user.resume.destroy
+    end
+    redirect_to :back
+    return
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -147,6 +159,6 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:username, :email, :password, :password_confirmation, :gpa, :major, :minor, :name, :website, :graduating_year,
-        :picture, :verified, :resume)
+        :picture, :attachement_type, :resume)
     end
 end
