@@ -1,0 +1,18 @@
+<%= form_for(@job) do |f| %>
+  <% if @job.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@job.errors.count, "error") %> prohibited this job from being saved:</h2>
+
+      <ul>
+      <% @job.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.text_field :title, :placeholder => "Title", class: "w-input" %><br>
+  <%= f.text_field :description, :placeholder => "Description", class: "w-input" %><br>
+  <div class="actions">
+  	<%= f.submit 'Create', :class => "w-button" %>
+  </div>
+<% end %>

@@ -5,7 +5,7 @@ Recruiting::Application.routes.draw do
       post :removeUser
     end
   end
-
+  resources :jobs
   resources :user_verifications
   resources :organizations
   #resources :infosessions, :controller => "events", :type => "Infosession"
