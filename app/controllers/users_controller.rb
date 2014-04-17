@@ -116,6 +116,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    logger.debug
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user }
@@ -146,6 +147,6 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:username, :email, :password, :password_confirmation, :gpa, :major, :minor, :name, :website, :graduating_year,
-        :picture, :verified)
+        :picture, :verified, :resume)
     end
 end
