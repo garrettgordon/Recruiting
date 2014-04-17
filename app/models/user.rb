@@ -23,9 +23,24 @@ class User < ActiveRecord::Base
 	has_and_belongs_to_many :organizations
 	has_many :jobapps
 	has_many :jobs, through: :jobapps
+
+	acts_as_taggable_on :skills, :courses
+
+	include PgSearch
+	pg_search_scope :search,
+									:against => [:name],
+									:associated_against => {
+										:skills => [:name],
+										:courses => [:name]
+									},
+									:using => {
+										:tsearch => {prefix:true, dictionary:'english'}
+									}
+
 	acts_as_authentic do |config|
 		config.perishable_token_valid_for = 1.hour
 	end
+
 
 	def deliver_verification_instructions!
 		reset_perishable_token!
