@@ -1,14 +1,89 @@
-<% @orgs.each do |org| %>
-	<h2><%= org.name %></h2>
-	<%= link_to 'Details', org, class:"button action" %></a>
-<% end %>
+  <div class="section hero">
+    <h2>Organizations</h2>
 
-<% @jobs.each do |job| %>
-	<h2><%= job.title %></h2>
-	<%= link_to 'Details', job, class:"button action" %></a>
-	<% end %>
+    <div class="w-container">
+      <% k=0 %>
+      <% @orgs.each do |org| %>
+        <% if k%4==0 %>
+          <div class="w-row">
+        <% end %>
 
-	<% @users.each do |user| %>
-	<h2><%= user.name %></h2>
-	<%= link_to 'Details', user, class:"button action" %></a>
-<% end %>
+        <div class="w-col w-col-3 w-col-small-6">
+          
+          <h3><h2><%= org.name %></h2></h3>
+          <%= link_to 'Details', org, class:"button action" %></a>
+          
+        </div>
+
+        <% if k%4==3 %>
+          </div>
+        <% end %>
+        <% k=k+1 %>
+      <% end %>
+      <% if k%4 != 0 %>
+        </div>
+      <% end %>
+  </div>
+</div>
+  
+  <div class="section">
+    <h2>Jobs</h2>
+
+    <div class="w-container">
+      <% k=0 %>
+      <% @jobs.each do |job| %>
+        <% if k%4==0 %>
+          <div class="w-row">
+        <% end %>
+
+        <div class="w-col w-col-3 w-col-small-6">
+          
+          <h3><h2><%= job.title %></h2></h3>
+          <%= link_to 'Details', job, class:"button action" %></a>
+          
+        </div>
+
+        <% if k%4==3 %>
+          </div>
+        <% end %>
+        <% k=k+1 %>
+      <% end %>
+      <% if k%4 != 0 %>
+        </div>
+      <% end %>
+  </div>
+
+<br>
+
+    <div class="section hero">
+    <h2>Users</h2>
+
+    <div class="w-container">
+      <% k=0 %>
+      <% @users.each do |user| %>
+        <% if k%4==0 %>
+          <div class="w-row">
+        <% end %>
+
+        <div class="w-col w-col-3 w-col-small-6">
+          
+          <h3><h2><%= user.name %></h2></h3>
+          <%= link_to 'Details', user, class:"button action" %></a>
+          
+        </div>
+
+        <% if k%4==3 %>
+          </div>
+        <% end %>
+        <% k=k+1 %>
+      <% end %>
+      <% if k%4 != 0 %>
+        </div>
+      <% end %>
+  </div>
+
+  
+  </div>
+
+
+
