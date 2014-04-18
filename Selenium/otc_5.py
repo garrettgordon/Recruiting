@@ -11,7 +11,7 @@ from testconfiguration import *
 from lib import *
 import random
 
-class otc_4(unittest.TestCase):
+class otc_5(unittest.TestCase):
     
     def setUp(self):
         initiate_setup(self)

@@ -41,3 +41,29 @@ Test Areas - Student sign up
 Test Areas - Student sign up
 		Test Passed
  SIGN_UP SUCCESSFUL
+Test Areas - Login
+				Test Failed 
+				FAILED TO GET TO EDIT PAGE 
+				Test Failed 
+				ENTERING MAJOR FAILED 
+				Test Failed 
+				STUDENT UPDATE FAILED 
+Test Areas - Login
+				Test Failed 
+				FAILED TO GET TO EDIT PAGE 
+				Test Failed 
+				ENTERING MAJOR FAILED 
+				Test Failed 
+				STUDENT UPDATE FAILED 
+Test Areas - Login
+				Test Failed 
+				STUDENT UPDATE FAILED 
+Test Areas - Login
+		Test Passed
+STUDENT UPDATE PASSED 
+Test Areas - Login
+		Test Passed
+STUDENT UPDATE PASSED 
+Test Areas - Login
+		Test Passed
+STUDENT UPDATE PASSED 
