@@ -76,13 +76,15 @@ describe Job do
   	l2.include?("awesomeness102").should==true
   end
 
-  it "can remove tags" do")
+  it "can remove tags" do
 
-  	@job1.addSkillTag("talented  	@job1.addSkillTag("really talented")
+  	@job1.addSkillTag("talented")
+    @job1.addSkillTag("really talented")
   	@job1.addCourseTag("awesomeness101")
   	@job1.addCourseTag("awesomeness102")
   	@job1.removeSkillTag("talented")
-  	@job1.removeCourseTag("awesomeness102  	l1=@job1.skill_list")
+  	@job1.removeCourseTag("awesomeness102")
+    l1=@job1.skill_list
 
   	l1.include?("talented").should==false
   	l1.include?("awesomeness101").should==false
