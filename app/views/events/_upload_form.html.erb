@@ -1,0 +1,18 @@
+<%#= display_base_errors @user %>  
+<div class="control-group">
+   <%#= f.label :picture, :class => 'control-label' %>   
+   <div class="controls">
+      <h4> Profile Picture upload </h4>
+      <div class="fileupload fileupload-new" data-provides="fileupload">
+         <div>
+            <% if @event.event_picture.exists? %>
+              <img src=<%= @event.event_picture.url(:download => false) %> />
+              <%= link_to "Delete", {:controller => "events", :action => "remove_attachment", :event => @event.id, :attachment_type => "picture"}, :method => "post" %>
+            <% end %>
+            <span class="btn btn-file">
+            <span class="fileupload-new">Select Image</span>             
+            <%= f.file_field :event_picture, :class => 'file_field' %>       </span>  
+         </div>
+      </div>
+   </div>
+</div>

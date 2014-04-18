@@ -99,6 +99,18 @@ class EventsController < ApplicationController
     end
   end
 
+  def remove_attachment
+    @event = Event.find(params[:event])
+    @event.event_picture.destroy
+    @event[:event_picture_file_name] = nil
+    @event[:event_picture_content_type] = nil
+    @event[:event_picture_file_size] = nil
+    @event[:event_picture_updated_at] = nil
+
+    @event.save
+    redirect_to :back
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
@@ -108,6 +120,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:name, :location, :eventdate, :description, :link, :speakers)
+      params.require(:event).permit(:name, :location, :eventdate, :description, :link, :speakers, :event_picture)
     end
 end

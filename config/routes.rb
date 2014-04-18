@@ -27,6 +27,7 @@ Recruiting::Application.routes.draw do
   get "/home", :controller => 'events', :action => 'index'
   root 'users#index'
   post "/remove_attachment" => 'users#remove_attachment'
+  post "/events/remove_attachment" => 'events#remove_attachment'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'  
