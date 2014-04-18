@@ -140,6 +140,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def changeAppStatus
+    rdata=request.POST
+    uid=rdata[:uid]
+    jid=rdata[:jid]
+    stat=rdata[:status]
+    result=current_user.changeApplicantStatus(uid, jid, stat)
+    if result==false
+    end
+  end
+
   def remove_attachment
     @user = User.find(params[:user])
     attachment_type = params[:attachment_type]

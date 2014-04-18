@@ -79,5 +79,22 @@ class User < ActiveRecord::Base
 		return self.jobs.include?(jb)
 	end
 
+	def changeApplicantStatus(uid, jid, stat)
+		job=Job.find(jid)
+		user=User.find(uid)
+		ja=Jobapp.find_by_user_id_and_job_id(uid, jid)
+		if ja.nil? || job.nil? || user.nil?
+			return false
+		end
+		if self[:recruiter]==false || self.organizations.first!=job.organization
+			return false
+		end
+		ja.status=stat
+		ja.save
+		job.save
+		user.save
+		return true
+	end
+
 	
 end

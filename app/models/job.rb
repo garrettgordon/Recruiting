@@ -37,6 +37,8 @@ class Job < ActiveRecord::Base
 		if self.users.last != u
 			return -1
 		end
+		u.save
+		self.save
 		return 1
 	end
 
@@ -49,6 +51,8 @@ class Job < ActiveRecord::Base
 		if self.users.include?(u)
 			return -1
 		end
+		u.save
+		self.save
 		return 1
 	end
 
@@ -109,6 +113,8 @@ class Job < ActiveRecord::Base
 			if !ja.save
 				return -1
 			end
+			self.save
+			usr.save
 			return ja[:status]
 		end
 	end
