@@ -55,8 +55,17 @@ JOB_NAME_TEXTBOX = '//*[@id="job_title"]'
 JOB_DESCRIPTION_TEXTBOX = '//*[@id="job_description"]'
 JOB_CREATE_BUTTON = '//*[@id="new_job"]/div[3]/input'
 
+ADD_EVENT_XPATH = '/html/body/div[2]/div/div/div[2]/a[2]'
+EVENT_NAME_TEXTBOX = '//*[@id="event_name"]'
+EVENT_LOCATION_TEXTBOX = '//*[@id="event_location"]'
+EVENT_CREATE_BUTTON = '//*[@id="new_event"]/div[5]/input'
+
 JOB_NAME = "jobbies"
 JOB_DESCRIPTION = "on job trees"
+
+EVENT_NAME = "eventable"
+EVENT_LOCATION = "Woz"
+
 
 # These accounts must be created prior to testing, since we cannot test sign up due to email confirmation
 USERNAME = "vinit"

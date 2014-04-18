@@ -43,7 +43,7 @@ class otc_7(unittest.TestCase):
             resultFile.write(TEST_FAILED + "Login Button click failed\n")
 
         try:
-            navbar_name = wd_handle.find_element_by_xpath(ADD_JOB_XPATH)
+            navbar_name = wd_handle.find_element_by_xpath(ADD_EVENT_XPATH)
             navbar_name.click()
         except Exception, e:
             resultFile.write(TEST_FAILED + "FAILED TO GET TO EDIT PAGE \n")
