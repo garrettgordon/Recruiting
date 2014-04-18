@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-	before_action :set_job, only: [:show, :update, :delete]
+	before_action :set_job, only: [:edit, :show, :update, :delete]
 	def index
 		@jobs = Job.tag_search(params[:search])
 	end
@@ -27,7 +27,20 @@ class JobsController < ApplicationController
 		end
 	end
 
+	def edit
+	end
+
 	def update
+		respond_to do |format|
+			if @job.udate(job_params)
+				@job.skill_list = job_params[:skill_list]
+				format.html { redirect_to @job, notice:'Successful update' }
+				format.json { head :no_content}
+			else
+				format.html { render action: 'edit' }
+				format.html { render json: @job.errors, status: :unprocessable_entity}
+			end
+		end
 	end
 
 	def delete
