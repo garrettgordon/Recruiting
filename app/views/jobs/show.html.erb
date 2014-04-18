@@ -32,7 +32,9 @@
        <p> Description: <%=@job.description %> </p>
        <p> Tags: <%=@job.skill_list %> </p>
 
-
+       <% if current_user.recruiter and @job.organization == current_user.organizations.first %>
+       <%= link_to 'Edit', edit_job_path, class:"button action" %>
+       <% end %>
       </div>
     </div>
   </div>

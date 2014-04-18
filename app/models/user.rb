@@ -44,6 +44,14 @@ class User < ActiveRecord::Base
 		config.perishable_token_valid_for = 1.hour
 	end
 
+  def self.text_search(query)
+  	if query.present?
+  		search(query)
+  	else
+  		scoped
+  	end
+  end
+
 
 	def deliver_verification_instructions!
 		reset_perishable_token!
