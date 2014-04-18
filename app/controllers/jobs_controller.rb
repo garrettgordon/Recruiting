@@ -1,7 +1,7 @@
 class JobsController < ApplicationController
 	before_action :set_job, only: [:edit, :show, :update, :delete, :changeAppStatus]
 	def index
-		@jobs = Job.tag_search(params[:search])
+		@jobs = Job.text_search(params[:search])
 	end
 
 	def new
@@ -46,7 +46,7 @@ class JobsController < ApplicationController
 
 	def update
 		respond_to do |format|
-			if @job.udate(job_params)
+			if @job.update(job_params)
 				@job.skill_list = job_params[:skill_list]
 				format.html { redirect_to @job, notice:'Successful update' }
 				format.json { head :no_content}

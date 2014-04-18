@@ -40,11 +40,11 @@ describe "Organizations" do
   		sign_in()
   		visit "/organizations"
 
-  		fill_in "search", with: "abc"
+  		fill_in "search", with: "abcd"
   		click_button "Search"
 
   		page.should_not have_content("Name")
-  		page.should have_content("abcde")
+  		page.should have_content("abcd")
 
   	end
 

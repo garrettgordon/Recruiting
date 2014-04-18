@@ -29,7 +29,7 @@ class Organization < ActiveRecord::Base
     	if query.present?
     		search(query)
     	else
-    		scoped
+    		Organization.all
     	end
     end
 
