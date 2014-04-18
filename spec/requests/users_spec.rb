@@ -74,6 +74,43 @@ describe "Users" do
   	end
   end
 
+  describe "adding tags" do
+    it "can add tags from the edit page" do
+      @user1 = FactoryGirl.build(:user)
+      @user1.save
+      sign_in()
+      click_link "john"
+      page.should have_content("Edit")
+      click_link "Edit"
+      fill_in "user_skill_list", with: "work, fun"
+      click_button "Update"
+      @user1.save
+      @user1.skill_list.include?("work").should== true
+      @user1.skill_list.include?("fun").should == true
+    end
+  end
+
+  describe "applying to job" do
+    it "users can apply" do
+      @user1 = FactoryGirl.build(:user)
+      @user1.save
+      @organization= FactoryGirl.build(:organization)
+      @job = FactoryGirl.build(:job)
+      @job.organization=@organization
+      @job.save
+      @organization.save
+      sign_in()
+      visit "/organizations/1"
+      click_link "MyString"
+      current_path.should == "/jobs/1"
+      page.should have_content("Apply")
+      click_link "Apply"
+      @user1.jobs.include?(@job).should== true
+      visit "/jobs/1"
+      page.should have_content("Cancel Application")
+    end
+  end
+
   def sign_in()	
   	visit "/"
   	fill_in "user_session_username", with: "john"
