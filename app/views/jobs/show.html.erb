@@ -31,7 +31,7 @@
        <p> Title: <%= @job.title %> </p>
        <p> Description: <%=@job.description %> </p>
        <p> Tags: <%=@job.skill_list %> </p>
-       
+
        <% if @org==@job.organization%>
           <h3>Considering</h3>
           <% for user in @considering%>
@@ -53,10 +53,16 @@
               <p><%= user.username %></p>
             <% end %>
 
-
+        <% end %>
        <% if current_user.recruiter and @job.organization == current_user.organizations.first %>
        <%= link_to 'Edit', edit_job_path, class:"button action" %>
+       <% end %>
 
+       <% if !(current_user.recruiter) && !current_user.jobs.include?(@job)%>
+          <%= link_to 'Apply', userApply_job_path, class:"button action" %>
+       <% end %>
+       <% if !(current_user.recruiter) && current_user.jobs.include?(@job)%>
+          <%= link_to 'Cancel Application', userUnapply_job_path, class:"button action" %>
        <% end %>
       </div>
     </div>
