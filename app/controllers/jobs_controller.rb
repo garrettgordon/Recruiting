@@ -8,6 +8,7 @@ class JobsController < ApplicationController
 		@job = Job.new
 	end
 
+
 	def userApply
 		result=@job.addUser(current_user[:id])
 		redirect_to current_user
@@ -36,6 +37,7 @@ class JobsController < ApplicationController
 				@rejected << user
 			end
 		end
+
 	end
 
 	def create

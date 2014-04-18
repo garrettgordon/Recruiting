@@ -10,7 +10,7 @@ from constants import *
 from testconfiguration import *
 from lib import *
 
-class otc_7(unittest.TestCase):
+class otc_8(unittest.TestCase):
     
     def setUp(self):
         initiate_setup(self)
