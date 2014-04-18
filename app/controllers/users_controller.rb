@@ -119,6 +119,8 @@ class UsersController < ApplicationController
     logger.debug
     respond_to do |format|
       if @user.update(user_params)
+        @user.skill_list = user_params[:skill_list]
+        @user.course_list = user_params[:course_list]
         format.html { redirect_to @user }
         format.json { head :no_content }
       else
@@ -159,6 +161,6 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:username, :email, :password, :password_confirmation, :gpa, :major, :minor, :name, :website, :graduating_year,
-        :picture, :attachement_type, :resume)
+        :picture, :attachement_type, :resume, :skill_list, :course_list)
     end
 end
