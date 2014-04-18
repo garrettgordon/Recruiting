@@ -96,4 +96,21 @@ class Job < ActiveRecord::Base
 		return 1
 	end
 
+	def changeAppStatus(uid, newstat)
+		usr=User.find(uid)
+		if usr.nil? || !self.users.include?(usr)
+			return -1
+		else
+			ja=Jobapp.find_by_user_id_and_job_id(uid, self[:id])
+			if ja.nil?
+				return -1
+			end
+			ja.status=newstat
+			if !ja.save
+				return -1
+			end
+			return ja[:status]
+		end
+	end
+
 end
