@@ -2,6 +2,9 @@ class OrganizationsController < ApplicationController
   before_action :set_organization, only: [:show, :edit, :update]
   def index
   	@organizations=Organization.text_search(params[:search])
+    organizations=Organization.readySort(@organizations)
+    organizations=Organization.mergeSort(organizations)
+    @organizations=Organization.listConvert(organizations)
   end
 
   def show

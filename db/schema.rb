@@ -11,9 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20140417172713) do
-
+ActiveRecord::Schema.define(version: 20140417222330) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -136,13 +134,10 @@ ActiveRecord::Schema.define(version: 20140417172713) do
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
-<<<<<<< HEAD
-=======
     t.string   "resume_file_name"
     t.string   "resume_content_type"
     t.integer  "resume_file_size"
     t.datetime "resume_updated_at"
->>>>>>> 5f8785e91bab0a7c7ded25706e97b811fc5a87f2
   end
 
 end
