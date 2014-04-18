@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 	:dropbox_credentials => "#{Rails.root}/config/dropbox_config.yml",
 	 # :styles => { :medium => "300x300" , :thumb => "100x100>"},    
 	:dropbox_options => {       
-		:path => proc { |style| "#{style}/#{id}_#{picture.original_filename}"},
+		:path => proc { |style| "#{style}/users/images/#{id}_#{picture.original_filename}"},
 		:unique_filename => true
 	 }
 
@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 	 :storage => :dropbox,
 	:dropbox_credentials => "#{Rails.root}/config/dropbox_config.yml",
 	:dropbox_options => {
-		:path => proc { |style| "#{style}/#{id}_#{resume.original_filename}"},       
+		:path => proc { |style| "#{style}/users/resumes/#{id}_#{resume.original_filename}"},       
 		:unique_filename => true
 	 }
 

@@ -9,11 +9,11 @@
          <div>
             <% if @user.picture.exists? %>
               <img src=<%= @user.picture.url(:download => false) %> />
+              <%= link_to "Delete", {:controller => "users", :action => "remove_attachment", :user => @user.id, :attachment_type => "picture"}, :method => "post" %>
             <% end %>
             <span class="btn btn-file">
             <span class="fileupload-new">Select Image</span>             
             <%= f.file_field :picture, :class => 'file_field' %>       </span>  
-            <%= link_to "Delete", {:controller => "users", :action => "remove_attachment", :user => @user.id, :attachment_type => "picture"}, :method => "post" %>
          </div>
       </div>
    </div>
@@ -28,7 +28,7 @@
       <% if @user.resume.exists? %> 
         <%= @user.resume_file_name %>
         <a href=<%= @user.resume.url(:download => true) %> class="btn fileupload-exists">Download</a>
+        <%= link_to "Delete", {:controller => "users", :action => "remove_attachment", :user => @user.id, :attachment_type => "resume"}, :method => "post" %>
       <% end %>
-      <%= link_to "Delete", {:controller => "users", :action => "remove_attachment", :user => @user.id, :attachment_type => "resume"}, :method => "post" %>
    </div>
 </div>
