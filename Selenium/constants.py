@@ -46,9 +46,9 @@ STUDENT_EDIT_UPDATE_BUTTON = '//*[@id="edit_user_1"]/div[2]/div[2]/input'
 STUDENT_MAJOR_TEXTVIEW = '/html/body/div[2]/div/div/div[2]/p'
 
 LOGIN_BUTTON_XPATH = '//*[@id="new_user_session"]/input[3]'
-NAVBAR_USER_NAME_XPATH = '/html/body/div[1]/div/div[2]/a[3]'
+NAVBAR_USER_NAME_XPATH = '/html/body/div[1]/div/div/div[2]/a[3]'
 NAVBAR_JOBS_XPATH = '/html/body/div[1]/div/div/div[2]/a[1]'
-NAVBAR_ORGANIZATION_XPATH = '/html/body/div[1]/div/div[2]/a[1]'
+NAVBAR_ORGANIZATION_XPATH = '/html/body/div[1]/div/div/div[2]/a[1]'
 
 ADD_JOB_XPATH = '/html/body/div[2]/div/div/div[2]/a[3]'
 JOB_NAME_TEXTBOX = '//*[@id="job_title"]'
