@@ -58,7 +58,7 @@ describe EventsController do
 
     it "assigns @event to event with id=1" do
       get :show, :id => @event.id
-      expect(assigns(:event)).to eq(Event.find_by_id(1))
+      expect(assigns(:event)).to eq(Event.find_by_id(@event.id))
     end
   end
 
