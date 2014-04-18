@@ -22,7 +22,9 @@
     <div class="w-container">
       <div class="w-row">
         <div class="w-col w-col-6 center">
-          <img class="hero-image" src=<%= @organization.link %> width="auto" height="auto" alt="5307e81e663cb6142a000316_UC-BERKELEY.jpg">
+          <% if @organization.organization_picture.exists? %>
+            <img class="hero-image" src=<%= @organization.organization_picture.url(:download => false) %> width="auto" height="auto" alt="5307e81e663cb6142a000316_UC-BERKELEY.jpg">
+          <% end %>
         </div>
         <div class="w-col w-col-6 hero-column">
           <h2><%= @organization.name %></h2>
@@ -50,6 +52,9 @@
           
           <h3><%= link_to event.name, event %></h3>
           <p><%= event.description %></p>
+          <% if event.event_picture.exists? %>
+            <img class="hero-image" src=<%= event.event_picture.url(:download => false) %> width="auto" height="auto" alt="5307e81e663cb6142a000316_UC-BERKELEY.jpg">
+          <% end %>
         </div>
 
         <% if k%4==3 %>
