@@ -38,7 +38,7 @@
 
     </h2>
 
-       <% if @org==@job.organization%>
+       <% if @org==@job.organization and current_user.recruiter%>
           <h3>Considering</h3>
           <% for user in @considering%>
             <form action=<%= changeAppStatus_job_path %> method="post">
