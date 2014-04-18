@@ -91,7 +91,8 @@ describe EventsController do
   describe "post create" do
     it "redirects to newly created event if success" do
       post :create, {"event"=>{"name"=>"blah", "location"=>"balh", "description"=>"blah", "link"=>"", "speakers"=>""}, "date"=>{"year"=>"2014", "month"=>"4", "day"=>"2", "hour"=>"00", "minute"=>"00"}}#{:event => {:name => 'yelp info', :location => 'woz', :date => DateTime.now, :description => 'blah' }, :date=> {"year" => '2014', "month" => 'July', "day" => "Monday", "hour"=>'10',"minute"=>'30'}}
-      expect(response).to redirect_to :action => :show, :id => 2
+      id = Event.find_by_name("blah").id
+      expect(response).to redirect_to :action => :show, :id =>id
     end
 
     it "should show two events now" do
