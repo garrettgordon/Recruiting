@@ -62,15 +62,24 @@
           <% (@event.users).each do |user| %>
           <% if not user.recruiter %>
             </br>
-            
+            <% if @user.picture.exists? %>
+            <img src=<%= @user.picture.url(:download => false) %> width="32px" height="32px" alt="5307e81e663cb6142a000316_UC-BERKELEY.jpg">            
+          <% end %>
             <%= link_to user.username, user %>
+        
+
+
           <% end %>
           <% end %>
         <% else %>
           <% (@event.users).each do |user| %>
           <% if user.recruiter %>
             </br>
+            <% if @user.picture.exists? %>
+            <img src=<%= @user.picture.url(:download => false) %> width="32px" height="32px" alt="5307e81e663cb6142a000316_UC-BERKELEY.jpg">            
+          <% end %>
             <%= link_to user.username, user %><a/>
+            
           <% end %>
           <% end %>
         <% end %>

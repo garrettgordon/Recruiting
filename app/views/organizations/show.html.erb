@@ -69,37 +69,7 @@
         </div>
       <% end %>
   </div>
-  <div class="section">
-    <h4>Job Listings:</h4>
-    <div class="w-container">
-      <% k=0 %>
-      <% for job in (@organization.jobs) do %>
-        <% if k%4==0 %>
-          <div class="w-row">
-        <% end %>
-
-        <div class="w-col w-col-3 w-col-small-6">
-          
-          <h3><%= link_to job.title, job %></h3>
-          <p><%= job.description %></p>
-        </div>
-
-        <% if k%4==3 %>
-          </div>
-        <% end %>
-        <% k=k+1 %>
-      <% end %>
-      <% if k%4 != 0 %>
-        </div>
-      <% end %>
-  </div>
-
-
-
-      
-      
-
-  </div>
+  
 
 
   <div class="section">
