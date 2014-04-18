@@ -109,6 +109,8 @@ class Job < ActiveRecord::Base
 			if !ja.save
 				return -1
 			end
+			self.save
+			usr.save
 			return ja[:status]
 		end
 	end
