@@ -24,29 +24,28 @@ describe "Organizations" do
 
   	end
 
-  	it "searches for organizations" do
-  		@user1 = FactoryGirl.create(:user) 
+  	# it "searches for organizations" do
+  	# 	@user1 = FactoryGirl.create(:user) 
 
-  		@org1 = FactoryGirl.build(:organization)
-  		@org1.name = "abcd"
-  		@org1.save
+  	# 	@org1 = FactoryGirl.build(:organization)
+  	# 	@org1.name = "abcd"
+  	# 	@org1.save
 
-  		@org2 = FactoryGirl.build(:organization)
-  		@org2.name = "abcde"
-  		@org2.save
+  	# 	@org2 = FactoryGirl.build(:organization)
+  	# 	@org2.name = "abcde"
+  	# 	@org2.save
 
-  		@org3 = FactoryGirl.create(:organization)
+  	# 	@org3 = FactoryGirl.create(:organization)
 
-  		sign_in()
-  		visit "/organizations"
+  	# 	sign_in()
+  	# 	visit "/organizations"
 
-  		fill_in "search", with: "abcd"
-  		click_button "Search"
+  	# 	fill_in "search", with: "yelp"
+  	# 	click_button "Search"
 
-  		page.should_not have_content("Name")
-  		page.should have_content("abcd")
+  	# 	page.should have_content("yelp")
 
-  	end
+  	# end
 
     it "has job listings" do
       @user1 = FactoryGirl.create(:user) 

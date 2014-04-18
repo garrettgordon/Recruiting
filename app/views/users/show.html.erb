@@ -40,36 +40,83 @@
               <br>Minor: <%= @user.minor %>
               <br>Skills: <%= @user.skill_list %>
               <br>Courses: <%= @user.course_list %>
+              <br>Resume: <a href=<%= @user.resume.url(:download => true) %> ><%= @user.resume_file_name %></a> 
+
               <% end %>
          <% if @user.recruiter %>
          <h2><%= @user.username %></h2>
           Name: <%= @user.name %><br>
           Username:<%= @user.username %><br>
             <br>Email: <%= @user.email %>
+
          <% end %>
               <% if @user == current_user %>
             </p><%= link_to 'Edit', edit_user_path, class:"button action" %></a>
             <% end %>
         </div>
 
-
-        
-        <div>
-          <h3>My Events:</h3>
-            <% @events.each do |event| %>
-              </br>
-              <h5><%= link_to event.name, event %></h5>
-              <% if event.event_picture.exists? %>
-                 <img class="hero-image" src=<%= event.event_picture.url(:download => false) %> width="auto" height="auto" alt="5307e81e663cb6142a000316_UC-BERKELEY.jpg">
-              <% end %>
-            <% end %>
-        </div>
-
-
-
-      </div>
+ </div>
     </div>
   </div>
+        
+        
+
+ <div class="section">
+    <h2>Events</h2>
+    <div class="w-container">
+      <% k=0 %>
+      <% @events.each do |event| %>
+        <% if k%4==0 %>
+          <div class="w-row">
+        <% end %>
+
+        <div class="w-col w-col-3 w-col-small-6">
+          
+          <h3><%= link_to event.name, event %></h3>
+          <p><%= event.description %></p>
+          <% if event.event_picture.exists? %>
+            <img class="hero-image" src=<%= event.event_picture.url(:download => false) %> width="auto" height="auto" alt="5307e81e663cb6142a000316_UC-BERKELEY.jpg">
+          <% end %>
+        </div>
+
+        <% if k%4==3 %>
+          </div>
+        <% end %>
+        <% k=k+1 %>
+      <% end %>
+      <% if k%4 != 0 %>
+        </div>
+      <% end %>
+
+<% if not @user.recruiter %>
+<div class="section">
+    <h2>Jobs</h2>
+    <div class="w-container">
+      <% k=0 %>
+      <% @user.jobs.each do |job| %>
+        <% if k%4==0 %>
+          <div class="w-row">
+        <% end %>
+
+        <div class="w-col w-col-3 w-col-small-6">
+          
+          <h3><%= link_to job.title, job %></h3>
+          <p><%= job.description %></p>
+        </div>
+
+        <% if k%4==3 %>
+          </div>
+        <% end %>
+        <% k=k+1 %>
+      <% end %>
+      <% if k%4 != 0 %>
+        </div>
+      <% end %>
+<% end %>
+
+
+
+     
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script type="text/javascript" src="js/webflow_events.js"></script>
 </body>

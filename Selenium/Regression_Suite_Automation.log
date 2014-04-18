@@ -1,69 +1,63 @@
 Test Areas - Element Inspection
 		Test Passed
 Homepage String found!
-Test Areas - Student sign up
-				Test Failed 
-				Failed to input password
-				Test Failed 
-				SIGN_UP UNSUCCESSFUL 
-Test Areas - Student sign up
-				Test Failed 
-				Failed to input email
-				Test Failed 
-				SIGN_UP UNSUCCESSFUL 
-Test Areas - Student sign up
-				Test Failed 
-				Failed to input email
-Test Areas - Student sign up
-				Test Failed 
-				Failed to input email
-Test Areas - Student sign up
-				Test Failed 
-				Failed to input email
-Test Areas - Student sign up
-				Test Failed 
-				Failed to input email
-Test Areas - Student sign up
-				Test Failed 
-				SIGN_UP UNSUCCESSFUL 
-Test Areas - Student sign up
-				Test Failed 
-				SIGN_UP UNSUCCESSFUL 
-Test Areas - Student sign up
-				Test Failed 
-				Failed to input email
-Test Areas - Student sign up
-				Test Failed 
-				SIGN_UP UNSUCCESSFUL 
-Test Areas - Student sign up
-				Test Failed 
-				SIGN_UP UNSUCCESSFUL 
+
+======================================
+otc_1
+======================================
+Test Areas - Element Inspection
+		Test Passed
+
+======================================
+otc_2
+======================================
+Test Areas - Element Inspection
+ Homepage string NOT present.
+		Test Passed
+
+======================================
+otc_3
+======================================
+Test Areas - Login
+		Test Passed
+ LOGIN SUCCESSFUL
+
+======================================
+otc_4
+======================================
 Test Areas - Student sign up
 		Test Passed
  SIGN_UP SUCCESSFUL
-Test Areas - Login
-				Test Failed 
-				FAILED TO GET TO EDIT PAGE 
-				Test Failed 
-				ENTERING MAJOR FAILED 
-				Test Failed 
-				STUDENT UPDATE FAILED 
-Test Areas - Login
-				Test Failed 
-				FAILED TO GET TO EDIT PAGE 
-				Test Failed 
-				ENTERING MAJOR FAILED 
-				Test Failed 
-				STUDENT UPDATE FAILED 
-Test Areas - Login
-				Test Failed 
-				STUDENT UPDATE FAILED 
+
+======================================
+otc_5
+======================================
 Test Areas - Login
 		Test Passed
 STUDENT UPDATE PASSED 
-Test Areas - Login
+
+======================================
+otc_6
+======================================
+Test Areas - Create Job
 		Test Passed
 STUDENT UPDATE PASSED 
-Test Areas - Login
+
+======================================
+otc_7
+======================================
+Test Areas - Create Job
 		Test Passed
-STUDENT UPDATE PASSED 
+RECRUITER ADD EVENT PASSED 
+
+======================================
+otc_8
+======================================
+
+======================================
+testconfiguration
+======================================
+
+======================================
+testconfiguration
+======================================

@@ -1,8 +1,8 @@
 Recruiting::Application.routes.draw do
   resources :events do
     member do
-      post :addUser
-      post :removeUser
+      get :addUser
+      get :removeUser
     end
   end
   resources :jobs do
