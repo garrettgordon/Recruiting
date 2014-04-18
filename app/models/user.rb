@@ -1,10 +1,9 @@
 class User < ActiveRecord::Base
 	has_attached_file :picture,
 	 :storage => :dropbox,
-	:dropbox_credentials => "#{Rails.root}/config/dropbox_config.yml",
-	 # :styles => { :medium => "300x300" , :thumb => "100x100>"},    
+	:dropbox_credentials => "#{Rails.root}/config/dropbox_config.yml",  
 	:dropbox_options => {       
-		:path => proc { |style| "#{style}/#{id}_#{picture.original_filename}"},
+		:path => proc { |style| "#{style}/users/images/#{id}_#{picture.original_filename}"},
 		:unique_filename => true
 	 }
 
@@ -12,11 +11,11 @@ class User < ActiveRecord::Base
 	 :storage => :dropbox,
 	:dropbox_credentials => "#{Rails.root}/config/dropbox_config.yml",
 	:dropbox_options => {
-		:path => proc { |style| "#{style}/#{id}_#{resume.original_filename}"},       
+		:path => proc { |style| "#{style}/users/resumes/#{id}_#{resume.original_filename}"},       
 		:unique_filename => true
 	 }
 
-	validates_attachment_content_type :picture, :content_type => ["image/jpg", "image/jpeg", "image/png", "application/pdf"]
+	validates_attachment_content_type :picture, :content_type => ["image/jpg", "image/jpeg", "image/png"]
 	validates_attachment_content_type :resume, :content_type => ["application/pdf"]
 
 	has_and_belongs_to_many :events
@@ -27,6 +26,10 @@ class User < ActiveRecord::Base
 	acts_as_taggable_on :skills, :courses
 
 	include PgSearch
+	multisearchable :against => [:name],
+									:using => {
+										:tsearch => { prefix:true, dictionary:'english'}
+									}
 	pg_search_scope :search,
 									:against => [:name],
 									:associated_against => {

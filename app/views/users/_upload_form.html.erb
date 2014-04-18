@@ -9,12 +9,11 @@
          <div>
             <% if @user.picture.exists? %>
               <img src=<%= @user.picture.url(:download => false) %> />
+              <%= link_to "Delete", {:controller => "users", :action => "remove_attachment", :user => @user.id, :attachment_type => "picture"}, :method => "post" %>
             <% end %>
             <span class="btn btn-file">
-            <span class="fileupload-new">Select image</span>     
-            <span class="fileupload-exists">Change</span>        
+            <span class="fileupload-new">Select Image</span>             
             <%= f.file_field :picture, :class => 'file_field' %>       </span>  
-            <%= link_to "Label", {:controller => "users", :action => "remove_attachment", :user => @user.id, :attachment_type => "picture"}, :method => "post" %>
          </div>
       </div>
    </div>
@@ -24,13 +23,12 @@
 <div class="fileupload fileupload-new" data-provides="fileupload">
    <div>
       <span class="btn btn-file">
-      <span class="fileupload-new">Select image</span>
-      <span class="fileupload-exists">Change</span> 
+      <span class="fileupload-new">Select Resume</span>
       <%= f.file_field :resume, :class => 'file_field' %>       </span>  
       <% if @user.resume.exists? %> 
         <%= @user.resume_file_name %>
         <a href=<%= @user.resume.url(:download => true) %> class="btn fileupload-exists">Download</a>
+        <%= link_to "Delete", {:controller => "users", :action => "remove_attachment", :user => @user.id, :attachment_type => "resume"}, :method => "post" %>
       <% end %>
-      <%= link_to "Label", {:controller => "users", :action => "remove_attachment", :user => @user.id, :attachment_type => "resume"}, :method => "post" %>
    </div>
 </div>

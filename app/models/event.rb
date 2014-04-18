@@ -1,4 +1,13 @@
 class Event < ActiveRecord::Base
+	has_attached_file :event_picture,
+	 	:storage => :dropbox,
+		:dropbox_credentials => "#{Rails.root}/config/dropbox_config.yml",
+	 	# :styles => { :medium => "300x300" , :thumb => "100x100>"},    
+		:dropbox_options => {       
+			:path => proc { |style| "#{style}/events/images/#{id}_#{event_picture.original_filename}"},
+			:unique_filename => true
+	 	}
+
 	#belongs_to :organization
 	has_and_belongs_to_many :users
 	has_and_belongs_to_many :organizations
@@ -12,6 +21,7 @@ class Event < ActiveRecord::Base
 	validates :location, :presence => true, :length => {maximum: MAX_LOCATION_LENGTH}
 	validates :description, :length => {maximum: MAX_DESCRIPTION_LENGTH}
 	validates :date, :presence => true 
+	validates_attachment_content_type :event_picture, :content_type => ["image/jpg", "image/jpeg", "image/png", "application/pdf"]
 
 	# deletes event with :id, returns 1 if successful delete otherwsie -1
 	# Event.DeleteEvent(id)

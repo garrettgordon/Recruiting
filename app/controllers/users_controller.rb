@@ -145,9 +145,19 @@ class UsersController < ApplicationController
     attachment_type = params[:attachment_type]
     if (attachment_type == "picture")
       @user.picture.destroy
+      @user[:picture_file_name] = nil
+      @user[:picture_content_type] = nil
+      @user[:picture_file_size] = nil
+      @user[:picture_updated_at] = nil
     elsif (attachment_type == "resume")
       @user.resume.destroy
+      @user[:resume_file_name] = nil
+      @user[:resume_content_type] = nil
+      @user[:resume_file_size] = nil
+      @user[:resume_updated_at] = nil
     end
+
+    @user.save
     redirect_to :back
     return
   end

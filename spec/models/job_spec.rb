@@ -76,7 +76,7 @@ describe Job do
   	l2.include?("awesomeness102").should==true
   end
 
-  it  "can remove tags" do
+  it "can remove tags" do
 
   	@job1.addSkillTag("talented")
     @job1.addSkillTag("really talented")

@@ -9,13 +9,13 @@
           <% else %>
         <div class="w-col w-col-8 navigation-column">
 
-                      <%=form_tag organizations_path, :method => 'get' do %>
+<%=form_tag search_index_path, :method => 'get' do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Search", :name => nil %>
   </p>
-<% end %>
-          <a class="nav-link" href="/home">Events</a><%= link_to current_user.username, current_user, class:"nav-link" %>  <%= link_to "Logout", logout_path, class:"nav-link" %>
+  <% end %>
+          <a class="nav-link" href="/home">Events</a><a class="nav-link" href="/jobs">Jobs</a><%= link_to current_user.username, current_user, class:"nav-link" %>  <%= link_to "Logout", logout_path, class:"nav-link" %>
           <% end %>
         </div>
         

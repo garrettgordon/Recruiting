@@ -44,6 +44,7 @@ gem 'bcrypt-ruby'
 gem 'acts_as_taggable_on'
 gem 'pg_search'
 
+gem 'select2-rails'
 group :assets do
 # Sass bootstrap
 	gem 'bootstrap-sass', '~> 3.1.1'

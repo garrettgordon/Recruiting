@@ -32,9 +32,10 @@
     <%= f.text_field :speakers, :placeholder => "Speakers", class: "w-input", id:"speakers_field"%><br>
   </div>
 
+  <%= render "events/upload_form", :f => f %>
 
   <div class="actions">
-    <%= f.submit 'Update', :class => "w-button" %>
+    <%= f.submit 'Create', :class => "w-button" %>
   </div>
 <% end %>
 
