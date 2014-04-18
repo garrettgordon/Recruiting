@@ -8,6 +8,8 @@ Recruiting::Application.routes.draw do
   resources :jobs do
     member do
     post :changeAppStatus
+    get :userApply
+    get :userUnapply
     end
   end
   resources :search

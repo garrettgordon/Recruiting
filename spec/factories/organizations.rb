@@ -2,9 +2,9 @@
 require 'faker'
 FactoryGirl.define do
   factory :organization do |o|
-    o.name {"Name"}
-    o.description {"Description"}
-    o.location {"Location"}
-    o.link {"Link"}
+    o.name {"yelp"}
+    o.description {"we analyze big data"}
+    o.location {"SF"}
+    o.link {""}
   end
 end

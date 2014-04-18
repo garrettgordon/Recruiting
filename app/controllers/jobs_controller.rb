@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-	before_action :set_job, only: [:edit, :show, :update, :delete, :changeAppStatus]
+	before_action :set_job, only: [:edit, :show, :update, :delete, :changeAppStatus, :userApply, :userUnapply]
 	def index
 		@jobs = Job.text_search(params[:search])
 	end
@@ -7,6 +7,18 @@ class JobsController < ApplicationController
 	def new
 		@job = Job.new
 	end
+
+	def userApply
+		result=@job.addUser(current_user[:id])
+		redirect_to current_user
+	end
+
+	def userUnapply
+		result=@job.removeUser(current_user[:id])
+		redirect_to current_user
+	end
+
+
 
 	def show
 		@org=current_user.organizations.first
