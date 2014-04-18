@@ -27,6 +27,10 @@ class User < ActiveRecord::Base
 	acts_as_taggable_on :skills, :courses
 
 	include PgSearch
+	multisearchable :against => [:name],
+									:using => {
+										:tsearch => { prefix:true, dictionary:'english'}
+									}
 	pg_search_scope :search,
 									:against => [:name],
 									:associated_against => {

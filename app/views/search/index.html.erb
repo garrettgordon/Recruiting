@@ -1,0 +1,8 @@
+<% @results.each do |result| %>
+	<% if result.searchable.is_a?(User) or result.searchable.is_a?(Organization) %>
+	<h2><%= result.searchable.name %></h2>
+	<% else %>
+	<h2><%= result.searchable.title %></h2>
+	<% end %>
+	<%= link_to 'Details', result.searchable, class:"button action" %></a>
+<% end %>

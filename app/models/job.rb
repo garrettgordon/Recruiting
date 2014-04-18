@@ -7,6 +7,10 @@ class Job < ActiveRecord::Base
 	validates :title, :presence => true, :length => {maximum: MAX_NAME_LENGTH}
 
 	include PgSearch
+	multisearchable :against => [:title, :description],
+									:using => {
+										:tsearch => { prefix: true, dictionary: 'english'}
+									}
 	pg_search_scope :search, 
 									:against => [:title, :description],
 									:associated_against => {
