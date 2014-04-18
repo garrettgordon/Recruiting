@@ -1,4 +1,14 @@
 class Organization < ActiveRecord::Base
+    has_attached_file :organization_picture,
+        :storage => :dropbox,
+        :dropbox_credentials => "#{Rails.root}/config/dropbox_config.yml",
+        :dropbox_options => {
+            :path => proc { |style| "#{style}/organization/images/#{id}_#{organization_picture.original_filename}"},
+            :unique_filename => true
+        }
+
+    validates_attachment_content_type :organization_picture, :content_type => ["image/jpg", "image/jpeg", "image/png"]
+
 	has_and_belongs_to_many :events
 	has_and_belongs_to_many :users
 	has_many :jobs
