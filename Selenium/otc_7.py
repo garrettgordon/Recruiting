@@ -43,7 +43,7 @@ class otc_7(unittest.TestCase):
             resultFile.write(TEST_FAILED + "Login Button click failed\n")
 
         try:
-            navbar_name = wd_handle.find_element_by_xpath(ADD_EVENT_XPATH)
+            navbar_name = wd_handle.find_element_by_xpath(ADD_JOB_XPATH)
             navbar_name.click()
         except Exception, e:
             resultFile.write(TEST_FAILED + "FAILED TO GET TO EDIT PAGE \n")
@@ -64,11 +64,7 @@ class otc_7(unittest.TestCase):
             update_button = wd_handle.find_element_by_xpath(JOB_CREATE_BUTTON)
             update_button.click()
 
-            # major_text_element = wd_handle.find_element_by_xpath(STUDENT_MAJOR_TEXTVIEW)
-            # if MAJOR in major_text_element.text:
             resultFile.write(TEST_PASSED + "STUDENT UPDATE PASSED \n")
-            # else:
-                # resultFile.write(TEST_FAILED + "STUDENT UPDATE FAILED \n")
         except:
             resultFile.write(TEST_FAILED + "STUDENT UPDATE FAILED \n")
 

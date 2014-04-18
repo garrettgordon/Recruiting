@@ -42,18 +42,18 @@ STUDENT_EDIT_BUTTON = '/html/body/div[2]/div/div/div[2]/a'
 MAJOR_TEXTBOX = '//*[@id="user_major"]'
 MAJOR = "Underwater Basket Weaving"
 RESUME_UPLOAD = '//*[@id="user_resume"]'
-STUDENT_EDIT_UPDATE_BUTTON = '//*[@id="edit_user_1"]/div[6]/input'
+STUDENT_EDIT_UPDATE_BUTTON = '//*[@id="edit_user_1"]/div[2]/div[2]/input'
 STUDENT_MAJOR_TEXTVIEW = '/html/body/div[2]/div/div/div[2]/p'
 
 LOGIN_BUTTON_XPATH = '//*[@id="new_user_session"]/input[3]'
-NAVBAR_USER_NAME_XPATH = '/html/body/div[1]/div/div/div[2]/a[3]'
+NAVBAR_USER_NAME_XPATH = '/html/body/div[1]/div/div[2]/a[3]'
 NAVBAR_JOBS_XPATH = '/html/body/div[1]/div/div/div[2]/a[1]'
-NAVBAR_ORGANIZATION_XPATH = '/html/body/div[1]/div/div/div[2]/a[1]'
+NAVBAR_ORGANIZATION_XPATH = '/html/body/div[1]/div/div[2]/a[1]'
 
 ADD_JOB_XPATH = '/html/body/div[2]/div/div/div[2]/a[3]'
 JOB_NAME_TEXTBOX = '//*[@id="job_title"]'
 JOB_DESCRIPTION_TEXTBOX = '//*[@id="job_description"]'
-JOB_CREATE_BUTTON = '//*[@id="new_job"]/div[3]/input'
+JOB_CREATE_BUTTON = '//*[@id="new_job"]/div[2]/input'
 
 ADD_EVENT_XPATH = '/html/body/div[2]/div/div/div[2]/a[2]'
 EVENT_NAME_TEXTBOX = '//*[@id="event_name"]'
