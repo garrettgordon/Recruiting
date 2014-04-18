@@ -4,7 +4,7 @@
 <html data-wf-site="5307e34e3e274f132a000190">
 <head>
   <meta charset="utf-8">
-  <title>Jobs</title>
+  <title>Job</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="css/normalize_events.css.scss">
   <link rel="stylesheet" type="text/css" href="css/webflow_events.css.scss">
@@ -17,26 +17,42 @@
   <link rel="apple-touch-icon" href="https://y7v4p6k4.ssl.hwcdn.net/51e088cb308929c46c000051/51e1a444bceaf5b67b00004d_thumbnail-starter.png">
 </head>
 <body>
-  <div class="section hero" >
+
+  <div class="section hero">
     <div class="w-container">
       <div class="w-row">
-        <div class="w-col w-col-6">
+        <div class="w-col w-col-6 center">
+
+          
           <div width="auto" height="auto">
-          </div>
+                  </div>
+
         </div>
+        <div align="left">
+
+
         <div class="w-col w-col-6 hero-column">
- 
+          <h2>Title: <%= @job.title %> <br>
+       Description: <%=@job.description %> <br>
+      Tags: <%=@job.skill_list %> <br>
 
-        
-       <p> Title: <%= @job.title %> </p>
-       <p> Description: <%=@job.description %> </p>
-       <p> Tags: <%=@job.skill_list %> </p>
+    </h2>
 
+    <% if current_user.recruiter and current_user.organizations.first.jobs.exists?(@job)%>
+            <%= link_to 'Edit', edit_job_path, class:"button action" %>
+            <%= link_to 'Delete', {:controller => 'jobs', :action => 'destroy'}, class:"button action" %>
 
+        <% end %>
+        </div>
       </div>
     </div>
+
+          </div>
   </div>
+  <hr>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script type="text/javascript" src="js/webflow_events.js"></script>
 </body>
 </html>
+        
+       

@@ -2,7 +2,7 @@
 <div class="control-group">
    <%#= f.label :picture, :class => 'control-label' %>   
    <div class="controls">
-      <h4> Profile Picture upload </h4>
+      <h4><div align="left"><%= @user.username %></div></h4>
       <div class="fileupload fileupload-new" data-provides="fileupload">
          <!-- <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;"> -->
          <!-- </div>  -->
@@ -19,16 +19,3 @@
    </div>
 </div>
 
-<h4> Resume upload </h4>
-<div class="fileupload fileupload-new" data-provides="fileupload">
-   <div>
-      <span class="btn btn-file">
-      <span class="fileupload-new">Select Resume</span>
-      <%= f.file_field :resume, :class => 'file_field' %>       </span>  
-      <% if @user.resume.exists? %> 
-        <%= @user.resume_file_name %>
-        <a href=<%= @user.resume.url(:download => true) %> class="btn fileupload-exists">Download</a>
-        <%= link_to "Delete", {:controller => "users", :action => "remove_attachment", :user => @user.id, :attachment_type => "resume"}, :method => "post" %>
-      <% end %>
-   </div>
-</div>

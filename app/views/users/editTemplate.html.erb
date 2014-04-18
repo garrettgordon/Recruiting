@@ -7,7 +7,16 @@
 
   <% end %>
 
-    <%= f.text_field :username, :placeholder => "Username", class: "w-input" %>
+    <div class="w-container">
+      <div class="w-row">
+        <div class="w-col w-col-6">
+          <div width="auto" height="auto">
+        <%= render "users/upload_form", :f => f %>
+          </div>
+        </div>
+
+        <div class="w-col w-col-6 hero-column";float:right>
+              <%= f.text_field :username, :placeholder => "Username", class: "w-input" %>
 
     <%= f.text_field :name, :placeholder => "Name", class: "w-input" %>
 
@@ -36,13 +45,40 @@
     <%= f.text_field :graduating_year, :placeholder => "Graduating Year", class: "w-input" %>
     <% end %>
 
+<h4><div align="left">Resume: </div>
+       <% if @user.resume.exists? %> 
+        <div align="left">
+        <a href=<%= @user.resume.url(:download => true) %> class="h4"><%= @user.resume_file_name %></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <%= link_to "Delete", {:controller => "users", :action => "remove_attachment", :user => @user.id, :attachment_type => "resume"}, :method => "post" %></div>
+      <% end %></h4> 
+      
+<div class="fileupload fileupload-new" data-provides="fileupload">
+   <div>
+      <span class="btn btn-file">
+      <span class="fileupload-new">Select Resume</span>
+      <%= f.file_field :resume, :class => 'file_field' %>       </span>  
 
-    <%= render "users/upload_form", :f => f %>
+   </div>
+</div>
+
+    
     
 
 
+
+
+        
+        
+
+
+      </div>
+    </div>
+<br>
   <div class="actions">
     <%= f.submit 'Update', :class => "w-button" %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")), users_path, :class => 'btn' %> 
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")), users_path, :class => 'w-button' %> 
   </div>
 <% end %>
+        </div>
+  </div>
+
