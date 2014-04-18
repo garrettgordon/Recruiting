@@ -61,7 +61,7 @@ describe "Organizations" do
       @user1.save
       @org1.save
       sign_in()
-      visit "/organizations/1"
+      visit "/organizations/"+@org1.id
       page.should have_content("Job Listings:")
       page.should have_content("MyString")
     end
