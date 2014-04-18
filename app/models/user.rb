@@ -48,7 +48,7 @@ class User < ActiveRecord::Base
   	if query.present?
   		search(query)
   	else
-  		scoped
+  		User.all
   	end
   end
 

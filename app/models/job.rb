@@ -24,7 +24,7 @@ class Job < ActiveRecord::Base
   	if query.present?
   		search(query)
   	else
-  		scoped
+  		Job.all
   	end
   end
 
