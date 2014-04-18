@@ -93,6 +93,17 @@ describe Job do
   end
 
   it "can change application status" do
+    @usr2 = FactoryGirl.create(:user, :username => "fred", :email => "blah@berkeley.edu", :id => 2)
+    @user_session2 = UserSession.create(@usr2)
+    @usr2.jobs << @job1
+    (@usr2.jobs.include?(@job1)).should==true
+    ja=Jobapp.find_by_user_id_and_job_id(@usr2[:id], @job1[:id])
+    ja.nil?.should==false
+    jas=Jobapp.where(:user_id => @usr2[:id])
+    jas.nil?.should==false
+    jas.length.should==1
+    x=@job1.changeAppStatus(@usr2[:id], 1)
+    x.should==1
   end
 
 end

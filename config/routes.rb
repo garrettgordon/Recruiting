@@ -5,7 +5,13 @@ Recruiting::Application.routes.draw do
       post :removeUser
     end
   end
-  resources :jobs
+  resources :jobs do
+    member do
+    post :changeAppStatus
+    get :userApply
+    get :userUnapply
+    end
+  end
   resources :search
   resources :user_verifications
   resources :organizations

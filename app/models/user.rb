@@ -44,6 +44,14 @@ class User < ActiveRecord::Base
 		config.perishable_token_valid_for = 1.hour
 	end
 
+  def self.text_search(query)
+  	if query.present?
+  		search(query)
+  	else
+  		User.all
+  	end
+  end
+
 
 	def deliver_verification_instructions!
 		reset_perishable_token!
@@ -54,4 +62,39 @@ class User < ActiveRecord::Base
 		self.verified = true
 		self.save
 	end
+
+	def applyToJob(jid)
+		jb=Job.find(jid)
+		if jb.nil?
+			return false
+		elsif self.jobs.include?(jb)
+			return false
+		end
+		self.jobs << jb
+		ja=Jobapp.find_by_user_id_and_job_id(self[:id], jb[:id])
+		if ja.nil?
+			return false
+		end
+		ja.status=0
+		return self.jobs.include?(jb)
+	end
+
+	def changeApplicantStatus(uid, jid, stat)
+		job=Job.find(jid)
+		user=User.find(uid)
+		ja=Jobapp.find_by_user_id_and_job_id(uid, jid)
+		if ja.nil? || job.nil? || user.nil?
+			return false
+		end
+		if self[:recruiter]==false || self.organizations.first!=job.organization
+			return false
+		end
+		ja.status=stat
+		ja.save
+		job.save
+		user.save
+		return true
+	end
+
+	
 end

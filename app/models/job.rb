@@ -20,13 +20,13 @@ class Job < ActiveRecord::Base
 										:tsearch => { prefix: true, dictionary: 'english'}
 									}
 
-	def self.tag_search(query)
-		if query.present?
-			search(query)
-		else
-			scoped
-		end
-	end
+  def self.text_search(query)
+  	if query.present?
+  		search(query)
+  	else
+  		Job.all
+  	end
+  end
 
 	def addUser(id)
 		u=User.find(id)
@@ -37,6 +37,8 @@ class Job < ActiveRecord::Base
 		if self.users.last != u
 			return -1
 		end
+		u.save
+		self.save
 		return 1
 	end
 
@@ -49,6 +51,8 @@ class Job < ActiveRecord::Base
 		if self.users.include?(u)
 			return -1
 		end
+		u.save
+		self.save
 		return 1
 	end
 
@@ -94,6 +98,25 @@ class Job < ActiveRecord::Base
 			return -1
 		end
 		return 1
+	end
+
+	def changeAppStatus(uid, newstat)
+		usr=User.find(uid)
+		if usr.nil? || !self.users.include?(usr)
+			return -1
+		else
+			ja=Jobapp.find_by_user_id_and_job_id(uid, self[:id])
+			if ja.nil?
+				return -1
+			end
+			ja.status=newstat
+			if !ja.save
+				return -1
+			end
+			self.save
+			usr.save
+			return ja[:status]
+		end
 	end
 
 end

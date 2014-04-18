@@ -1,0 +1,69 @@
+Test Areas - Element Inspection
+		Test Passed
+Homepage String found!
+Test Areas - Student sign up
+				Test Failed 
+				Failed to input password
+				Test Failed 
+				SIGN_UP UNSUCCESSFUL 
+Test Areas - Student sign up
+				Test Failed 
+				Failed to input email
+				Test Failed 
+				SIGN_UP UNSUCCESSFUL 
+Test Areas - Student sign up
+				Test Failed 
+				Failed to input email
+Test Areas - Student sign up
+				Test Failed 
+				Failed to input email
+Test Areas - Student sign up
+				Test Failed 
+				Failed to input email
+Test Areas - Student sign up
+				Test Failed 
+				Failed to input email
+Test Areas - Student sign up
+				Test Failed 
+				SIGN_UP UNSUCCESSFUL 
+Test Areas - Student sign up
+				Test Failed 
+				SIGN_UP UNSUCCESSFUL 
+Test Areas - Student sign up
+				Test Failed 
+				Failed to input email
+Test Areas - Student sign up
+				Test Failed 
+				SIGN_UP UNSUCCESSFUL 
+Test Areas - Student sign up
+				Test Failed 
+				SIGN_UP UNSUCCESSFUL 
+Test Areas - Student sign up
+		Test Passed
+ SIGN_UP SUCCESSFUL
+Test Areas - Login
+				Test Failed 
+				FAILED TO GET TO EDIT PAGE 
+				Test Failed 
+				ENTERING MAJOR FAILED 
+				Test Failed 
+				STUDENT UPDATE FAILED 
+Test Areas - Login
+				Test Failed 
+				FAILED TO GET TO EDIT PAGE 
+				Test Failed 
+				ENTERING MAJOR FAILED 
+				Test Failed 
+				STUDENT UPDATE FAILED 
+Test Areas - Login
+				Test Failed 
+				STUDENT UPDATE FAILED 
+Test Areas - Login
+		Test Passed
+STUDENT UPDATE PASSED 
+Test Areas - Login
+		Test Passed
+STUDENT UPDATE PASSED 
+Test Areas - Login
+		Test Passed
+STUDENT UPDATE PASSED 
