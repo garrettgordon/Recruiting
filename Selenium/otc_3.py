@@ -25,16 +25,16 @@ class otc_3(unittest.TestCase):
         try:
             mp3_header = wd_handle.find_element_by_xpath(HOMEPAGE_STRING_XPATH)
             if mp3_header.text == HOMEPAGE_STRING:
-                resultFile.write(" Homepage \"Amazon MP3\" string present.\n")
+                resultFile.write(" Homepage string present.\n")
         except:
-            resultFile.write(TEST_FAILED + " Homepage \"Amazon MP3\" string NOT present.\n")
+            resultFile.write(TEST_FAILED + " Homepage string NOT present.\n")
         #Check for "Browse MP3s" header on left panel
         try:
             browse_mp3s = wd_handle.find_element_by_xpath(HOMEPAGE_BROWSE_SIGN_UP)
             if browse_mp3s.text == HOMEPAGE_BROWSE_MP3s_STRING:
-                resultFile.write(" Homepage \"Browse MP3s\" string present.\n")
+                resultFile.write(" Homepage string present.\n")
         except:
-            resultFile.write(" Homepage \"Browse MP3s\" string NOT present.\n")
+            resultFile.write(" Homepage string NOT present.\n")
        
 
         if mp3_header and browse_mp3s:
