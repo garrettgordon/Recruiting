@@ -26,6 +26,7 @@ Recruiting::Application.routes.draw do
   # You can have the root of your site routed with "root"
   get "/home", :controller => 'events', :action => 'index'
   root 'users#index'
+  post "/organizations/remove_attachment" => 'organizations#remove_attachment'
   post "/remove_attachment" => 'users#remove_attachment'
   post "/events/remove_attachment" => 'events#remove_attachment'
 
