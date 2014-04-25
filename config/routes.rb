@@ -7,9 +7,9 @@ Recruiting::Application.routes.draw do
   end
   resources :jobs do
     member do
-    post :changeAppStatus
-    get :userApply
-    get :userUnapply
+      post :changeAppStatus
+      get :userApply
+      get :userUnapply
     end
   end
   resources :search

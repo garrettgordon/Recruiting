@@ -10,15 +10,9 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require select2
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
 
 // in your javascript...
-$(document).ready(function() {
-$(function() {
-  $('#job_skill_list').select2({tags:["red"]})
-});
-}

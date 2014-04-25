@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-	before_action :set_job, only: [:edit, :show, :update, :delete, :changeAppStatus, :userApply, :userUnapply]
+	before_action :set_job, only: [:edit, :show, :update, :destroy, :changeAppStatus, :userApply, :userUnapply]
 	def index
 		@jobs = Job.text_search(params[:search])
 	end
@@ -82,12 +82,13 @@ class JobsController < ApplicationController
 		redirect_to @job
 	end
 
-	def delete
+	def destroy
+		org = @job.organization
 		@job.destroy
-    	respond_to do |format|
-	      	format.html { redirect_to users_url }
-	      	format.json { head :no_content }
-    	end
+    respond_to do |format|
+	    format.html { redirect_to org }
+	    format.json { head :no_content }
+    end
 	end
 
 	private 

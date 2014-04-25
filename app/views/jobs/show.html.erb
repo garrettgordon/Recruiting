@@ -62,7 +62,7 @@
         <% end %>
        <% if current_user.recruiter and @job.organization == current_user.organizations.first %>
        <%= link_to 'Edit', edit_job_path, class:"button action" %>
-       <%= link_to 'Delete', {:controller => 'jobs', :action => 'destroy'}, class:"button action" %>
+       <%= link_to 'Delete', job_path(@job), method: "delete", class:"button action" %>
        <% end %>
 
 
