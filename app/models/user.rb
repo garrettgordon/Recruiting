@@ -41,7 +41,7 @@ class User < ActiveRecord::Base
 									}
 
 	acts_as_authentic do |config|
-		config.perishable_token_valid_for = 1.hour
+		config.perishable_token_valid_for = 24.hour
 	end
 
   def self.text_search(query)
