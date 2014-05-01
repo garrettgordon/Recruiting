@@ -24,7 +24,15 @@
       <div class="w-row">
         <div class="w-col w-col-6 center">
           <div width="auto" height="auto">
-                    <%= image_tag event.event_picture %>
+                    <% if event.event_picture.exists? %>
+                  
+                        <%= image_tag event.event_picture %>
+                    <% else %>
+                        <%= image_tag "UC-BERKELEY.jpg", class:"hero-image", width:"auto", height:"auto" %>    
+                    <% end %>
+
+
+
                   </div>
         </div>
         <div class="w-col w-col-6 hero-column">
