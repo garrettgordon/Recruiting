@@ -31,16 +31,28 @@
           <% if not @user.recruiter %>
           <h2><%= @user.username %></h2>
           Name: <%= @user.name %><br>
-          GPA: <%= @user.gpa %><br>
-          Username:<%= @user.username %><br>
-          Website:<%= @user.website %><br>
+    
+          
+          Major: <%= @user.major %><br>
           Graduating year:<%= @user.graduating_year %><br>
-          <p>Major: <%= @user.major %>
-            <br>Email: <%= @user.email %>
-              <br>Minor: <%= @user.minor %>
+          
+            Email: <%= @user.email %>
+              
               <br>Skills: <%= @user.skill_list %>
-              <br>Courses: <%= @user.course_list %>
+              
               <br>Resume: <a href=<%= @user.resume.url(:download => true) %> ><%= @user.resume_file_name %></a> 
+              <br><br>
+
+
+
+          <%= link_to (image_tag "gfacebook.png", width:"40"), @user.website, class:"w-inline-block social-link" %>
+
+          <%= link_to (image_tag "glinkedin.png", width:"40"), @user.website, class:"w-inline-block social-link" %>
+
+
+
+      <br><br>
+
 
               <% end %>
          <% if @user.recruiter %>
@@ -48,6 +60,7 @@
           Name: <%= @user.name %><br>
           Username:<%= @user.username %><br>
             <br>Email: <%= @user.email %>
+
 
          <% end %>
               <% if @user == current_user %>
