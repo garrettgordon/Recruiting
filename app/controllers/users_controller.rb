@@ -88,6 +88,27 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.recruiter= false
+
+    password = user_params[:password]
+    password_confirmation = user_params[:password_confirmation]
+    
+    if (password != password_confirmation) 
+        flash[:notice] = "Password and confirmation do not match!" 
+        redirect_to "/"
+        return
+    end
+
+    if (@user.username.length < 4)
+      flash[:notice] = "Username must be at least 4 characters!" 
+      redirect_to "/"
+      return
+    end
+
+    if (@user.password.length < 4 or @user.password_confirmation.length < 4)
+      flash[:notice] = "Passwords must be at least 4 characters!" 
+      redirect_to "/"
+      return
+    end
     # Extract last 13 characters to check if "@berkeley.edu"
     email = @user.email[@user.email.length-13, @user.email.length]
     # regexMatch = /@.*.berkeley.edu$/
@@ -104,7 +125,7 @@ class UsersController < ApplicationController
       else
         # format.html { render action: 'new' }
         # format.json { render json: @user.errors, status: :unprocessable_entity }
-        flash[:notice] = "All fields other than email must be at least 4 characters and contain valid characters." 
+        flash[:notice] = "We are sorry but this username is already taken or an account with this email has already been registered." 
         redirect_to "/"
       end
     else

@@ -70,7 +70,7 @@
           <%= link_to 'Apply', userApply_job_path, class:"button action" %>
        <% end %>
        <% if !(current_user.recruiter) && current_user.jobs.include?(@job)%>
-          <%= link_to 'Cancel Application', userUnapply_job_path, class:"button action" %>
+          <h5 class="button action"> Already Applied </h5>
        <% end %>
 
       </div>
