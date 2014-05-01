@@ -39,7 +39,6 @@
     <%= f.text_field :website, :placeholder => "Linkedin URL", class: "w-input" %>
 
     <%= f.text_field :graduating_year, :placeholder => "Graduating Year", class: "w-input" %>
-    <% end %>
 
 <h4><div align="left">Resume: </div>
        <% if @user.resume.exists? %> 
@@ -53,7 +52,7 @@
       <span class="btn btn-file">
       <span class="fileupload-new">Select Resume</span>
       <%= f.file_field :resume, :class => 'file_field' %>       </span>  
-
+    <% end %>
    </div>
 </div>
 
