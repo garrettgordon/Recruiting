@@ -101,7 +101,7 @@
         <div class="w-col w-col-3 w-col-small-6">
           
           <h3><%= link_to job.title, job %></h3>
-          <% ja=Jobapp.find_by_user_id_and_job_id(current_user[:id], job[:id]) %>
+          <% ja=Jobapp.find_by_user_id_and_job_id(@user[:id], job[:id]) %>
           <% status= ja[:status] %>
           <% if status==0 or status==nil %>
             <h5 style="background-color:yellow">Status: Pending</h5>
