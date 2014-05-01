@@ -114,7 +114,6 @@ class UsersController < ApplicationController
     end
     # Extract last 13 characters to check if "@berkeley.edu"
     email = @user.email[@user.email.length-13, @user.email.length]
-    # regexMatch = /@.*.berkeley.edu$/
     regexMatch = /(@*\.berkeley.edu|@berkeley.edu)$/
     matchesFound = regexMatch.match(email)
     if matchesFound
@@ -141,6 +140,17 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     logger.debug
+    
+    email = user_params[:email]
+    email = email[email.length-13, email.length]
+    regexMatch = /(@*\.berkeley.edu|@berkeley.edu)$/
+    matchesFound = regexMatch.match(email)
+    if (!matchesFound)
+      flash[:notice] = "Update failed: Must use a *.berkeley.edu email address!"
+      redirect_to :back
+      return
+    end
+
     respond_to do |format|
       if @user.update(user_params)
         @user.skill_list = user_params[:skill_list]
