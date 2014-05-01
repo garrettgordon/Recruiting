@@ -56,9 +56,10 @@
         
 
         
-        <h4>Attending:</h4>
-        <div id="" style="overflow-y: hidden; height:400px;">
+        
         <% if (@user.recruiter) %>
+        <h4>Students Attending:</h4>
+        <div id="" style="overflow-y: hidden; height:400px;">
           <% (@event.users).each do |user| %>
           <% if not user.recruiter %>
             </br>
@@ -72,6 +73,8 @@
           <% end %>
           <% end %>
         <% else %>
+        <h4>Recruiters Attending:</h4>
+        <div id="" style="overflow-y: hidden; height:400px;">
           <% (@event.users).each do |user| %>
           <% if user.recruiter %>
             </br>
