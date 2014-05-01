@@ -31,16 +31,28 @@
           <% if not @user.recruiter %>
           <h2><%= @user.username %></h2>
           Name: <%= @user.name %><br>
-          GPA: <%= @user.gpa %><br>
-          Username:<%= @user.username %><br>
-          Website:<%= @user.website %><br>
+    
+          
+          Major: <%= @user.major %><br>
           Graduating year:<%= @user.graduating_year %><br>
-          <p>Major: <%= @user.major %>
-            <br>Email: <%= @user.email %>
-              <br>Minor: <%= @user.minor %>
+          
+            Email: <%= @user.email %>
+              
               <br>Skills: <%= @user.skill_list %>
-              <br>Courses: <%= @user.course_list %>
+              
               <br>Resume: <a href=<%= @user.resume.url(:download => true) %> ><%= @user.resume_file_name %></a> 
+              <br><br>
+
+
+
+          <%= link_to (image_tag "gfacebook.png", width:"40"), @user.website, class:"w-inline-block social-link" %>
+
+          <%= link_to (image_tag "glinkedin.png", width:"40"), @user.website, class:"w-inline-block social-link" %>
+
+
+
+      <br><br>
+
 
               <% end %>
          <% if @user.recruiter %>
@@ -48,6 +60,7 @@
           Name: <%= @user.name %><br>
           Username:<%= @user.username %><br>
             <br>Email: <%= @user.email %>
+
 
          <% end %>
               <% if @user == current_user %>
@@ -101,6 +114,17 @@
         <div class="w-col w-col-3 w-col-small-6">
           
           <h3><%= link_to job.title, job %></h3>
+          <% ja=Jobapp.find_by_user_id_and_job_id(@user[:id], job[:id]) %>
+          <% status= ja[:status] %>
+          <% if status==0 or status==nil %>
+            <h5 style="background-color:yellow">Status: Pending</h5>
+          <% end %>
+          <% if status==1 %>
+            <h5 style="background-color:green">Status: Accepted</h5>
+          <% end %>
+          <% if status==2 %>
+            <h5 style="background-color:red">Status: Denied</h5>
+          <% end %>
           <p><%= job.description %></p>
         </div>
 

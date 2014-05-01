@@ -2,7 +2,8 @@
       <div class="container">
       <div class="w-row">
         <div class="w-col w-col-3">
-          <div class="company">Recruit Berkeley
+          <div class="company"><a href="/" style="text-decoration: none;color:white">
+                        Recruit Berkeley</a>
           </div>
         </div>
 
@@ -19,6 +20,7 @@
           <%=form_tag search_index_path, :method => 'get' do %>
           <%= text_field_tag :search, params[:search], class:'form-control',placeholder:'Search for jobs/users' %>
           <%= submit_tag "Search", :name => nil, class:'w-button' %>
+
         <% end %>
       </div>
         <% end %>
