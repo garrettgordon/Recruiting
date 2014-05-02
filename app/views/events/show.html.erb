@@ -22,7 +22,18 @@
       <div class="w-row">
         <div class="w-col w-col-6 center">
           <div width="auto" height="auto">
-                    <%= image_tag @event.event_picture %>
+
+
+                  <% if @event.event_picture.exists? %>
+                  
+                        <img class="hero-image" src=<%= @event.event_picture.url(:download => false) %> width="auto" height="auto" alt="5307e81e663cb6142a000316_UC-BERKELEY.jpg">
+                    <% else %>
+                        <%= image_tag "UC-BERKELEY.jpg", class:"hero-image", width:"auto", height:"auto" %>    
+                    <% end %>
+
+
+
+                    
                   </div>
         </div>
         <div class="w-col w-col-6 hero-column">
@@ -56,15 +67,22 @@
         
 
         
-        <h4>Attending:</h4>
-        <div id="" style="overflow-y: hidden; height:400px;">
+        
         <% if (@user.recruiter) %>
+        <h4>Students Attending:</h4>
+        <div id="" style="overflow-y: hidden; height:400px;">
           <% (@event.users).each do |user| %>
           <% if not user.recruiter %>
             </br>
             <% if user.picture.exists? %>
-            <img src=<%= @user.picture.url(:download => false) %> width="32px" height="32px" alt="5307e81e663cb6142a000316_UC-BERKELEY.jpg">            
+            <img src=<%= user.picture.url(:download => false) %> width="32px" height="32px" alt="5307e81e663cb6142a000316_UC-BERKELEY.jpg">  
+            <% else %>
+                  <%= image_tag "default_user_image.png", width:"32px", height:"32px" %>    
           <% end %>
+
+         
+
+
             <%= link_to user.username, user %>
         
 
@@ -72,11 +90,15 @@
           <% end %>
           <% end %>
         <% else %>
+        <h4>Recruiters Attending:</h4>
+        <div id="" style="overflow-y: hidden; height:400px;">
           <% (@event.users).each do |user| %>
           <% if user.recruiter %>
             </br>
             <% if user.picture.exists? %>
-            <img src=<%= @user.picture.url(:download => false) %> width="32px" height="32px" alt="5307e81e663cb6142a000316_UC-BERKELEY.jpg">            
+            <img src=<%= user.picture.url(:download => false) %> width="32px" height="32px" alt="5307e81e663cb6142a000316_UC-BERKELEY.jpg">  
+            <% else %>
+                  <%= image_tag "default_user_image.png", width:"32px", height:"32px" %>           
           <% end %>
             <%= link_to user.username, user %><a/>
             

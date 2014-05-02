@@ -23,7 +23,11 @@
         <div class="w-col w-col-6">
           <div width="auto" height="auto">
           <% if @user.picture.exists? %>
+
             <img class="hero-image" src=<%= @user.picture.url(:download => false) %> width="auto" height="auto" alt="5307e81e663cb6142a000316_UC-BERKELEY.jpg">
+            
+          <% else %>
+            <%= image_tag "default_user_image.png", class:"hero-image", width:"auto", height:"auto" %>
           <% end %>
           </div>
         </div>
@@ -87,9 +91,15 @@
           
           <h3><%= link_to event.name, event %></h3>
           <p><%= event.description %></p>
-          <% if event.event_picture.exists? %>
-            <img class="hero-image" src=<%= event.event_picture.url(:download => false) %> width="auto" height="auto" alt="5307e81e663cb6142a000316_UC-BERKELEY.jpg">
-          <% end %>
+
+          
+                  <% if event.event_picture.exists? %>
+                  
+                        <img class="hero-image" src=<%= event.event_picture.url(:download => false) %> width="auto" height="auto" alt="5307e81e663cb6142a000316_UC-BERKELEY.jpg" align="bottom">
+                    <% else %>
+                        <%= image_tag "UC-BERKELEY.jpg", class:"hero-image", width:"auto", height:"auto" %>    
+                    <% end %>
+          
         </div>
 
         <% if k%4==3 %>
@@ -113,17 +123,21 @@
 
         <div class="w-col w-col-3 w-col-small-6">
           
-          <h3><%= link_to job.title, job %></h3>
           <% ja=Jobapp.find_by_user_id_and_job_id(@user[:id], job[:id]) %>
           <% status= ja[:status] %>
           <% if status==0 or status==nil %>
-            <h5 style="background-color:yellow">Status: Pending</h5>
+            <h3><%= link_to job.title, job, style:"color:#012E64" %></h3>
+            <h5>Status: Pending</h5>
           <% end %>
           <% if status==1 %>
-            <h5 style="background-color:green">Status: Accepted</h5>
+            <h3><%= link_to job.title, job, style:"color:green" %></h3>
+
+            <h5>Status: Accepted</h5>
           <% end %>
           <% if status==2 %>
-            <h5 style="background-color:red">Status: Denied</h5>
+          <h3><%= link_to job.title, job, style:"color:red" %></h3>
+
+            <h5>Status: Denied</h5>
           <% end %>
           <p><%= job.description %></p>
         </div>
