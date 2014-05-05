@@ -10,6 +10,17 @@
         <% if current_user.recruiter %>
         <div class="w-col w-col-8 navigation-column"><%= link_to current_user.organizations.first.name, current_user.organizations.first, class:"nav-link" %> <%= link_to current_user.username, current_user, class:"nav-link" %>  <%= link_to "Logout", logout_path, class:"nav-link" %>
 
+            <div class="navbar-form navbar-right">
+          <%=form_tag search_index_path, :method => 'get' do %>
+          <%= text_field_tag :search, params[:search], class:'form-control search',placeholder:'Search for jobs/users' %>
+          <%= submit_tag "Search", :name => nil, class:'w-button' %>
+        </div>
+        <% end %>
+
+
+
+
+
           <% else %>
         <div class="w-col w-col-8 navigation-column">
 
@@ -20,9 +31,9 @@
           <%=form_tag search_index_path, :method => 'get' do %>
           <%= text_field_tag :search, params[:search], class:'form-control search',placeholder:'Search for jobs/users' %>
           <%= submit_tag "Search", :name => nil, class:'w-button' %>
-
+        </div>
         <% end %>
-      </div>
+      
         <% end %>
         </div>
         

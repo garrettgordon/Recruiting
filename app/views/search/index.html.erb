@@ -84,6 +84,31 @@
 
   
   </div>
+  <div class="section">
+    <h2>Events</h2>
 
+    <div class="w-container">
+      <% k=0 %>
+      <% @events.each do |event| %>
+        <% if k%4==0 %>
+          <div class="w-row">
+        <% end %>
+
+        <div class="w-col w-col-3 w-col-small-6">
+          
+          <h3><h2><%= event.title %></h2></h3>
+          <%= link_to 'Details', event, class:"button action" %></a>
+          
+        </div>
+
+        <% if k%4==3 %>
+          </div>
+        <% end %>
+        <% k=k+1 %>
+      <% end %>
+      <% if k%4 != 0 %>
+        </div>
+      <% end %>
+  </div>
 
 
