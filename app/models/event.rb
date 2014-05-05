@@ -25,12 +25,12 @@ class Event < ActiveRecord::Base
 
 
 	include PgSearch
-	multisearchable :against => [:title, :description],
+	multisearchable :against => [:name, :description],
 									:using => {
 										:tsearch => { prefix: true, dictionary: 'english'}
 									}
 	pg_search_scope :search, 
-									:against => [:title, :description],
+									:against => [:name, :description],
 									:associated_against => {
 										:skills => [:name]
 									},
@@ -42,10 +42,10 @@ class Event < ActiveRecord::Base
   	if query.present?
   		search(query)
   	else
-  		Job.all
+  		Event.all
   	end
   end
-	
+
 
 	# deletes event with :id, returns 1 if successful delete otherwsie -1
 	# Event.DeleteEvent(id)
