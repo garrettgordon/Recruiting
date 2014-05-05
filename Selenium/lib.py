@@ -69,7 +69,7 @@ def is_element_present(wd_handle,type,constant):
     This function waits for an element to appear on a given page for specified amount of time
     The function takes 3 agruments - webdriver_handle,method to search the element eg, xpath , id or css and element xpath or id or css selector to identify the element.
     """
-    print "Action : checking if element present : "+constant+"\n"
+    print("Action : checking if element present : " + constant + "\n")
     try:
         if type == "xpath":
             element = WebDriverWait(wd_handle, 5).until(lambda driver :wd_handle.find_element_by_xpath(constant))
@@ -88,7 +88,7 @@ def is_element_present(wd_handle,type,constant):
         else:
             result = False
     except:
-        print 'Could not retrieve element: '+constant+'\n'
+        print('Could not retrieve element: '+constant+'\n')
         result = False
     return result
     
@@ -99,7 +99,7 @@ def wait_for_pageload(wd_handle,url_current_page):
     """
     # collect url of thankyou page to get the order ID
     while url_current_page == wd_handle.current_url:
-        print "Page loading..\n"
+        print( "Page loading..\n")
 
 
 def setup_Chrome_plugin(wd_handle, plugin):
@@ -132,7 +132,7 @@ def check_highlightedTab(wd_handle, TabName):
   """
   try:
     highlighted_tab = wd_handle.find_element_by_xpath(TOP_NAVIGATION_IF_HIGHLIGHTED).text
-    print highlighted_tab
+    print(highlighted_tab)
   except:
     return False
   if highlighted_tab == TabName:
@@ -248,7 +248,7 @@ def clean_up_before_test():
     """
     global result_file2
     result_file2.close()
-    print os.path.isfile(RESULT_LOG_PATH)
+    print(os.path.isfile(RESULT_LOG_PATH))
     if os.path.isfile(RESULT_LOG_PATH) == True: 
         os.remove(RESULT_LOG_PATH)
     result_file2 = open(RESULT_FILE, APPEND)
