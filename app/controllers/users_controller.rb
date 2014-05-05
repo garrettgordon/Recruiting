@@ -1,10 +1,18 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destro]
-  before_filter :disable_nav, only: [:index, :newRecruiter, :verify]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_filter :disable_nav, only: [:landing, :newRecruiter, :verify]
   skip_before_filter :require_login, only: [:verify, :create, :newRecruiter, :finishRecruiter]
   # GET /users
   # GET /users.json
   def index
+    if params[:search].nil?
+      @users = User.all
+    else
+      @users = User.text_search(params[:search])
+    end
+  end
+
+  def landing
     @user = User.new
     @user_session = UserSession.new
     if not current_user.nil?

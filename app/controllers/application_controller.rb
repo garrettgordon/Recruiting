@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
     if current_user
       # DO NOTHING
     else
-      if (targetController == "users" and targetAction == "index")
+      if (targetController == "users" and targetAction == "landing")
         # DO NOTHING
       else
         redirect_to "/"

@@ -6,27 +6,25 @@
       <% end %>
 
   <% end %>
-
-
-
-
-
-    Name: <%= f.text_field :name, :placeholder => "Name", class: "w-input" %>
-    Location: <%= f.text_field :location, :placeholder => "Location", class: "w-input" %>
-    Description :<%= f.text_field :description, :placeholder => "Description", class: "w-input" %>
-    Company Link: <%= f.text_field :link, :placeholder => "Link", class: "w-input" %>
-
-    <%= render "organizations/upload_form", :f => f %>
-
-    
-
-
-    
-
-
-
+      <div class="w-container">
+      <div class="w-row">
+        <div class="w-col w-col-6">
+          <div width="auto" height="auto">
+        <%= render "organizations/upload_form", :f => f %>
+          </div>
+        </div>
+         <div class="w-col w-col-6 hero-column";float:right>
+    <%= f.label :name %>
+    <%= f.text_field :name, :placeholder => "Name", class: "w-input" %>
+    <%= f.label :location %>
+    <%= f.text_field :location, :placeholder => "Location", class: "w-input" %>
+    <%= f.label :description %>
+    <%= f.text_field :description, :placeholder => "Description", class: "w-input" %>
+    <%= f.label :company_website %>
+    <%= f.text_field :link, :placeholder => "Company Website", class: "w-input" %>
 
   <div class="actions">
     <%= f.submit 'Update', :class => "w-button" %>
   </div>
+</div>
 <% end %>
