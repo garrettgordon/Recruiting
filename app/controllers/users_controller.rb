@@ -47,7 +47,7 @@ class UsersController < ApplicationController
     choice=data[:org_choice]
     org=data[:organization]
     if org.nil? or org == ""
-      redirect_to '/'
+      redirect_to '/#recruitersignup'
       return
     end
     @organ=Organization.new()
@@ -66,7 +66,7 @@ class UsersController < ApplicationController
       if choice == "create"
         @organ=Organization.find_by name: org
         if not @organ.nil?
-          redirect_to '/'
+          redirect_to '/#recruitersignup'
           return
         else
           @organ=Organization.new()
@@ -81,7 +81,7 @@ class UsersController < ApplicationController
         end
       end
     else
-      redirect_to '/'
+      redirect_to '/#recruitersignup'
       return
     end
   end
@@ -145,7 +145,7 @@ class UsersController < ApplicationController
     email = email[email.length-13, email.length]
     regexMatch = /(@*\.berkeley.edu|@berkeley.edu)$/
     matchesFound = regexMatch.match(email)
-    if (!matchesFound)
+    if (!matchesFound and current_user.recruiter==0)
       flash[:notice] = "Update failed: Must use a *.berkeley.edu email address!"
       redirect_to :back
       return

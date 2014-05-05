@@ -1,0 +1,23 @@
+<form accept-charset="UTF-8" action="/finishRecruiter" class="new_user" id="new_user" method="post">
+  <div style="margin:0;padding:0;display:inline;height=50px"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value=<%= form_authenticity_token %> /></div>
+
+
+
+    <label>Username</label>
+    <input class="w-input" id="user_username" name="user[username]" placeholder="Username" type="text" />
+    <label>Email</label>
+    <input class="w-input" id="user_email" name="user[email]" placeholder="Email Address" type="text"/ autocomplete="off">
+    <label>Password</label>
+    <input class="w-input" id="user_password" name="user[password]" placeholder="Password" type="password" />
+    <label>Password Confirmation</label>
+    <input class="w-input" id="user_password_confirmation" name="user[password_confirmation]" placeholder="Password Confirm" type="password" />
+    <label>Your Organization</label>
+    <input type="radio" name="org_choice" value="join">Join Existing Organization<br>
+	<input type="radio" name="org_choice" value="create">Create New Organization
+
+    <input class="w-input" id="user_organization" name="organization" placeholder="Your Company" type="text" />
+
+  <div class="actions">
+    <input class="w-button" name="commit" type="submit" value="Sign Up" />
+  </div>
+</form>
