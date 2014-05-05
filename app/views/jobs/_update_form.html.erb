@@ -15,10 +15,8 @@
   <%= f.label :description %>
   <%= f.text_field :description, :placeholder => "Description", class: "w-input" %>
   <%= f.label :skills %>
-  <%= f.text_field :skill_list, :placeholder => "Skills Required (comma separated)", class: "w-input" %>
-
+  	<%= f.text_field :skill_list, :placeholder => "Tags (comma separated)",  class: "w-input"%>
   <div class="actions">
-  	<%= f.submit 'Create', :class => "w-button" %>
+  	<%= f.submit 'Update', :class => "w-button" %>
   </div>
 <% end %>
-

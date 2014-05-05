@@ -1,0 +1,50 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "new.js" %>
+<% end %>
+
+<%= form_for(@event) do |f| %>
+  <% if @event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% @event.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<%= f.text_field :name, :placeholder => "Name", class: "w-input" %><br>
+<%= f.text_field :location, :placeholder => "Location", class: "w-input" %>
+
+  <div class="field">
+    <%= f.label :eventdate %><br>
+    <%= select_datetime Date.today %>
+  </div><br>
+  <%= f.text_field :description, :placeholder => "Description", class: "w-input" %><br>
+  <%= f.text_field :link, :placeholder => "Link", class: "w-input" %><br>
+
+  <!-- Add fields to deal with speaker panels -->
+  <%= label_tag("Speaker Panel? (Check to add speakers)") %>
+  <%= check_box_tag(:hidden_speaker_panel) %>
+
+  <div id="speakers_field" hidden="true">
+    <%= f.text_field :speakers, :placeholder => "Speakers", class: "w-input", id:"speakers_field"%><br>
+  </div>
+
+  <%= render "events/upload_form", :f => f %>
+
+  <div class="actions">
+    <%= f.submit 'Update', :class => "w-button" %>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $("#event_speakers").val("")
+  $("#hidden_speaker_panel").on("click", function (e) { 
+    $("#speakers_field").style.display='none';
+    $("#event_speakers").val("")
+  })
+})
+</script>

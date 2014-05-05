@@ -21,28 +21,25 @@
     <% if !flash.empty? and !(flash.empty? == "SUCCESS!")%>
       <%= flash[:notice] %>
     <% end %>
-              <%= f.text_field :username, :placeholder => "Username", class: "w-input" %>
-
+    <%= f.label :username%>
+    <%= f.text_field :username, :placeholder => "Username", class: "w-input" %>
+    <%= f.label :name %>
     <%= f.text_field :name, :placeholder => "Name", class: "w-input" %>
-
+    <%= f.label :email %>
     <%= f.text_field :email, :placeholder => "Email Address", class: "w-input" %>
-
+    <%= f.label :password %>
     <%= f.password_field :password, :placeholder => "Password", class: "w-input" %>
-
+    <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, :placeholder => "Password Confirm", class: "w-input"%>
 
     <% if not @user.recruiter %>
-
+    <%= f.label :skills %>
     <%= f.text_field :skill_list, :placeholder => "Skills (comma separated)", class: "w-input" %>
-
- 
-
+    <%= f.label :major %>
     <%= f.text_field :major, :placeholder => "Major", class: "w-input" %>
-
-
-
+    <%= f.label :websites %>
     <%= f.text_field :website, :placeholder => "Linkedin URL", class: "w-input" %>
-
+    <%= f.label :graduating_year %>
     <%= f.text_field :graduating_year, :placeholder => "Graduating Year", class: "w-input" %>
 
 <h4><div align="left">Resume: </div>
@@ -57,10 +54,9 @@
       <span class="btn btn-file">
       <span class="fileupload-new">Select Resume</span>
       <%= f.file_field :resume, :class => 'file_field' %>       </span>  
-    <% end %>
    </div>
 </div>
-
+<% end %>
     
     
 
@@ -78,7 +74,7 @@
     <%= f.submit 'Update', :class => "w-button" %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")), users_path, :class => 'w-button' %> 
   </div>
-<% end %>
+  <% end %>
         </div>
   </div>
 

@@ -4,11 +4,12 @@
 <html data-wf-site="5307e34e3e274f132a000190">
 <head>
   <meta charset="utf-8">
-  <title>Events</title>
+  <title>Edit Job</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="css/normalize_events.css.scss">
+  
+<!--   <link rel="stylesheet" type="text/css" href="css/normalize_events.css.scss">
   <link rel="stylesheet" type="text/css" href="css/webflow_events.css.scss">
-  <link rel="stylesheet" type="text/css" href="css/eventsrecruit.webflow.css.scss">
+  <link rel="stylesheet" type="text/css" href="css/eventsrecruit.webflow.css.scss"> -->
   <script>
     if (/mobile/i.test(navigator.userAgent)) document.documentElement.className += ' w-mobile';
   </script>
@@ -17,16 +18,23 @@
   <link rel="apple-touch-icon" href="https://y7v4p6k4.ssl.hwcdn.net/51e088cb308929c46c000051/51e1a444bceaf5b67b00004d_thumbnail-starter.png">
 </head>
 <body>
+
   <div class="section hero">
     <div class="w-container">
       <div class="w-row">
-          <h2>  <%= render 'form' %></h2>
+        <div class="w-col w-col-6 center">
+          <div width="auto" height="auto">
+                  </div>
+        </div>
+        <div class="w-col w-col-6 hero-column">
+          <h2>Edit Job</h2>
+          <%= render 'jobs/update_form' %>
+        </div>
       </div>
     </div>
   </div>
   <hr>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  <script type="text/javascript" src="js/webflow_events.js"></script>
 </body>
 </html>
 
