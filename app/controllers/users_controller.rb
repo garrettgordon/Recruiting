@@ -97,19 +97,19 @@ class UsersController < ApplicationController
     
     if (password != password_confirmation) 
         flash[:notice] = "Password and confirmation do not match!" 
-        redirect_to "/"
+        redirect_to "/#signup"
         return
     end
 
     if (@user.username.length < 4)
       flash[:notice] = "Username must be at least 4 characters!" 
-      redirect_to "/"
+      redirect_to "/#signup"
       return
     end
 
     if (@user.password.length < 4 or @user.password_confirmation.length < 4)
       flash[:notice] = "Passwords must be at least 4 characters!" 
-      redirect_to "/"
+      redirect_to "/#signup"
       return
     end
     # Extract last 13 characters to check if "@berkeley.edu"
@@ -128,11 +128,11 @@ class UsersController < ApplicationController
         # format.html { render action: 'new' }
         # format.json { render json: @user.errors, status: :unprocessable_entity }
         flash[:notice] = "We are sorry but this username is already taken or an account with this email has already been registered." 
-        redirect_to "/"
+        redirect_to "/#signup"
       end
     else
       flash[:notice] = "Must log in with Berkeley email address"
-      redirect_to "/"
+      redirect_to "/#signup"
     end
   end
 
