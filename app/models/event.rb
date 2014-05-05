@@ -23,6 +23,30 @@ class Event < ActiveRecord::Base
 	validates :date, :presence => true 
 	validates_attachment_content_type :event_picture, :content_type => ["image/jpg", "image/jpeg", "image/png", "application/pdf"]
 
+
+	include PgSearch
+	multisearchable :against => [:title, :description],
+									:using => {
+										:tsearch => { prefix: true, dictionary: 'english'}
+									}
+	pg_search_scope :search, 
+									:against => [:title, :description],
+									:associated_against => {
+										:skills => [:name]
+									},
+									:using => {
+										:tsearch => { prefix: true, dictionary: 'english'}
+									}
+
+  def self.text_search(query)
+  	if query.present?
+  		search(query)
+  	else
+  		Job.all
+  	end
+  end
+	
+
 	# deletes event with :id, returns 1 if successful delete otherwsie -1
 	# Event.DeleteEvent(id)
 	def self.DeleteEvent(id)
