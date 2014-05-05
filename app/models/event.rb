@@ -31,9 +31,6 @@ class Event < ActiveRecord::Base
 									}
 	pg_search_scope :search, 
 									:against => [:name, :description],
-									:associated_against => {
-										:skills => [:name]
-									},
 									:using => {
 										:tsearch => { prefix: true, dictionary: 'english'}
 									}
