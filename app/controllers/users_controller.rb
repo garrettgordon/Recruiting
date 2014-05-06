@@ -2,6 +2,9 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_filter :disable_nav, only: [:landing, :newRecruiter, :verify]
   skip_before_filter :require_login, only: [:verify, :create, :newRecruiter, :finishRecruiter]
+  
+  autocomplete :skill, :name, :full=> true, :class_name => 'ActsAsTaggableOn::Tag'
+
   # GET /users
   # GET /users.json
   def index

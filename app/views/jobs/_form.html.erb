@@ -15,7 +15,7 @@
   <%= f.label :description %>
   <%= f.text_field :description, :placeholder => "Description", class: "w-input" %>
   <%= f.label :skills %>
-  <%= f.text_field :skill_list, :placeholder => "Skills Required (comma separated)", class: "w-input" %>
+  <%= f.autocomplete_field :skill_list, autocomplete_skill_name_jobs_path, :"data-delimiter" => ', ', :placeholder=> "Skills (comma separated)",class: "w-input" %>
 
   <div class="actions">
   	<%= f.submit 'Create', :class => "w-button" %>

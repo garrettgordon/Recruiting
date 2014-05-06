@@ -15,5 +15,8 @@
 //= require turbolinks
 //= require_tree .
 //= require select2
+//= require jquery.ui.all
+//= require autocomplete-rails
+
 
 // in your javascript...

@@ -6,6 +6,7 @@ Recruiting::Application.routes.draw do
     end
   end
   resources :jobs do
+    get :autocomplete_skill_name, :on =>:collection
     member do
       post :changeAppStatus
       get :userApply
@@ -18,7 +19,9 @@ Recruiting::Application.routes.draw do
   #resources :infosessions, :controller => "events", :type => "Infosession"
   #resources :speakerpanels, :controller => "events", :type => "SpeakerPanel"
   #resources :careerfairs, :controller => "events", :type => "CareerFair"
-  resources :users, :type => "User"
+  resources :users, :type => "User" do
+    get :autocomplete_skill_name, :on => :collection 
+  end
   resources :user_sessions
   get "verify", :controller => 'users', :action => 'verify'
   get "login", :controller => 'user_sessions', :action => 'new'

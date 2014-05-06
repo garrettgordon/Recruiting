@@ -34,7 +34,7 @@
 
     <% if not @user.recruiter %>
     <%= f.label :skills %>
-    <%= f.text_field :skill_list, :placeholder => "Skills (comma separated)", class: "w-input" %>
+    <%= f.autocomplete_field :skill_list, autocomplete_skill_name_users_path, :"data-delimiter" => ', ', class: "w-input" %>
     <%= f.label :major %>
     <%= f.text_field :major, :placeholder => "Major", class: "w-input" %>
     <%= f.label :websites %>

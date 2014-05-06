@@ -21,6 +21,8 @@ group :test do
 	gem 'database_cleaner'
 end
 
+gem 'rails4-autocomplete'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -35,6 +37,8 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+
+gem 'jquery-ui-rails'
 
 # Use authLogic for user authentication
 gem 'authlogic'

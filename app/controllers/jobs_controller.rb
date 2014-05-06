@@ -1,5 +1,7 @@
 class JobsController < ApplicationController
 	before_action :set_job, only: [:edit, :show, :update, :destroy, :changeAppStatus, :userApply, :userUnapply]
+	autocomplete :skill, :name, :full=>true, :class_name => 'ActsAsTaggableOn::Tag'
+
 	def index
 		@jobs = Job.text_search(params[:search])
 	end
